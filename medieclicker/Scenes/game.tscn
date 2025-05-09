@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cglbsmcu0s23l"]
+
+[ext_resource type="Script" uid="uid://hbyyqq2g1qgu" path="res://Scenes/mainGame.gd" id="1_ebmjs"]
+[ext_resource type="Texture2D" uid="uid://b6xw6tf8wkvyf" path="res://icon.svg" id="2_wrm1d"]
+[ext_resource type="Script" uid="uid://7l43tisxm68p" path="res://Scripts/medieboton.gd" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://dcj46xak61r0c" path="res://Scenes/building.tscn" id="4_3dryh"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ebmjs")
+
+[node name="Medie" type="TextureButton" parent="."]
+offset_left = 461.0
+offset_top = 287.0
+offset_right = 589.0
+offset_bottom = 415.0
+texture_normal = ExtResource("2_wrm1d")
+script = ExtResource("3_3dryh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 498.0
+offset_top = 156.0
+offset_right = 519.0
+offset_bottom = 205.0
+text = "0
+"
+
+[node name="Building" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(160, 220)
+start_price = 0.1
+price_increase_mult = 1.1
+increase = 1.0
+score_type = 1
+
+[node name="Building2" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(159, 375)
+start_price = 1.0
+price_increase_mult = 1.2
+building_id = 1
+increase = 10.0
+score_type = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="Medie" to="Medie" method="_on_pressed"]

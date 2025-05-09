@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcj46xak61r0c"]
+
+[ext_resource type="Script" uid="uid://xhm662j5cnai" path="res://Scripts/Buildings/building.gd" id="1_avus0"]
+[ext_resource type="Texture2D" uid="uid://b6xw6tf8wkvyf" path="res://icon.svg" id="2_uj2qm"]
+[ext_resource type="Script" uid="uid://goc2p5uo0i6v" path="res://Scripts/Buildings/priceText.gd" id="3_amr18"]
+
+[node name="Building" type="Node2D"]
+script = ExtResource("1_avus0")
+icon = ExtResource("2_uj2qm")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_uj2qm")
+
+[node name="BuyButton" type="Button" parent="."]
+offset_left = 89.0
+offset_top = -63.0
+offset_right = 229.0
+offset_bottom = 2.0
+
+[node name="Price" type="Label" parent="."]
+offset_left = 95.0
+offset_top = -53.0
+offset_right = 305.0
+offset_bottom = 23.0
+text = "0"
+script = ExtResource("3_amr18")
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]
