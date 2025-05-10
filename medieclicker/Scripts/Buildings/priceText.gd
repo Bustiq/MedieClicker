@@ -7,5 +7,4 @@ func _ready() -> void:
 	update_price(building.start_price)
 
 func update_price(price):
-	print("tarifa")
 	text = str(price)

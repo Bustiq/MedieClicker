@@ -19,3 +19,4 @@ config/icon="res://icon.svg"
 
 SignalManager="*res://Scripts/signalManager.gd"
 ScoreType="*res://Scripts/scoreType.gd"
+NumberHelper="*res://Scripts/number_helper.gd"

@@ -13,6 +13,9 @@ signal on_bought(new_price)
 
 var building_count = 0
 
+func get_building_increase():
+	
+	return increase * building_count
 
 func get_final_price():
 	return round_price(start_price * pow(price_increase_mult, building_count))
@@ -22,6 +25,9 @@ func round_price(num):
 	return (round(num*pow(10,decimal_places)) / pow(10,decimal_places))
 
 func _on_buy_button_pressed() -> void:
-	print("buying")
-	building_count += 1
-	on_bought.emit(get_final_price())
+	if building_name == "Balala":
+		print($"../..".medieCount, " ", get_final_price(), " ", )
+	if NumberHelper.equals($"../..".medieCount,  get_final_price()) or $"../..".medieCount > get_final_price():
+		SignalManager.on_purchase.emit(get_final_price())
+		building_count += 1
+		on_bought.emit(get_final_price())

@@ -1,3 +1,3 @@
 extends Node
 
-enum type {CLICK, BULDING_1_CAMBIAR_NOMBRE}
+enum type {CLICK, BULDING_1, BUILDING_2}

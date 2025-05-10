@@ -24,21 +24,27 @@ offset_bottom = 205.0
 text = "0
 "
 
-[node name="Building" parent="." instance=ExtResource("4_3dryh")]
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="Building" parent="Buildings" instance=ExtResource("4_3dryh")]
 position = Vector2(160, 220)
 start_price = 0.1
-price_increase_mult = 1.1
-increase = 1.0
+price_increase_mult = 1.2
+building_name = "Balala"
+increase = 0.005
 score_type = 1
 
-[node name="Building2" parent="." instance=ExtResource("4_3dryh")]
+[node name="Building2" parent="Buildings" instance=ExtResource("4_3dryh")]
 position = Vector2(159, 375)
 start_price = 1.0
 price_increase_mult = 1.2
 building_id = 1
+building_name = "Dos"
 increase = 10.0
-score_type = 1
-
-[node name="Timer" type="Timer" parent="."]
+score_type = 2
 
 [connection signal="pressed" from="Medie" to="Medie" method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
