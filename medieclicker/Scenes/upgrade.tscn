@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://blf8y1i6vfo6t"]
+
+[node name="Upgrade" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

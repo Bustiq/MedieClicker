@@ -1,31 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cglbsmcu0s23l"]
+[gd_scene load_steps=6 format=3 uid="uid://cglbsmcu0s23l"]
 
 [ext_resource type="Script" uid="uid://hbyyqq2g1qgu" path="res://Scenes/mainGame.gd" id="1_ebmjs"]
-[ext_resource type="Texture2D" uid="uid://b6xw6tf8wkvyf" path="res://icon.svg" id="2_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://dt8nqujhnylju" path="res://Sprites/medieburger.png" id="2_3dryh"]
 [ext_resource type="Script" uid="uid://7l43tisxm68p" path="res://Scripts/medieboton.gd" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://dcj46xak61r0c" path="res://Scenes/building.tscn" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://cslqf31ujqwwq" path="res://Scripts/Upgrades/upgrades_manager.gd" id="5_wowpa"]
 
-[node name="Game" type="Node2D"]
+[node name="ClickerGame" type="Node2D"]
 script = ExtResource("1_ebmjs")
-
-[node name="Medie" type="TextureButton" parent="."]
-offset_left = 461.0
-offset_top = 287.0
-offset_right = 589.0
-offset_bottom = 415.0
-texture_normal = ExtResource("2_wrm1d")
-script = ExtResource("3_3dryh")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 498.0
-offset_top = 156.0
-offset_right = 519.0
-offset_bottom = 205.0
-text = "0
-"
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="Buildings" type="Node2D" parent="."]
 
@@ -45,6 +27,29 @@ building_id = 1
 building_name = "Dos"
 increase = 10.0
 score_type = 2
+
+[node name="Medie" type="TextureButton" parent="."]
+offset_left = 443.0
+offset_top = 205.0
+offset_right = 2451.0
+offset_bottom = 1626.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("2_3dryh")
+script = ExtResource("3_3dryh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 498.0
+offset_top = 156.0
+offset_right = 519.0
+offset_bottom = 205.0
+text = "0
+"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="UpgradesManager" type="Node" parent="."]
+script = ExtResource("5_wowpa")
 
 [connection signal="pressed" from="Medie" to="Medie" method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

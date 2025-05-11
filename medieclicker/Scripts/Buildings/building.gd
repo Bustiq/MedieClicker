@@ -1,6 +1,7 @@
 extends Node
 
 signal on_bought(new_price)
+signal on_building_count_changed(new_count)
 
 @export var start_price : float
 @export var price_increase_mult : float
@@ -25,9 +26,9 @@ func round_price(num):
 	return (round(num*pow(10,decimal_places)) / pow(10,decimal_places))
 
 func _on_buy_button_pressed() -> void:
-	if building_name == "Balala":
-		print($"../..".medieCount, " ", get_final_price(), " ", )
 	if NumberHelper.equals($"../..".medieCount,  get_final_price()) or $"../..".medieCount > get_final_price():
 		SignalManager.on_purchase.emit(get_final_price())
 		building_count += 1
+		SignalManager.on_building_purchased.emit(score_type)
+		on_building_count_changed.emit(building_count)
 		on_bought.emit(get_final_price())

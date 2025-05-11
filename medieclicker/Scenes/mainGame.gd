@@ -5,16 +5,15 @@ var mpc : float = 0.01
 var buildings := []
 var upgrades := []
 
-
+const debug_mode = true
 
 func _ready() -> void:
 	SignalManager.on_medie_clicked.connect(on_click)
-	SignalManager.on_purchase.connect(remove_cookies)
+	SignalManager.on_purchase.connect(remove_medies)
 	for child in $Buildings.get_children():
 		buildings.append(child)
 
-func remove_cookies(count : float):
-	print("total: ", medieCount, " substract: ", count, " final: ",  medieCount - count)
+func remove_medies(count : float):
 	medieCount -= count
 	if medieCount < 0:
 		if medieCount < -0.02:
@@ -28,7 +27,10 @@ func on_click():
 	
 
 func add_medies(count : float, type : ScoreType.type):
+	if debug_mode and Input.is_action_pressed("ui_accept"):
+		count *= 100
 	medieCount += count
+	
 	$Label.text = str(medieCount)
 
 
