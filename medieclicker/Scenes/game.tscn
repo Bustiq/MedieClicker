@@ -1,28 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://cglbsmcu0s23l"]
+[gd_scene load_steps=10 format=3 uid="uid://cglbsmcu0s23l"]
 
 [ext_resource type="Script" uid="uid://hbyyqq2g1qgu" path="res://Scenes/mainGame.gd" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://dt8nqujhnylju" path="res://Sprites/medieburger.png" id="2_3dryh"]
 [ext_resource type="Script" uid="uid://7l43tisxm68p" path="res://Scripts/medieboton.gd" id="3_3dryh"]
+[ext_resource type="Script" uid="uid://b31kxl7v1gkn6" path="res://Scenes/upgrades_shop.gd" id="3_i6g32"]
+[ext_resource type="Texture2D" uid="uid://bvjcxkqxweqo8" path="res://Sprites/Buildings/Rolling_pin.png" id="3_v158k"]
 [ext_resource type="PackedScene" uid="uid://dcj46xak61r0c" path="res://Scenes/building.tscn" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://btmu7cgd5xh1q" path="res://Scenes/upgrade_description.gd" id="4_h4fw4"]
 [ext_resource type="Script" uid="uid://bqly3mjrf7fwd" path="res://Scripts/medie_counter.gd" id="4_i6g32"]
-[ext_resource type="Script" uid="uid://cslqf31ujqwwq" path="res://Scripts/Upgrades/upgrades_manager.gd" id="5_wowpa"]
+[ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database.gd" id="7_1l0tm"]
 
 [node name="ClickerGame" type="Node2D"]
 script = ExtResource("1_ebmjs")
 
 [node name="Buildings" type="Node2D" parent="."]
 
-[node name="Building" parent="Buildings" instance=ExtResource("4_3dryh")]
+[node name="RollingPins" parent="Buildings" instance=ExtResource("4_3dryh")]
 position = Vector2(160, 220)
 start_price = 0.1
 price_increase_mult = 1.2
 building_name = "Balala"
 increase = 0.005
 score_type = 1
+icon = ExtResource("3_v158k")
 
 [node name="Building2" parent="Buildings" instance=ExtResource("4_3dryh")]
 position = Vector2(159, 375)
-start_price = 1.0
+start_price = 100.0
 price_increase_mult = 1.2
 building_id = 1
 building_name = "Dos"
@@ -38,7 +42,15 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="UpgradesManager" type="GridContainer" parent="Control"]
+[node name="UpgradeDescription" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 787.0
+offset_top = 30.0
+offset_right = 1126.0
+offset_bottom = 82.0
+script = ExtResource("4_h4fw4")
+
+[node name="UpgradesShop" type="GridContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -54,7 +66,7 @@ grow_vertical = 2
 scale = Vector2(3, 3)
 theme_override_constants/h_separation = 30
 columns = 5
-script = ExtResource("5_wowpa")
+script = ExtResource("3_i6g32")
 
 [node name="MedieCounter" type="Label" parent="Control"]
 layout_mode = 0
@@ -75,6 +87,9 @@ offset_bottom = 1626.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("2_3dryh")
 script = ExtResource("3_3dryh")
+
+[node name="UpgradesDatabase" type="Node" parent="."]
+script = ExtResource("7_1l0tm")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/Medie" to="Control/Medie" method="_on_pressed"]

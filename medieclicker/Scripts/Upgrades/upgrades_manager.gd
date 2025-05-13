@@ -5,31 +5,54 @@ extends Node
 #Lo separo por clase así optimizamos la búsqueda por condición de desbloqueo
 
 #Este diccionario tiene como clave el ScoreType.type y como valor la lista de building upgrades de ese tipo
-var building_upgrades := {}
-const upgrade_scene = "res://Scenes/upgrade.tscn"
+var locked_building_upgrades := {}
+var unlocked_building_upgrades := {}
+var purchased_building_upgrades := {}
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for score_type in ScoreType.type.values():
-		building_upgrades.set(score_type, [])
-	add_building_upgrade(BuildingUpgrade.new("Mejor pan", "Building 1 *2 mps", $"../../Buildings/Building", 10, load("res://Sprites/Upgrades/1_Better_bread.png"), 2, 0, 2))
-	add_building_upgrade(BuildingUpgrade.new("Semillas de sésamo", "Building 1 *2 mps", $"../../Buildings/Building", 100, load("res://Sprites/Upgrades/2_Sesame_seeds.png"), 10, 0, 2))
-	
+		locked_building_upgrades.set(score_type, [])
+		unlocked_building_upgrades.set(score_type, [])
+		purchased_building_upgrades.set(score_type, [])
+
 	SignalManager.on_building_purchased.connect(on_building_purchased)
+	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
 
+func create_building_upgrade(upgrade : BuildingUpgrade):
+	add_building_upgrade(locked_building_upgrades, upgrade)
 
-func add_building_upgrade(upgrade : Upgrade):
-	building_upgrades.get(upgrade.type).append(upgrade)
+func add_building_upgrade(dictionary, upgrade : BuildingUpgrade):
+	dictionary.get(upgrade.type).append(upgrade)
 	#building_upgrades.set(upgrade.type, building_upgrades.get(upgrade.type).append(upgrade))
 
+func remove_building_upgrade(dictionary, upgrade : BuildingUpgrade):
+	dictionary[upgrade.type].erase(upgrade)
+
+func unlock_building_upgrade(upgrade : BuildingUpgrade):
+	remove_building_upgrade(locked_building_upgrades, upgrade)
+	add_building_upgrade(unlocked_building_upgrades, upgrade)
+
 func on_building_purchased(type : ScoreType.type):
-	for upgrade in building_upgrades[type]:
+	var unlocked = []
+	for upgrade in locked_building_upgrades[type]:
 		print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
 		if upgrade.unlock_condition():
-			building_upgrades[type].erase(upgrade)
-			var instance = load(upgrade_scene).instantiate()
-			instance.set_upgrade(upgrade)
-			add_child(instance)
-			
-		
+			unlocked.append(upgrade)
+	for upgrade in unlocked:
+		unlock_building_upgrade(upgrade)
+		SignalManager.on_upgrade_unlocked.emit(upgrade)
+
+func on_upgrade_purchased(upgrade : Upgrade):
+	print("purchased!")
+	remove_building_upgrade(unlocked_building_upgrades, upgrade)
+	add_building_upgrade(purchased_building_upgrades, upgrade)
+
+func get_building_additive_bonus(building : ScoreType.type):
+	var total_bonus = 0.0
+	
+	for upgrade in purchased_building_upgrades[building]:
+		total_bonus += upgrade.get_additive_increase()
+	return total_bonus

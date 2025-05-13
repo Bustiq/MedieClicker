@@ -9,6 +9,9 @@ func set_upgrade(new : Upgrade):
 	$Label.text = str(upgrade.cost)
 	SignalManager.on_medies_changed.connect(change_color_if_buyable)
 
+func get_upgrade():
+	return upgrade
+
 func change_color_if_buyable(medies : float):
 	if upgrade == null:
 		return
@@ -18,4 +21,19 @@ func change_color_if_buyable(medies : float):
 		$BlackOverlay.show()
 
 func _on_texture_button_pressed() -> void:
-	print("buy???")
+	if MedieManager.can_afford(upgrade.cost):
+		SignalManager.on_upgrade_purchased.emit(upgrade)
+		SignalManager.on_purchase.emit(upgrade.cost)
+
+
+
+
+
+func _on_texture_button_mouse_entered() -> void:
+	SignalManager.on_upgrade_hovered.emit(upgrade)
+
+
+
+
+func _on_texture_button_mouse_exited() -> void:
+	SignalManager.on_upgrade_unhovered.emit()
