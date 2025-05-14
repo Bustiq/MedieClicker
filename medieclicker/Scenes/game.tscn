@@ -1,6 +1,5 @@
 [gd_scene load_steps=10 format=3 uid="uid://cglbsmcu0s23l"]
 
-[ext_resource type="Script" uid="uid://hbyyqq2g1qgu" path="res://Scenes/mainGame.gd" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://dt8nqujhnylju" path="res://Sprites/medieburger.png" id="2_3dryh"]
 [ext_resource type="Script" uid="uid://7l43tisxm68p" path="res://Scripts/medieboton.gd" id="3_3dryh"]
 [ext_resource type="Script" uid="uid://b31kxl7v1gkn6" path="res://Scenes/upgrades_shop.gd" id="3_i6g32"]
@@ -10,8 +9,47 @@
 [ext_resource type="Script" uid="uid://bqly3mjrf7fwd" path="res://Scripts/medie_counter.gd" id="4_i6g32"]
 [ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database.gd" id="7_1l0tm"]
 
+[sub_resource type="GDScript" id="GDScript_v158k"]
+script/source = "extends Node2D
+
+var mps : float = 0
+var mpc : float = 0.01
+var buildings := []
+var upgrades := []
+
+const debug_mode = true
+
+func _ready() -> void:
+	SignalManager.on_medie_clicked.connect(on_click)
+	for child in $Buildings.get_children():
+		buildings.append(child)
+
+
+
+func on_click():
+	SignalManager.on_medie_gain.emit(get_medies_with_bonus(mpc, ScoreType.type.CLICK))
+
+
+
+
+func get_medies_with_bonus(medies : float, type : ScoreType.type):
+	#Mejoras, blah
+	return medies
+
+
+
+func _on_timer_timeout() -> void:
+	var total = 0.0
+	for building in buildings:
+		if building.get_building_increase() != 0:
+			#add_medies(get_medies_with_bonus(building.get_building_increase(), building.score_type))
+			total += get_medies_with_bonus(building.get_building_increase(), building.score_type)
+	if total != 0:
+		SignalManager.on_medie_gain.emit(total)
+"
+
 [node name="ClickerGame" type="Node2D"]
-script = ExtResource("1_ebmjs")
+script = SubResource("GDScript_v158k")
 
 [node name="Buildings" type="Node2D" parent="."]
 
