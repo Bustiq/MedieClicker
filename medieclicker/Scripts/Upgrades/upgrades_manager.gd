@@ -4,6 +4,10 @@ extends Node
 
 #Lo separo por clase así optimizamos la búsqueda por condición de desbloqueo
 
+var locked_total_medies_upgrades := {}
+var unlocked_total_medies_upgrades := {}
+var purchased_total_medies_upgrades := {}
+
 #Este diccionario tiene como clave el ScoreType.type y como valor la lista de building upgrades de ese tipo
 var locked_building_upgrades := {}
 var unlocked_building_upgrades := {}
@@ -20,6 +24,7 @@ func _ready() -> void:
 
 	SignalManager.on_building_purchased.connect(on_building_purchased)
 	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
+	#SignalManager.on_medies_changed.connect()
 
 func create_building_upgrade(upgrade : BuildingUpgrade):
 	add_building_upgrade(locked_building_upgrades, upgrade)

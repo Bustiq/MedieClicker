@@ -40,7 +40,6 @@ func _on_player_scores_body_entered(body: Node2D) -> void:
 	sfx_score.play()
 	$BallTimer.start()
 	
-	
 	pass # Replace with function body.
 
 
@@ -49,3 +48,4 @@ func _on_cp_uscores_body_entered(body: Node2D) -> void:
 	sfx_score.play()
 	$Hud/CPUscore.text = str(score[1])
 	$BallTimer.start()
+	SignalManager.on_medie_gain.emit(100)
