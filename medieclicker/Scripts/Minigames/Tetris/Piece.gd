@@ -167,7 +167,7 @@ func addPieceToCluster(modifier : int):
 	$"../../dropPiece".play()
 	queue_free()
 	shadowBoard.clear()
-	
+	$"../../../MainGame".enterPiece()
 	
 	
 func  resetCooldown():

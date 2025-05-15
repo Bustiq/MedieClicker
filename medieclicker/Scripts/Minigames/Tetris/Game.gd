@@ -1,11 +1,11 @@
 extends Node2D
-@export var iPiece = load("res://Scenes/i_piece.tscn")
-@export var jPiece = load("res://Scenes/j_piece.tscn")
-@export var lPiece = load("res://Scenes/l_piece.tscn")
-@export var oPiece = load("res://Scenes/o_piece.tscn")
-@export var sPiece = load("res://Scenes/s_piece.tscn")
-@export var tPiece = load("res://Scenes/t_piece.tscn")
-@export var zPiece = load("res://Scenes/z_piece.tscn")
+@export var iPiece = load("res://Scenes/Minigames/Tetris/i_piece.tscn")
+@export var jPiece = load("res://Scenes/Minigames/Tetris/j_piece.tscn")
+@export var lPiece = load("res://Scenes/Minigames/Tetris/l_piece.tscn")
+@export var oPiece = load("res://Scenes/Minigames/Tetris/o_piece.tscn")
+@export var sPiece = load("res://Scenes/Minigames/Tetris/s_piece.tscn")
+@export var tPiece = load("res://Scenes/Minigames/Tetris/t_piece.tscn")
+@export var zPiece = load("res://Scenes/Minigames/Tetris/z_piece.tscn")
 @onready var lineSound = $clearLine as AudioStreamPlayer2D
 var currentPiece
 var score = 0
