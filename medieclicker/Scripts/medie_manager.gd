@@ -1,5 +1,6 @@
 extends Node
 
+var total_medie_count : float = 0
 var medieCount : float = 0
 
 const debug_mode = true
@@ -27,4 +28,5 @@ func add_medies(count : float):
 	if debug_mode and Input.is_action_pressed("ui_accept"):
 		count *= 100
 	medieCount += count
+	total_medie_count += count
 	SignalManager.on_medies_changed.emit(medieCount)

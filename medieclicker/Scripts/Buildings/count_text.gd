@@ -8,4 +8,4 @@ func _ready() -> void:
 
 
 func show_count(count):
-	text = str(count)
+	text = "Cantidad: " + str(count)

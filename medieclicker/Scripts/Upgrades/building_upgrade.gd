@@ -4,10 +4,10 @@ class_name BuildingUpgrade
 var flat_bonus : float
 var times_bonus : float
 var building_unlock_count : int
-var building : Node2D
+var building : Node
 
 
-func _init(_upgrade_name : String, _description : String, _building : Node2D, _cost : float, _icon : Texture2D, _building_unlock_count : int, _flat_bonus : float = 0, _times_bonus : float = 1) -> void:
+func _init(_upgrade_name : String, _description : String, _building : Node, _cost : float, _icon : Texture2D, _building_unlock_count : int, _flat_bonus : float = 0, _times_bonus : float = 1) -> void:
 	super(_upgrade_name, _description, _building.score_type, _cost, _icon)
 	self.flat_bonus = _flat_bonus
 	self.times_bonus = _times_bonus

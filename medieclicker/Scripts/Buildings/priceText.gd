@@ -1,5 +1,5 @@
-extends Label
-@onready var building: Node2D = $".."
+extends Button
+@onready var building: Control = $".."
 
 
 func _ready() -> void:
