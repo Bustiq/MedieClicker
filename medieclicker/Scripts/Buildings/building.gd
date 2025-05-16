@@ -1,6 +1,6 @@
 extends Node
 
-signal on_bought(new_price)
+signal on_price_changed(new_price)
 signal on_building_count_changed(new_count)
 
 @export var start_price : float
@@ -20,7 +20,11 @@ func ready():
 func get_building_increase():
 	print(name + " " + str(UpgradesManager.get_building_additive_bonus(score_type))) 
 	return (increase + UpgradesManager.get_building_additive_bonus(score_type)) * building_count
-	
+
+func set_building_count(count : int):
+	building_count = count
+	on_building_count_changed.emit(building_count)
+	on_price_changed.emit(get_final_price())
 
 func get_final_price():
 	return round_price(start_price * pow(price_increase_mult, building_count))
@@ -35,4 +39,4 @@ func _on_buy_button_pressed() -> void:
 		building_count += 1
 		SignalManager.on_building_purchased.emit(score_type)
 		on_building_count_changed.emit(building_count)
-		on_bought.emit(get_final_price())
+		on_price_changed.emit(get_final_price())

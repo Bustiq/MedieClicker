@@ -7,8 +7,8 @@ var building_unlock_count : int
 var building : Node
 
 
-func _init(_upgrade_name : String, _description : String, _building : Node, _cost : float, _icon : Texture2D, _building_unlock_count : int, _flat_bonus : float = 0, _times_bonus : float = 1) -> void:
-	super(_upgrade_name, _description, _building.score_type, _cost, _icon)
+func _init(_id : int, _upgrade_name : String, _description : String, _building : Node, _cost : float, _icon : Texture2D, _building_unlock_count : int, _flat_bonus : float = 0, _times_bonus : float = 1) -> void:
+	super(_id, _upgrade_name, _description, _building.score_type, _cost, _icon)
 	self.flat_bonus = _flat_bonus
 	self.times_bonus = _times_bonus
 	self.building_unlock_count = _building_unlock_count

@@ -3,7 +3,7 @@ extends Button
 
 
 func _ready() -> void:
-	building.on_bought.connect(update_price)
+	building.on_price_changed.connect(update_price)
 	update_price(building.start_price)
 
 func update_price(price):

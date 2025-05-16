@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=4 uid="uid://d05mp0hd88gc0"]
 
-[ext_resource type="Script" uid="uid://cn6o3cm544o47" path="res://Scripts/Minigames/Tetris/Game.gd" id="1_5dmn3"]
+[ext_resource type="Script" uid="uid://cn6o3cm544o47" path="res://Scripts/Minigames/Tetris/tetris_game.gd" id="1_5dmn3"]
 [ext_resource type="Texture2D" uid="uid://jxevfpdpwx0r" path="res://Sprites/Tetris/tetrominoes.png" id="1_5qmqg"]
-[ext_resource type="Script" path="res://Scripts/Minigames/Tetris/Board.gd" id="3_w2we6"]
+[ext_resource type="Script" uid="uid://cohj6v7gukfv0" path="res://Scripts/Minigames/Tetris/Board.gd" id="3_w2we6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yprpe"]
 texture = ExtResource("1_5qmqg")

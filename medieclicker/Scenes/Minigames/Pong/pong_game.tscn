@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dri7sx3heq1hb"]
 
-[ext_resource type="Script" uid="uid://dvyabp4woanbo" path="res://Scripts/Minigames/Pong/game.gd" id="1_ai61e"]
+[ext_resource type="Script" uid="uid://dvyabp4woanbo" path="res://Scripts/Minigames/Pong/pong_game.gd" id="1_ai61e"]
 [ext_resource type="Script" uid="uid://bgdtn2y0tg7mm" path="res://Scripts/Minigames/Pong/Ball.gd" id="1_pbs05"]
 [ext_resource type="Script" uid="uid://bw4m1crorhn63" path="res://Scripts/Minigames/Pong/BasePlayer.gd" id="2_ai61e"]
 [ext_resource type="Script" uid="uid://dky27nwcr0mbf" path="res://Scripts/Minigames/Pong/Base_CPU.gd" id="3_nib1r"]
