@@ -10,12 +10,13 @@ func _ready() -> void:
 	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		save()
-	elif event.is_action_pressed("Move_Down"):
-		load_saved_data()
-	elif event.is_action_pressed("Move_Up"):
-		test_load()
+	#if event.is_action_pressed("ui_accept"):
+	#	save()
+	#elif event.is_action_pressed("Move_Down"):
+	#	load_saved_data()
+	#elif event.is_action_pressed("Move_Up"):
+	#	test_load()
+	pass
 
 func save():
 	SignalManager.on_game_save.emit()
