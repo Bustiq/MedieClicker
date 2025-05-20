@@ -1,6 +1,5 @@
 extends Node2D
 
-var score := [0, 0]
 
 
 @onready var sfx_score = $scoreSFX
@@ -28,24 +27,21 @@ func pauseMenu():
 	
 func _on_ball_timer_timeout():
 	$Ball.new_ball()
+	$Player.reset()
+	$CPU.reset()
 	
 	pass # Replace with function body.
 
 
 func _on_player_scores_body_entered(body: Node2D) -> void:
 	
-	score[0] += 1
-	$Hud/PlayerScore.text = str(score[0])
 	
 	sfx_score.play()
 	$BallTimer.start()
 	
-	pass # Replace with function body.
 
 
 func _on_cp_uscores_body_entered(body: Node2D) -> void:
-	score[1] += 1
 	sfx_score.play()
-	$Hud/CPUscore.text = str(score[1])
 	$BallTimer.start()
 	SignalManager.on_medie_gain.emit(100)

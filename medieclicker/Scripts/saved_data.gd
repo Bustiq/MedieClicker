@@ -19,17 +19,21 @@ func _input(event: InputEvent) -> void:
 	pass
 
 func save():
+	print("Saving....")
 	SignalManager.on_game_save.emit()
 	print(total_medies)
 	print(current_medies)
 	print(purchased_upgrades)
 	print(purchased_buildings)
+	
 	saved_data = Save.new(total_medies, current_medies, purchased_upgrades, purchased_buildings)
+	print("Saved")
 
 func load_saved_data():
 	print("Loading...")
 	SignalManager.on_game_load.emit(saved_data)
 	print(SignalManager.on_game_load.get_connections())
+	print("Loaded!")
 
 func test_load():
 	var temp = Save.new(199, 199, [1, 2], [12, 4])

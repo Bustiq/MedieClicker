@@ -21,7 +21,6 @@ func random_color():
 
 	
 func new_ball():
-
 	speed = START_SPEED
 	dir = random_direction()
 	position.x = -20
@@ -29,7 +28,7 @@ func new_ball():
 	
 	
 func _physics_process(delta):
-	
+
 	var collision = move_and_collide(dir * speed * delta)
 	var collider
 	if collision:

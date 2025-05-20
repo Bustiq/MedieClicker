@@ -24,6 +24,7 @@ func _on_texture_button_pressed() -> void:
 	if MedieManager.can_afford(upgrade.cost):
 		SignalManager.on_upgrade_purchased.emit(upgrade)
 		SignalManager.on_purchase.emit(upgrade.cost)
+		upgrade.on_purchase()
 
 
 

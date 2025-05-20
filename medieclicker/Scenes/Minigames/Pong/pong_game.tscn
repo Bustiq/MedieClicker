@@ -15,7 +15,6 @@ size = Vector2(60.0913, 1148.49)
 size = Vector2(11, 10)
 
 [sub_resource type="Environment" id="Environment_nqdth"]
-background_mode = 3
 glow_enabled = true
 glow_strength = 0.34
 glow_bloom = 0.18
@@ -31,8 +30,7 @@ size = Vector2(53, 649.25)
 size = Vector2(3.43982, 151)
 
 [node name="MainGame" type="Node2D"]
-position = Vector2(579, 322)
-scale = Vector2(0.994004, 1.02817)
+position = Vector2(580, 321)
 script = ExtResource("1_ai61e")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -153,6 +151,7 @@ scale = Vector2(0.613278, 2.9455)
 metadata/_edit_use_anchors_ = true
 
 [node name="Hud" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PlayerScore" type="Label" parent="Hud"]
 offset_left = 618.0

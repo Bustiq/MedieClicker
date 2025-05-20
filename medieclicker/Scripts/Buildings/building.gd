@@ -18,7 +18,6 @@ func ready():
 	$Icon.texture_normal = icon
 
 func get_building_increase():
-	print(name + " " + str(UpgradesManager.get_building_additive_bonus(score_type))) 
 	return (increase + UpgradesManager.get_building_additive_bonus(score_type)) * building_count
 
 func set_building_count(count : int):

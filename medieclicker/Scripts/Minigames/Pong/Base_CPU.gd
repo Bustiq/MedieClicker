@@ -11,12 +11,16 @@ var win_height : int
 var p_height : int
 var isCpu = true
 
+func reset():
+	bouncePower = baseBouncePower
+
 func _ready():
 	
 	win_height = get_viewport_rect().size.y
 	p_height = $ColorRect.get_size().y
 	BASE_SPEED = 500
-	baseBouncePower = 300
+
+	baseBouncePower = bouncePower
 	
 func _process(delta):
 	if isCpu:

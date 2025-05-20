@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dt8nqujhnylju" path="res://Sprites/medieburger.png" id="6_if477"]
 [ext_resource type="Script" uid="uid://7l43tisxm68p" path="res://Scripts/medieboton.gd" id="7_xqrkd"]
 [ext_resource type="Script" uid="uid://bfi3xq5boyyqx" path="res://Scripts/parent_clicked_resizer.gd" id="8_ehdw1"]
-[ext_resource type="PackedScene" uid="uid://dri7sx3heq1hb" path="res://Scenes/Minigames/Pong/pong_game.tscn" id="9_owejv"]
+[ext_resource type="Script" uid="uid://d0x8320kgtf03" path="res://Scenes/sub_viewport_container.gd" id="9_vuo2g"]
 [ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database.gd" id="10_ixsql"]
 
 [sub_resource type="GDScript" id="GDScript_v158k"]
@@ -37,12 +37,12 @@ func set_saved_building_counts(save : Save):
 		buildings[index].set_building_count(save.purchased_buildings[index])
 
 func on_click():
-	SignalManager.on_medie_gain.emit(get_medies_with_bonus(mpc, ScoreType.type.CLICK))
+	SignalManager.on_medie_gain.emit(get_clicked_medies_with_bonus(mpc))
 
 
 
 
-func get_medies_with_bonus(medies : float, type : ScoreType.type):
+func get_clicked_medies_with_bonus(medies : float):
 	#Mejoras, blah
 	return medies
 
@@ -53,7 +53,7 @@ func _on_timer_timeout() -> void:
 	for building in buildings:
 		if building.get_building_increase() != 0:
 			#add_medies(get_medies_with_bonus(building.get_building_increase(), building.score_type))
-			total += get_medies_with_bonus(building.get_building_increase(), building.score_type)
+			total += building.get_building_increase()
 	if total != 0:
 		SignalManager.on_medie_gain.emit(total)
 "
@@ -70,8 +70,10 @@ anchors_preset = 0
 offset_top = 1.0
 offset_right = 1152.0
 offset_bottom = 649.0
+mouse_filter = 1
 
 [node name="Buildings" type="Control" parent="Control"]
+layout_mode = 3
 anchors_preset = 0
 offset_left = -74.0
 offset_top = -119.0
@@ -107,11 +109,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -374.0
-offset_top = 18.0
-offset_right = -35.0
-offset_bottom = 70.0
+offset_left = -459.0
+offset_top = 28.0
+offset_right = -120.0
+offset_bottom = 80.0
 grow_horizontal = 0
+autowrap_mode = 3
 script = ExtResource("3_g4vk3")
 
 [node name="UpgradesShop" type="GridContainer" parent="Control"]
@@ -127,8 +130,9 @@ offset_right = -245.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(3, 3)
-theme_override_constants/h_separation = 30
-columns = 5
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 35
+columns = 3
 script = ExtResource("4_b8n2d")
 
 [node name="MedieCounter" type="Label" parent="Control"]
@@ -165,25 +169,41 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_ehdw1")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Control"]
+[node name="PongViewportContainer" type="SubViewportContainer" parent="Control"]
 layout_mode = 0
-offset_left = 395.0
-offset_top = 470.0
-offset_right = 1552.0
-offset_bottom = 1122.0
+offset_left = 399.0
+offset_top = 1.0
+offset_right = 1556.0
+offset_bottom = 653.0
 scale = Vector2(0.225, 0.225)
+mouse_filter = 2
+stretch = true
+script = ExtResource("9_vuo2g")
 
-[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
+[node name="PongViewport" type="SubViewport" parent="Control/PongViewportContainer"]
 handle_input_locally = false
+physics_object_picking = true
 size = Vector2i(1157, 652)
 render_target_update_mode = 4
-
-[node name="MainGame" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("9_owejv")]
 
 [node name="Settings" type="Button" parent="Control"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+
+[node name="TetrisViewportContainer" type="SubViewportContainer" parent="Control"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 403.0
+offset_right = 1289.0
+offset_bottom = 1192.0
+scale = Vector2(0.21, 0.21)
+stretch = true
+
+[node name="TetrisViewport" type="SubViewport" parent="Control/TetrisViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1171, 789)
+render_target_update_mode = 4
 
 [node name="UpgradesDatabase" type="Node" parent="."]
 script = ExtResource("10_ixsql")

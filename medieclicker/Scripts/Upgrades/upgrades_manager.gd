@@ -26,21 +26,24 @@ func _ready() -> void:
 
 	SignalManager.on_building_purchased.connect(on_building_purchased)
 	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
-	#SignalManager.on_medies_changed.connect()
+	SignalManager.on_medies_changed.connect(on_medie_count_changed)
 
-func create_building_upgrade(upgrade : BuildingUpgrade):
-	add_building_upgrade(locked_upgrades, upgrade)
 
-func add_building_upgrade(dictionary, upgrade : BuildingUpgrade):
+func create_upgrade(upgrade : Upgrade):
+	add_upgrade(locked_upgrades, upgrade)
+
+func add_upgrade(dictionary, upgrade : Upgrade):
 	dictionary.get(upgrade.type).append(upgrade)
 	#building_upgrades.set(upgrade.type, building_upgrades.get(upgrade.type).append(upgrade))
 
-func remove_building_upgrade(dictionary, upgrade : BuildingUpgrade):
+func remove_upgrade(dictionary, upgrade : Upgrade):
 	dictionary[upgrade.type].erase(upgrade)
 
-func unlock_building_upgrade(upgrade : BuildingUpgrade):
-	remove_building_upgrade(locked_upgrades, upgrade)
-	add_building_upgrade(unlocked_upgrades, upgrade)
+
+
+func unlock_upgrade(upgrade : Upgrade):
+	remove_upgrade(locked_upgrades, upgrade)
+	add_upgrade(unlocked_upgrades, upgrade)
 
 func on_building_purchased(type : ScoreType.type):
 	var unlocked = []
@@ -50,20 +53,17 @@ func on_building_purchased(type : ScoreType.type):
 		if  not upgrade is BuildingUpgrade:
 			continue
 		
-		
-		
-		
 		print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
 		if upgrade.unlock_condition():
 			unlocked.append(upgrade)
 	for upgrade in unlocked:
-		unlock_building_upgrade(upgrade)
+		unlock_upgrade(upgrade)
 		SignalManager.on_upgrade_unlocked.emit(upgrade)
 
 func on_upgrade_purchased(upgrade : Upgrade):
-	print("purchased!")
-	remove_building_upgrade(unlocked_upgrades, upgrade)
-	add_building_upgrade(purchased_upgrades, upgrade)
+	print("purchased " + upgrade.upgrade_name + "! (upgrade manager)")
+	remove_upgrade(unlocked_upgrades, upgrade)
+	add_upgrade(purchased_upgrades, upgrade)
 
 func get_building_additive_bonus(building : ScoreType.type):
 	var total_bonus = 0.0
@@ -72,3 +72,22 @@ func get_building_additive_bonus(building : ScoreType.type):
 		if  upgrade is BuildingUpgrade:
 			total_bonus += upgrade.get_additive_increase()
 	return total_bonus
+
+
+
+func on_medie_count_changed(useless_but_needed_param : float):
+	var unlocked = []
+	for upgradeType in locked_upgrades:
+
+		for upgrade in locked_upgrades[upgradeType]:
+			#Solo los minigame unlock upgrades hacen algo cuando se agarran medies
+			if  not upgrade is MinigameUnlockUpgrade:
+				continue
+		
+			print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
+			if upgrade.unlock_condition():
+				unlocked.append(upgrade)
+	
+	for upgrade in unlocked:
+		unlock_upgrade(upgrade)
+		SignalManager.on_upgrade_unlocked.emit(upgrade)

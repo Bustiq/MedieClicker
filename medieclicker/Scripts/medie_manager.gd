@@ -3,6 +3,7 @@ extends Node
 var total_medie_count : float = 0
 var medieCount : float = 0
 
+
 const debug_mode = true
 
 func _ready() -> void:
