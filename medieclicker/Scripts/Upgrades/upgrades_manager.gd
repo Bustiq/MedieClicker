@@ -28,6 +28,7 @@ func _ready() -> void:
 	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
 	SignalManager.on_medies_changed.connect(on_medie_count_changed)
 	SignalManager.on_pong_score.connect(on_pong_score)
+	SignalManager.on_pong_loss.connect(on_pong_loss)
 
 
 func create_upgrade(upgrade : Upgrade):
@@ -104,3 +105,29 @@ func on_pong_score():
 	for upgrade in unlocked:
 		unlock_upgrade(upgrade)
 		SignalManager.on_upgrade_unlocked.emit(upgrade)
+
+
+func on_pong_loss():
+	var unlocked = []
+	for upgrade in locked_upgrades[ScoreType.type.PONG]:
+		if  not upgrade is PongSpeedBonus:
+			continue
+		#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
+		if upgrade.unlock_condition():
+			unlocked.append(upgrade)
+	
+	for upgrade in unlocked:
+		unlock_upgrade(upgrade)
+		SignalManager.on_upgrade_unlocked.emit(upgrade)
+
+
+func get_pong_speed_bonus(player : bool):
+	var total_speed_bonus := 1.0
+	for upgrade in purchased_upgrades[ScoreType.type.PONG]:
+		if not upgrade is PongSpeedBonus:
+			continue
+		if upgrade.is_for_player() != player:
+			continue
+		
+		total_speed_bonus *= upgrade.get_speed_increase()
+	return total_speed_bonus

@@ -38,6 +38,7 @@ func _on_player_scores_body_entered(body: Node2D) -> void:
 	
 	sfx_score.play()
 	$BallTimer.start()
+	SignalManager.on_pong_loss.emit()
 	
 
 

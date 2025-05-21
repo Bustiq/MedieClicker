@@ -9,11 +9,13 @@ func _ready() -> void:
 	var pong_unlock = MinigameUnlockUpgrade.new(3, "Desbloquear Pong", "Desbloquea el minijuego pong (Se controla con la rueda del mouse)", ScoreType.type.PONG, 5, load("res://Sprites/pong_icon.png"), 2, $"../Control/PongViewportContainer/PongViewport", "res://Scenes/Minigames/Pong/pong_game.tscn")
 	var tetris_unlock = MinigameUnlockUpgrade.new(4, "Desbloquear Tetris", "Desbloquea el minijuego tetris", ScoreType.type.TETRIS, 0, load("res://Sprites/Upgrades/tetris.png"), 0, $"../Control/TetrisViewportContainer/TetrisViewport", "res://Scenes/Minigames/Tetris/tetris_game.tscn")
 	
-	var goalier_goals = PongScoreBonus.new(5, "Goles más goleros", "Cada gol en el pong te da 1.5 medies más", 7.5, load("res://Sprites/Upgrades/goal.png"), 5, 1.5)
+	var golazos = PongScoreBonus.new(5, "Golazos", "Cada gol en el pong te da 1.5 medies más", 7.5, load("res://Sprites/Upgrades/goal.png"), 5, 1.5)
 	
-	
+	var sprinklers = PongSpeedBonus.new(7, "Rociadores", "El enemigo del pong se mueve 30% más lento", 4, load("res://Sprites/Upgrades/Sprinkler.png"), 5, 0.7, false)
+	var red_card = PongSpeedBonus.new(8, "Tarjeta roja", "El enemigo del pong se mueve 30% más lento", 10, load("res://Sprites/Upgrades/red_card.png"), 15, 0.7, false)
+
+	# var steroids = PongStrengthUpgrade.new()
 	# Esteroides: En el pong, empujas la pelota más rápido
-	# Rociadores: En el pong, el enemigo se mueve más lento
 	# (Ya están los sprites)
 	
 	upgrades = [better_bread, sesame_seeds]
@@ -23,4 +25,6 @@ func _ready() -> void:
 	UpgradesManager.create_upgrade(thicker_flour)
 	UpgradesManager.create_upgrade(pong_unlock)
 	#UpgradesManager.create_upgrade(tetris_unlock)
-	UpgradesManager.create_upgrade(goalier_goals)
+	UpgradesManager.create_upgrade(golazos)
+	UpgradesManager.create_upgrade(sprinklers)
+	UpgradesManager.create_upgrade(red_card)
