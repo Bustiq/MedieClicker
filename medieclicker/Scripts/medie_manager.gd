@@ -2,6 +2,7 @@ extends Node
 
 var total_medie_count : float = 0
 var medieCount : float = 0
+var pong_goals_count : int = 0
 
 
 const debug_mode = true
@@ -11,6 +12,10 @@ func _ready() -> void:
 	SignalManager.on_medie_gain.connect(add_medies)
 	SignalManager.on_game_save.connect(send_saved_data)
 	SignalManager.on_game_load.connect(load_saved_data)
+	SignalManager.on_pong_score.connect(on_pong_score)
+
+func on_pong_score():
+	pong_goals_count += 1
 
 func send_saved_data():
 	SavedData.total_medies = total_medie_count
@@ -35,6 +40,7 @@ func remove_medies(count : float):
 		if medieCount < -0.02:
 			$Buildings.esteAtributoNoExistePeroSiEjecutaEstoDebeTirarErrorMalditoGodotComoQueNoHayThrows
 		medieCount = 0
+	round_medies()
 	SignalManager.on_medies_changed.emit(medieCount)
 
 
@@ -43,4 +49,9 @@ func add_medies(count : float):
 		count *= 100
 	medieCount += count
 	total_medie_count += count
+	round_medies()
 	SignalManager.on_medies_changed.emit(medieCount)
+
+func round_medies():
+	medieCount = round(medieCount*pow(10,3))/pow(10,3)
+	total_medie_count = round(total_medie_count*pow(10,3))/pow(10,3)

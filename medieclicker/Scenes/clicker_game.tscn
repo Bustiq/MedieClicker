@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cglbsmcu0s23l"]
+[gd_scene load_steps=13 format=3 uid="uid://cglbsmcu0s23l"]
 
 [ext_resource type="PackedScene" uid="uid://dcj46xak61r0c" path="res://Scenes/building.tscn" id="1_5o60w"]
 [ext_resource type="Texture2D" uid="uid://bvjcxkqxweqo8" path="res://Sprites/Buildings/Rolling_pin.png" id="2_vuo2g"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bfi3xq5boyyqx" path="res://Scripts/parent_clicked_resizer.gd" id="8_ehdw1"]
 [ext_resource type="Script" uid="uid://d0x8320kgtf03" path="res://Scenes/sub_viewport_container.gd" id="9_vuo2g"]
 [ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database.gd" id="10_ixsql"]
+[ext_resource type="Script" uid="uid://6l21jigf5kld" path="res://Scripts/Minigames/pong_goal_medie_shower.gd" id="10_vuo2g"]
 
 [sub_resource type="GDScript" id="GDScript_v158k"]
 script/source = "extends Node2D
@@ -137,10 +138,11 @@ script = ExtResource("4_b8n2d")
 
 [node name="MedieCounter" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 498.0
-offset_top = 156.0
-offset_right = 519.0
-offset_bottom = 205.0
+offset_left = 509.0
+offset_top = 387.0
+offset_right = 543.0
+offset_bottom = 556.0
+theme_override_font_sizes/font_size = 60
 text = "0
 "
 script = ExtResource("5_vr2cw")
@@ -171,10 +173,10 @@ script = ExtResource("8_ehdw1")
 
 [node name="PongViewportContainer" type="SubViewportContainer" parent="Control"]
 layout_mode = 0
-offset_left = 399.0
-offset_top = 1.0
-offset_right = 1556.0
-offset_bottom = 653.0
+offset_left = 415.0
+offset_top = 5.0
+offset_right = 1572.0
+offset_bottom = 657.0
 scale = Vector2(0.225, 0.225)
 mouse_filter = 2
 stretch = true
@@ -185,6 +187,16 @@ handle_input_locally = false
 physics_object_picking = true
 size = Vector2i(1157, 652)
 render_target_update_mode = 4
+
+[node name="PongGoalMedieShower" type="Label" parent="Control"]
+visible = false
+layout_mode = 2
+offset_left = 437.0
+offset_top = 149.0
+offset_right = 637.0
+offset_bottom = 172.0
+text = "Medies/gol: 0"
+script = ExtResource("10_vuo2g")
 
 [node name="Settings" type="Button" parent="Control"]
 layout_mode = 0
@@ -210,3 +222,4 @@ script = ExtResource("10_ixsql")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/Medie" to="Control/Medie" method="_on_pressed"]
+[connection signal="child_entered_tree" from="Control/PongViewportContainer/PongViewport" to="Control/PongGoalMedieShower" method="_on_pong_viewport_child_entered_tree"]

@@ -27,6 +27,7 @@ func _ready() -> void:
 	SignalManager.on_building_purchased.connect(on_building_purchased)
 	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
 	SignalManager.on_medies_changed.connect(on_medie_count_changed)
+	SignalManager.on_pong_score.connect(on_pong_score)
 
 
 func create_upgrade(upgrade : Upgrade):
@@ -53,7 +54,7 @@ func on_building_purchased(type : ScoreType.type):
 		if  not upgrade is BuildingUpgrade:
 			continue
 		
-		print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
+		#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
 		if upgrade.unlock_condition():
 			unlocked.append(upgrade)
 	for upgrade in unlocked:
@@ -65,14 +66,13 @@ func on_upgrade_purchased(upgrade : Upgrade):
 	remove_upgrade(unlocked_upgrades, upgrade)
 	add_upgrade(purchased_upgrades, upgrade)
 
-func get_building_additive_bonus(building : ScoreType.type):
+func get_additive_bonus(building : ScoreType.type):
 	var total_bonus = 0.0
 	
 	for upgrade in purchased_upgrades[building]:
-		if  upgrade is BuildingUpgrade:
+		if  upgrade is BuildingUpgrade or PongScoreBonus:
 			total_bonus += upgrade.get_additive_increase()
 	return total_bonus
-
 
 
 func on_medie_count_changed(useless_but_needed_param : float):
@@ -84,9 +84,22 @@ func on_medie_count_changed(useless_but_needed_param : float):
 			if  not upgrade is MinigameUnlockUpgrade:
 				continue
 		
-			print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
+			#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
 			if upgrade.unlock_condition():
 				unlocked.append(upgrade)
+	
+	for upgrade in unlocked:
+		unlock_upgrade(upgrade)
+		SignalManager.on_upgrade_unlocked.emit(upgrade)
+
+func on_pong_score():
+	var unlocked = []
+	for upgrade in locked_upgrades[ScoreType.type.PONG]:
+		if  not upgrade is PongScoreBonus:
+			continue
+		#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
+		if upgrade.unlock_condition():
+			unlocked.append(upgrade)
 	
 	for upgrade in unlocked:
 		unlock_upgrade(upgrade)

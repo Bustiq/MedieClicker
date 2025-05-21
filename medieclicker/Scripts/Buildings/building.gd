@@ -14,11 +14,12 @@ signal on_building_count_changed(new_count)
 
 var building_count = 0
 
-func ready():
+func _ready():
 	$Icon.texture_normal = icon
 
+
 func get_building_increase():
-	return (increase + UpgradesManager.get_building_additive_bonus(score_type)) * building_count
+	return (increase + UpgradesManager.get_additive_bonus(score_type)) * building_count
 
 func set_building_count(count : int):
 	building_count = count

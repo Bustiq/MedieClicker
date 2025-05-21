@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var win_size : Vector2
-const START_SPEED = 200
+const START_SPEED = 800
 var dir : Vector2
 @export var speed : int
 const MAX_Y_VECTOR = 100

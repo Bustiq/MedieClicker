@@ -5,7 +5,7 @@ extends Node2D
 @onready var sfx_score = $scoreSFX
 @onready var pause_Menu = $PauseMenu
 var paused = false
-
+var base_pong_score = 3
 	
 
 func _process(delta: float) -> void:
@@ -44,4 +44,7 @@ func _on_player_scores_body_entered(body: Node2D) -> void:
 func _on_cp_uscores_body_entered(body: Node2D) -> void:
 	sfx_score.play()
 	$BallTimer.start()
-	SignalManager.on_medie_gain.emit(100)
+	SignalManager.on_pong_score.emit()
+
+	SignalManager.on_medie_gain.emit(base_pong_score + UpgradesManager.get_additive_bonus(ScoreType.type.PONG))
+	
