@@ -28,7 +28,6 @@ func update_speed(upgrade : Upgrade):
 	speed_mult = UpgradesManager.get_pong_speed_bonus(false)
 
 func _process(delta):
-	print(speed_mult, " ", BASE_SPEED * speed_mult)
 	if isCpu:
 		ball_pos = $"../Ball".position
 		dist = position.y - ball_pos.y

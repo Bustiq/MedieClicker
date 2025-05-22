@@ -3,7 +3,8 @@ extends Node
 var total_medie_count : float = 0
 var medieCount : float = 0
 var pong_goals_count : int = 0
-var pong_loss_count : int = 40
+var pong_self_bounce_count : int = 0
+var click_count : int = 0
 
 
 const debug_mode = true
@@ -14,10 +15,14 @@ func _ready() -> void:
 	SignalManager.on_game_save.connect(send_saved_data)
 	SignalManager.on_game_load.connect(load_saved_data)
 	SignalManager.on_pong_score.connect(on_pong_score)
-	SignalManager.on_pong_loss.connect(on_pong_loss)
+	SignalManager.on_pong_self_bounce.connect(on_pong_self_bounce)
+	SignalManager.on_medie_clicked.connect(on_medie_clicked)
 
-func on_pong_loss():
-	pong_loss_count += 1
+func on_medie_clicked():
+	click_count += 1
+
+func on_pong_self_bounce():
+	pong_self_bounce_count += 1
 
 func on_pong_score():
 	pong_goals_count += 1

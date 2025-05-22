@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var win_size : Vector2
-const START_SPEED = 800
+const START_SPEED = 200
 var dir : Vector2
 @export var speed : int
 const MAX_Y_VECTOR = 100
@@ -39,6 +39,7 @@ func _physics_process(delta):
 			$"../Player".bouncePower += $"../Player".bouncePower * 0.15
 			speed = $"../Player".bouncePower
 			dir = new_direction(collider)
+			SignalManager.on_pong_self_bounce.emit()
 			
 			
 		elif collider == $"../CPU":
@@ -59,10 +60,10 @@ func _physics_process(delta):
 		
 		
 func random_direction():
-	var new_direction := Vector2()
-	new_direction.x = [1, -1].pick_random()
-	new_direction.y = randf_range(-1, 1)
-	return new_direction.normalized()
+	var new_ball_direction := Vector2()
+	new_ball_direction.x = [1, -1].pick_random()
+	new_ball_direction.y = randf_range(-1, 1)
+	return new_ball_direction.normalized()
 
 
 	

@@ -5,7 +5,7 @@ func _ready() -> void:
 	SignalManager.on_upgrade_purchased.connect(update_on_upgrade)
 	text = "Total: 0 medies/s"
 
-func update_on_purchase(count):
+func update_on_purchase(_count):
 	text = "Total: " + str($"..".get_building_increase()) + " medies/s"
 
 

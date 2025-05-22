@@ -27,12 +27,18 @@ func _ready() -> void:
 	SignalManager.on_building_purchased.connect(on_building_purchased)
 	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
 	SignalManager.on_medies_changed.connect(on_medie_count_changed)
-	SignalManager.on_pong_score.connect(on_pong_score)
-	SignalManager.on_pong_loss.connect(on_pong_loss)
+	#SignalManager.on_pong_score.connect(on_pong_score)
+	#SignalManager.on_pong_self_bounce.connect(on_pong_self_bounce)
+	#SignalManager.on_medie_clicked.connect(on_medie_clicked)
+	SignalManager.on_pong_score.connect(check_for_unlocked_upgrades)
+	SignalManager.on_pong_self_bounce.connect(check_for_unlocked_upgrades)
+	SignalManager.on_medie_clicked.connect(check_for_unlocked_upgrades)
 
 
 func create_upgrade(upgrade : Upgrade):
 	add_upgrade(locked_upgrades, upgrade)
+	unlock_upgrade(upgrade)
+
 
 func add_upgrade(dictionary, upgrade : Upgrade):
 	dictionary.get(upgrade.type).append(upgrade)
@@ -46,6 +52,7 @@ func remove_upgrade(dictionary, upgrade : Upgrade):
 func unlock_upgrade(upgrade : Upgrade):
 	remove_upgrade(locked_upgrades, upgrade)
 	add_upgrade(unlocked_upgrades, upgrade)
+	SignalManager.on_upgrade_unlocked.emit(upgrade)
 
 func on_building_purchased(type : ScoreType.type):
 	var unlocked = []
@@ -60,7 +67,7 @@ func on_building_purchased(type : ScoreType.type):
 			unlocked.append(upgrade)
 	for upgrade in unlocked:
 		unlock_upgrade(upgrade)
-		SignalManager.on_upgrade_unlocked.emit(upgrade)
+		
 
 func on_upgrade_purchased(upgrade : Upgrade):
 	print("purchased " + upgrade.upgrade_name + "! (upgrade manager)")
@@ -71,12 +78,12 @@ func get_additive_bonus(building : ScoreType.type):
 	var total_bonus = 0.0
 	
 	for upgrade in purchased_upgrades[building]:
-		if  upgrade is BuildingUpgrade or PongScoreBonus:
+		if  upgrade is BuildingUpgrade or PongScoreBonus or ClickUpgrade:
 			total_bonus += upgrade.get_additive_increase()
 	return total_bonus
 
 
-func on_medie_count_changed(useless_but_needed_param : float):
+func on_medie_count_changed(_useless_but_needed_param : float):
 	var unlocked = []
 	for upgradeType in locked_upgrades:
 
@@ -91,34 +98,56 @@ func on_medie_count_changed(useless_but_needed_param : float):
 	
 	for upgrade in unlocked:
 		unlock_upgrade(upgrade)
-		SignalManager.on_upgrade_unlocked.emit(upgrade)
 
-func on_pong_score():
+
+#func on_pong_score():
+	#var unlocked = []
+	#for upgrade in locked_upgrades[ScoreType.type.PONG]:
+		#if  not upgrade is PongScoreBonus:
+			#continue
+		##print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
+		#if upgrade.unlock_condition():
+			#unlocked.append(upgrade)
+	#
+	#for upgrade in unlocked:
+		#unlock_upgrade(upgrade)
+
+#
+#
+#func on_pong_self_bounce():
+	#var unlocked = []
+	#for upgrade in locked_upgrades[ScoreType.type.PONG]:
+		#if  not upgrade is PongSpeedBonus:
+			#continue
+		##print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
+		#if upgrade.unlock_condition():
+			#unlocked.append(upgrade)
+	#
+	#for upgrade in unlocked:
+		#unlock_upgrade(upgrade)
+
+#
+#func on_medie_clicked():
+	#var unlocked = []
+	#for upgrade in locked_upgrades[ScoreType.type.PONG]:
+		#if not upgrade is ClickUpgrade:
+			#continue
+		#if upgrade.unlock_condition():
+			#unlocked.append(upgrade)
+	#
+	#for upgrade in unlocked:
+		#unlock_upgrade(upgrade)
+
+
+func check_for_unlocked_upgrades():
 	var unlocked = []
-	for upgrade in locked_upgrades[ScoreType.type.PONG]:
-		if  not upgrade is PongScoreBonus:
-			continue
-		#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
-		if upgrade.unlock_condition():
-			unlocked.append(upgrade)
+	for score_type in locked_upgrades:
+		for upgrade in locked_upgrades[score_type]:
+			if upgrade.unlock_condition():
+				unlocked.append(upgrade)
 	
 	for upgrade in unlocked:
 		unlock_upgrade(upgrade)
-		SignalManager.on_upgrade_unlocked.emit(upgrade)
-
-
-func on_pong_loss():
-	var unlocked = []
-	for upgrade in locked_upgrades[ScoreType.type.PONG]:
-		if  not upgrade is PongSpeedBonus:
-			continue
-		#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
-		if upgrade.unlock_condition():
-			unlocked.append(upgrade)
-	
-	for upgrade in unlocked:
-		unlock_upgrade(upgrade)
-		SignalManager.on_upgrade_unlocked.emit(upgrade)
 
 
 func get_pong_speed_bonus(player : bool):

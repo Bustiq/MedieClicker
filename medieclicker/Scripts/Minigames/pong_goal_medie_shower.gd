@@ -7,7 +7,7 @@ func _ready() -> void:
 	SignalManager.on_upgrade_purchased.connect(update_text)
 
 func _on_pong_viewport_child_entered_tree(node: Node) -> void:
-	pong_increase = $"../PongViewportContainer/PongViewport".get_child(0).base_pong_score
+	pong_increase = node.base_pong_score
 	text = "Medies/gol: " + str(pong_increase)
 	show()
 

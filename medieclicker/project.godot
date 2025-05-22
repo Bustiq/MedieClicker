@@ -24,6 +24,10 @@ MedieManager="*res://Scripts/medie_manager.gd"
 UpgradesManager="*res://Scripts/Upgrades/upgrades_manager.gd"
 SavedData="*res://Scripts/saved_data.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 Move_Up={

@@ -5,6 +5,7 @@ extends Label
 func _ready() -> void:
 	SignalManager.on_upgrade_hovered.connect(set_description)
 	SignalManager.on_upgrade_unhovered.connect(reset_description)
+	reset_description()
 
 
 func set_description(upgrade : Upgrade):
