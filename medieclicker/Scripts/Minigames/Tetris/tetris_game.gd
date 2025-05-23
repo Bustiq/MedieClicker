@@ -24,6 +24,8 @@ var drawingPositions = [Vector2(29, 4), Vector2(29, 7), Vector2(29, 10), Vector2
 var heldPiecePos = Vector2(11, 4)
 var heldPiecesToDelete = []
 
+var gain_per_line = 100
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Restart"):
@@ -49,6 +51,8 @@ func _input(event: InputEvent) -> void:
 
 
 func registerClearedLine(LinesCleared : int):
+	SignalManager.on_tetris_line_cleared.emit(LinesCleared)
+	SignalManager.on_medie_gain.emit((gain_per_line + UpgradesManager.get_additive_bonus(ScoreType.type.TETRIS)) * LinesCleared)
 	if  LinesCleared >= 1:
 		$TimerManager/ComboTimer.stop()
 		$TimerManager/ComboTimer.start()

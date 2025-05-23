@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://csji0mfp4vaem"]
+
+[ext_resource type="Script" uid="uid://r45uvtaardr8" path="res://Scripts/Minigames/Surfer/faller.gd" id="1_a2ova"]
+[ext_resource type="Script" uid="uid://dri0tht7pa2g1" path="res://Scenes/Minigames/Surfer/safe_zone.gd" id="1_kn40x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5r6f"]
+size = Vector2(316, 20)
+
+[node name="SafeZone" type="Node2D"]
+script = ExtResource("1_a2ova")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32768
+collision_mask = 8192
+script = ExtResource("1_kn40x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_g5r6f")

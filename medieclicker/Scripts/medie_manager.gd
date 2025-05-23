@@ -5,6 +5,8 @@ var medieCount : float = 0
 var pong_goals_count : int = 0
 var pong_self_bounce_count : int = 0
 var click_count : int = 0
+var surfer_dodge_count : int = 0
+var tetris_lines_cleared : int = 0
 
 
 const debug_mode = true
@@ -17,6 +19,14 @@ func _ready() -> void:
 	SignalManager.on_pong_score.connect(on_pong_score)
 	SignalManager.on_pong_self_bounce.connect(on_pong_self_bounce)
 	SignalManager.on_medie_clicked.connect(on_medie_clicked)
+	SignalManager.on_surfer_dodge.connect(on_surfer_dodge)
+	SignalManager.on_tetris_line_cleared.connect(on_tetris_line_cleared)
+
+func on_tetris_line_cleared(lines : int):
+	tetris_lines_cleared += lines
+
+func on_surfer_dodge(obstacle : Obstacle):
+	surfer_dodge_count += 1
 
 func on_medie_clicked():
 	click_count += 1

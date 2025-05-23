@@ -74,6 +74,14 @@ Hold={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_12="Rail"
+2d_physics/layer_13="RailRestarter"
+2d_physics/layer_14="Surfer"
+2d_physics/layer_15="Obstacle"
+2d_physics/layer_16="Safe Zone"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

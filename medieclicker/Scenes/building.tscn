@@ -21,6 +21,7 @@ offset_top = -78.0
 offset_right = 66.0
 offset_bottom = 50.0
 pivot_offset = Vector2(64, 64)
+button_mask = 3
 texture_normal = ExtResource("2_uj2qm")
 stretch_mode = 0
 

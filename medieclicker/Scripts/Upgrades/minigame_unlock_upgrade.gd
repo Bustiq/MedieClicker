@@ -18,4 +18,3 @@ func unlock_condition():
 func on_purchase():
 	var scene = load(minigame_scene_path).instantiate()
 	viewport.add_child(scene)
-	print("Pong desbloqueado (On purchase)")

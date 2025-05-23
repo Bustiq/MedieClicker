@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://br8tannmvnsi0"]
+
+[ext_resource type="PackedScene" uid="uid://cy6hp4qblby6o" path="res://Scenes/Minigames/Surfer/rail.tscn" id="1_adiv2"]
+
+[sub_resource type="GDScript" id="GDScript_gevv7"]
+script/source = "extends Node2D
+
+
+
+
+func _on_rail_resetter_area_entered(area: Area2D) -> void:
+	area.get_parent().global_position = global_position
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rlry"]
+size = Vector2(16, 32)
+
+[node name="RailSpawner" type="Node2D"]
+script = SubResource("GDScript_gevv7")
+
+[node name="Rail13" parent="." instance=ExtResource("1_adiv2")]
+
+[node name="Rail" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 320)
+
+[node name="Rail2" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 352)
+
+[node name="Rail3" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 384)
+
+[node name="Rail4" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 416)
+
+[node name="Rail5" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 448)
+
+[node name="Rail6" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 480)
+
+[node name="Rail7" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 128)
+
+[node name="Rail8" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 160)
+
+[node name="Rail9" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 192)
+
+[node name="Rail10" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 224)
+
+[node name="Rail14" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 32)
+
+[node name="Rail15" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 64)
+
+[node name="Rail16" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 96)
+
+[node name="Rail11" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 256)
+
+[node name="Rail12" parent="." instance=ExtResource("1_adiv2")]
+position = Vector2(0, 288)
+
+[node name="RailResetter" type="Area2D" parent="."]
+position = Vector2(0.5, 545)
+collision_layer = 4096
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RailResetter"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_8rlry")
+
+[connection signal="area_entered" from="RailResetter" to="." method="_on_rail_resetter_area_entered"]

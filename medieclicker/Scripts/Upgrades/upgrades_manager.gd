@@ -33,11 +33,24 @@ func _ready() -> void:
 	SignalManager.on_pong_score.connect(check_for_unlocked_upgrades)
 	SignalManager.on_pong_self_bounce.connect(check_for_unlocked_upgrades)
 	SignalManager.on_medie_clicked.connect(check_for_unlocked_upgrades)
+	SignalManager.on_surfer_dodge.connect(wrapper)
+	SignalManager.on_tetris_line_cleared.connect(wrapper2)
+
+# La señal tiene parámetros pero el método no.
+# No sé cómo hacerlo bonito
+func wrapper(obstacle : Obstacle):
+	check_for_unlocked_upgrades()
+
+# Lo mismo acá
+func wrapper2(lines : int):
+	
+	check_for_unlocked_upgrades()
 
 
 func create_upgrade(upgrade : Upgrade):
 	add_upgrade(locked_upgrades, upgrade)
-	unlock_upgrade(upgrade)
+	#unlock_upgrade(upgrade)
+
 
 
 func add_upgrade(dictionary, upgrade : Upgrade):
@@ -70,7 +83,6 @@ func on_building_purchased(type : ScoreType.type):
 		
 
 func on_upgrade_purchased(upgrade : Upgrade):
-	print("purchased " + upgrade.upgrade_name + "! (upgrade manager)")
 	remove_upgrade(unlocked_upgrades, upgrade)
 	add_upgrade(purchased_upgrades, upgrade)
 

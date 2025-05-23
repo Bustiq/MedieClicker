@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cglbsmcu0s23l"]
+[gd_scene load_steps=22 format=3 uid="uid://cglbsmcu0s23l"]
 
 [ext_resource type="PackedScene" uid="uid://dcj46xak61r0c" path="res://Scenes/building.tscn" id="1_5o60w"]
 [ext_resource type="Texture2D" uid="uid://bvjcxkqxweqo8" path="res://Sprites/Buildings/Rolling_pin.png" id="2_vuo2g"]
@@ -13,6 +13,12 @@
 [ext_resource type="Script" uid="uid://d0x8320kgtf03" path="res://Scenes/sub_viewport_container.gd" id="9_vuo2g"]
 [ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database.gd" id="10_ixsql"]
 [ext_resource type="Script" uid="uid://6l21jigf5kld" path="res://Scripts/Minigames/pong_goal_medie_shower.gd" id="10_vuo2g"]
+[ext_resource type="Script" uid="uid://b5xwekfv2ib0g" path="res://Scripts/Minigames/Surfer/surfer_viewport_container.gd" id="13_vr2cw"]
+[ext_resource type="Script" uid="uid://bhvc4ac66r45h" path="res://Scripts/Minigames/Surfer/surfer_dodge_medies.gd" id="14_owejv"]
+[ext_resource type="AudioStream" uid="uid://dr11dnjyfgmr" path="res://Audio/Medie_Clicker.mp3" id="15_ehdw1"]
+[ext_resource type="Script" uid="uid://b1rbqdme0mbdw" path="res://Scenes/tetris_line_medies.gd" id="15_ixsql"]
+[ext_resource type="AudioStream" uid="uid://brfqqm5eiwnf7" path="res://Audio/Mediebuburger.mp3" id="16_owejv"]
+[ext_resource type="AudioStream" uid="uid://c06tq8gxb71p3" path="res://Audio/poliquiz.mp3" id="17_ixsql"]
 
 [sub_resource type="GDScript" id="GDScript_v158k"]
 script/source = "extends Node2D
@@ -59,6 +65,13 @@ func _on_timer_timeout() -> void:
 	if total != 0:
 		SignalManager.on_medie_gain.emit(total)
 "
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yb6rt"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("15_ehdw1")
+stream_1 = ExtResource("16_owejv")
+stream_2 = ExtResource("17_ixsql")
 
 [node name="ClickerGame" type="Node2D"]
 script = SubResource("GDScript_v158k")
@@ -125,9 +138,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -445.0
+offset_left = -467.0
 offset_top = 7.0
-offset_right = -106.0
+offset_right = -15.0
 offset_bottom = 62.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 35
@@ -193,6 +206,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.15, 0.15)
 pivot_offset = Vector2(975, 850)
+button_mask = 3
 texture_normal = ExtResource("6_if477")
 script = ExtResource("7_xqrkd")
 
@@ -221,16 +235,6 @@ physics_object_picking = true
 size = Vector2i(1157, 652)
 render_target_update_mode = 4
 
-[node name="PongGoalMedieShower" type="Label" parent="Control"]
-visible = false
-layout_mode = 2
-offset_left = 437.0
-offset_top = 149.0
-offset_right = 637.0
-offset_bottom = 172.0
-text = "Medies/gol: 0"
-script = ExtResource("10_vuo2g")
-
 [node name="Settings" type="Button" parent="Control"]
 layout_mode = 0
 offset_right = 8.0
@@ -238,11 +242,12 @@ offset_bottom = 8.0
 
 [node name="TetrisViewportContainer" type="SubViewportContainer" parent="Control"]
 layout_mode = 0
-offset_left = 118.0
-offset_top = 403.0
-offset_right = 1289.0
-offset_bottom = 1192.0
+offset_left = 830.0
+offset_top = 418.0
+offset_right = 2001.0
+offset_bottom = 1207.0
 scale = Vector2(0.21, 0.21)
+mouse_filter = 2
 stretch = true
 
 [node name="TetrisViewport" type="SubViewport" parent="Control/TetrisViewportContainer"]
@@ -250,9 +255,57 @@ handle_input_locally = false
 size = Vector2i(1171, 789)
 render_target_update_mode = 4
 
+[node name="SurferViewportContainer" type="SubViewportContainer" parent="Control"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 403.0
+offset_right = 1289.0
+offset_bottom = 1192.0
+scale = Vector2(0.21, 0.21)
+mouse_filter = 2
+stretch = true
+script = ExtResource("13_vr2cw")
+
+[node name="SurferViewport" type="SubViewport" parent="Control/SurferViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1171, 789)
+render_target_update_mode = 4
+
+[node name="PongGoalMedieShower" type="Label" parent="."]
+visible = false
+offset_left = 437.0
+offset_top = 150.0
+offset_right = 637.0
+offset_bottom = 173.0
+text = "Medies/gol: 0"
+script = ExtResource("10_vuo2g")
+
+[node name="SurferDodgeMedies" type="Label" parent="."]
+visible = false
+offset_left = 168.0
+offset_top = 571.0
+offset_right = 208.0
+offset_bottom = 594.0
+script = ExtResource("14_owejv")
+
+[node name="TetrisLineMedies" type="Label" parent="."]
+visible = false
+offset_left = 948.0
+offset_top = 597.0
+offset_right = 988.0
+offset_bottom = 620.0
+script = ExtResource("15_ixsql")
+
 [node name="UpgradesDatabase" type="Node" parent="."]
 script = ExtResource("10_ixsql")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_yb6rt")
+volume_db = -10.0
+autoplay = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/Medie" to="Control/Medie" method="_on_pressed"]
-[connection signal="child_entered_tree" from="Control/PongViewportContainer/PongViewport" to="Control/PongGoalMedieShower" method="_on_pong_viewport_child_entered_tree"]
+[connection signal="child_entered_tree" from="Control/PongViewportContainer/PongViewport" to="PongGoalMedieShower" method="_on_pong_viewport_child_entered_tree"]
+[connection signal="child_entered_tree" from="Control/TetrisViewportContainer/TetrisViewport" to="TetrisLineMedies" method="_on_tetris_viewport_child_entered_tree"]
+[connection signal="child_entered_tree" from="Control/SurferViewportContainer/SurferViewport" to="SurferDodgeMedies" method="_on_surfer_viewport_child_entered_tree"]

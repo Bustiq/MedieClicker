@@ -3,6 +3,7 @@ extends Control
 var upgrade : Upgrade
 
 
+
 func set_upgrade(new : Upgrade):
 	upgrade = new
 	$TextureButton.texture_normal = upgrade.icon
