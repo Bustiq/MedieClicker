@@ -26,6 +26,7 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 18.0
 offset_bottom = 18.0
+button_mask = 3
 texture_normal = ExtResource("1_f5ow3")
 
 [node name="BlackOverlay" type="TextureRect" parent="."]
