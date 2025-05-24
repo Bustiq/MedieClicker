@@ -12,6 +12,12 @@ size = Vector2(108.108, 108.108)
 [node name="SubwaySurfers" type="Node2D"]
 script = ExtResource("1_d5wc4")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(374.5, 344)
+scale = Vector2(2.75781, 2)
+texture = ExtResource("3_7nidp")
+
 [node name="RailSpawner" parent="." instance=ExtResource("1_7nidp")]
 position = Vector2(331, 24)
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://cglbsmcu0s23l"]
+[gd_scene load_steps=25 format=3 uid="uid://cglbsmcu0s23l"]
 
 [ext_resource type="PackedScene" uid="uid://dcj46xak61r0c" path="res://Scenes/building.tscn" id="1_5o60w"]
+[ext_resource type="PackedScene" uid="uid://b83i2fvfnm7ak" path="res://background_tiles.tscn" id="1_yb6rt"]
 [ext_resource type="Texture2D" uid="uid://bvjcxkqxweqo8" path="res://Sprites/Buildings/Rolling_pin.png" id="2_vuo2g"]
 [ext_resource type="Script" uid="uid://btmu7cgd5xh1q" path="res://Scenes/upgrade_description.gd" id="3_g4vk3"]
 [ext_resource type="Script" uid="uid://b31kxl7v1gkn6" path="res://Scenes/upgrades_shop.gd" id="4_b8n2d"]
+[ext_resource type="Texture2D" uid="uid://bclqkxkdbl4lf" path="res://Sprites/Buildings/Grill.png" id="4_fcd1n"]
 [ext_resource type="Script" uid="uid://c8rw76d55k3qc" path="res://Scripts/Upgrades/upgrade_name_text.gd" id="4_g4vk3"]
 [ext_resource type="Script" uid="uid://biywq8ri0i2vo" path="res://Scripts/medies_per_click_text.gd" id="5_b8n2d"]
 [ext_resource type="Script" uid="uid://bqly3mjrf7fwd" path="res://Scripts/medie_counter.gd" id="5_vr2cw"]
@@ -13,6 +15,7 @@
 [ext_resource type="Script" uid="uid://d0x8320kgtf03" path="res://Scenes/sub_viewport_container.gd" id="9_vuo2g"]
 [ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database.gd" id="10_ixsql"]
 [ext_resource type="Script" uid="uid://6l21jigf5kld" path="res://Scripts/Minigames/pong_goal_medie_shower.gd" id="10_vuo2g"]
+[ext_resource type="Script" uid="uid://urkbfguwao7k" path="res://Scenes/tetris_viewport_container.gd" id="13_onfoh"]
 [ext_resource type="Script" uid="uid://b5xwekfv2ib0g" path="res://Scripts/Minigames/Surfer/surfer_viewport_container.gd" id="13_vr2cw"]
 [ext_resource type="Script" uid="uid://bhvc4ac66r45h" path="res://Scripts/Minigames/Surfer/surfer_dodge_medies.gd" id="14_owejv"]
 [ext_resource type="AudioStream" uid="uid://dr11dnjyfgmr" path="res://Audio/Medie_Clicker.mp3" id="15_ehdw1"]
@@ -76,6 +79,10 @@ stream_2 = ExtResource("17_ixsql")
 [node name="ClickerGame" type="Node2D"]
 script = SubResource("GDScript_v158k")
 
+[node name="Node2D" parent="." instance=ExtResource("1_yb6rt")]
+position = Vector2(1401, -1204)
+scale = Vector2(3.865, 3.865)
+
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
@@ -116,8 +123,9 @@ start_price = 100.0
 price_increase_mult = 1.2
 building_id = 1
 building_name = "Dos"
-increase = 2.0
+increase = 2.5
 score_type = 2
+icon = ExtResource("4_fcd1n")
 
 [node name="UpgradeDescription" type="Label" parent="Control"]
 layout_mode = 1
@@ -219,6 +227,7 @@ IDLE_SCALE = 0.15
 CLICKED_SCALE = 0.18
 
 [node name="PongViewportContainer" type="SubViewportContainer" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 415.0
 offset_top = 5.0
@@ -233,14 +242,16 @@ script = ExtResource("9_vuo2g")
 handle_input_locally = false
 physics_object_picking = true
 size = Vector2i(1157, 652)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Settings" type="Button" parent="Control"]
+visible = false
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 
 [node name="TetrisViewportContainer" type="SubViewportContainer" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 830.0
 offset_top = 418.0
@@ -249,13 +260,15 @@ offset_bottom = 1207.0
 scale = Vector2(0.21, 0.21)
 mouse_filter = 2
 stretch = true
+script = ExtResource("13_onfoh")
 
 [node name="TetrisViewport" type="SubViewport" parent="Control/TetrisViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1171, 789)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="SurferViewportContainer" type="SubViewportContainer" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 118.0
 offset_top = 403.0
@@ -269,7 +282,7 @@ script = ExtResource("13_vr2cw")
 [node name="SurferViewport" type="SubViewport" parent="Control/SurferViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1171, 789)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="PongGoalMedieShower" type="Label" parent="."]
 visible = false

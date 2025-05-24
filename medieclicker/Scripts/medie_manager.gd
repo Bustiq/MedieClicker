@@ -65,8 +65,11 @@ func remove_medies(count : float):
 
 
 func add_medies(count : float):
-	if debug_mode and Input.is_action_pressed("ui_accept"):
-		count *= 100
+	if debug_mode:
+		if Input.is_action_pressed("Times_100"):
+			count *= 100
+		if Input.is_action_pressed("Times_1000"):
+			count *= 1000
 	medieCount += count
 	total_medie_count += count
 	round_medies()

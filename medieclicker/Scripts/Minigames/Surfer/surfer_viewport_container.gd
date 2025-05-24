@@ -10,7 +10,7 @@ func _ready():
 func get_paddle(minigame : Node):
 	print("Pong comprado (viewport container)")
 	player = minigame.find_child("Player")
-	
+	show()
 
 func _input(event):
 	if not player:
