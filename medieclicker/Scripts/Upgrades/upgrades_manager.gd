@@ -16,6 +16,7 @@ extends Node
 var locked_upgrades := {}
 var unlocked_upgrades := {}
 var purchased_upgrades := {}
+var total_upgrade_count := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +24,8 @@ func _ready() -> void:
 		locked_upgrades.set(score_type, [])
 		unlocked_upgrades.set(score_type, [])
 		purchased_upgrades.set(score_type, [])
+	
+	SignalManager.on_upgrade_created.connect(create_upgrade)
 
 	SignalManager.on_building_purchased.connect(on_building_purchased)
 	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
@@ -48,7 +51,13 @@ func wrapper2(lines : int):
 
 
 func create_upgrade(upgrade : Upgrade):
+	for upgrade_type in locked_upgrades:
+		for element in locked_upgrades[upgrade_type]:
+			if upgrade.id == element.id:
+				# Excepciones lol
+				get_parent().call("La id "  + str(upgrade.id) + " está ocupada por " + upgrade.upgrade_name + " y " + element.upgrade_name)
 	add_upgrade(locked_upgrades, upgrade)
+	total_upgrade_count += 1
 	#unlock_upgrade(upgrade)
 
 

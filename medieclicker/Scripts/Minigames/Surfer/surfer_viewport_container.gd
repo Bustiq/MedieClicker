@@ -15,4 +15,6 @@ func get_paddle(minigame : Node):
 func _input(event):
 	if not player:
 		return
+	if not event is InputEventMouse:
+		return
 	player._input(event)

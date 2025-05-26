@@ -6,8 +6,12 @@ var dir : Vector2
 @export var speed : int
 const MAX_Y_VECTOR = 100
 var col = Color(23, 43 , 123)
-@onready var sfx_paddleBounce = $PaddleBounce
-@onready var sfx_wallBounce = $WallBounce
+#@onready var sfx_paddleBounce = $PaddleBounce
+#@onready var sfx_wallBounce = $WallBounce
+
+@onready var hit_sfx: AudioStreamPlayer = $HitSFX
+
+
 func _ready():
 	$BallRect.color = col
 	win_size = get_viewport_rect().size
@@ -35,7 +39,7 @@ func _physics_process(delta):
 		random_color()	
 		collider = collision.get_collider()
 		if collider == 	$"../Player":
-			sfx_paddleBounce.play()
+			hit_sfx.play()
 			$"../Player".bouncePower += $"../Player".bouncePower * 0.15
 			speed = $"../Player".bouncePower
 			dir = new_direction(collider)
@@ -43,14 +47,14 @@ func _physics_process(delta):
 			
 			
 		elif collider == $"../CPU":
-			sfx_paddleBounce.play()
+			hit_sfx.play()
 			$"../CPU".bouncePower += $"../CPU".bouncePower * 0.15
 			speed =  $"../CPU".bouncePower
 			dir = new_direction(collider)
 			
 		else:
 			dir = dir.bounce(collision.get_normal())
-			sfx_wallBounce.play()
+			hit_sfx.play()
 
 	
 		

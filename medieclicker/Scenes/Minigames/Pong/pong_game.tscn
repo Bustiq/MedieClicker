@@ -1,9 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dri7sx3heq1hb"]
+[gd_scene load_steps=17 format=3 uid="uid://dri7sx3heq1hb"]
 
 [ext_resource type="Script" uid="uid://dvyabp4woanbo" path="res://Scripts/Minigames/Pong/pong_game.gd" id="1_ai61e"]
 [ext_resource type="Script" uid="uid://bgdtn2y0tg7mm" path="res://Scripts/Minigames/Pong/Ball.gd" id="1_pbs05"]
+[ext_resource type="AudioStream" uid="uid://c6xkn3ohemgg6" path="res://Audio/Minigames/Pong/Score.wav" id="2_87cfh"]
 [ext_resource type="Script" uid="uid://bw4m1crorhn63" path="res://Scripts/Minigames/Pong/BasePlayer.gd" id="2_ai61e"]
+[ext_resource type="AudioStream" uid="uid://8qui57lp2cqr" path="res://Audio/Minigames/Pong/Ball_hit_1.wav" id="3_83dpr"]
 [ext_resource type="Script" uid="uid://dky27nwcr0mbf" path="res://Scripts/Minigames/Pong/Base_CPU.gd" id="3_nib1r"]
+[ext_resource type="AudioStream" uid="uid://n66chttfx270" path="res://Audio/Minigames/Pong/Ball_hit_2.wav" id="4_87cfh"]
+[ext_resource type="AudioStream" uid="uid://ba2tekn6sww1k" path="res://Audio/Minigames/Pong/Ball_hit_3.wav" id="5_cs7vw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipu61"]
 size = Vector2(40.0316, 1149.78)
@@ -20,6 +24,12 @@ glow_strength = 0.34
 glow_bloom = 0.18
 glow_blend_mode = 1
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_818rq"]
+streams_count = 3
+stream_0/stream = ExtResource("3_83dpr")
+stream_1/stream = ExtResource("4_87cfh")
+stream_2/stream = ExtResource("5_cs7vw")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72e8q"]
 size = Vector2(50, 652)
 
@@ -32,6 +42,10 @@ size = Vector2(3.43982, 151)
 [node name="MainGame" type="Node2D"]
 position = Vector2(580, 321)
 script = ExtResource("1_ai61e")
+
+[node name="scoreSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_87cfh")
+volume_db = -15.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -582.0
@@ -89,6 +103,11 @@ position = Vector2(0, 2)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Ball"]
 environment = SubResource("Environment_nqdth")
+
+[node name="HitSFX" type="AudioStreamPlayer" parent="Ball"]
+stream = SubResource("AudioStreamRandomizer_818rq")
+volume_db = -15.0
+bus = &"SFX"
 
 [node name="CPUscores" type="Area2D" parent="."]
 position = Vector2(616, 0)
@@ -174,8 +193,6 @@ metadata/_edit_use_anchors_ = true
 [node name="BallTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
-
-[node name="scoreSFX" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="CPUscores" to="." method="_on_cp_uscores_body_entered"]
 [connection signal="body_entered" from="PlayerScores" to="." method="_on_player_scores_body_entered"]
