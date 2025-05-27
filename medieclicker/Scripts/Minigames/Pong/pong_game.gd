@@ -7,6 +7,18 @@ extends Node2D
 var base_pong_score = 20
 	
 
+func _ready() -> void:
+	SignalManager.on_upgrade_hovered.connect(on_upgrade_hovered)
+	SignalManager.on_upgrade_unhovered.connect(on_upgrade_unhovered)
+
+func on_upgrade_hovered(upgrade : Upgrade):
+	SignalManager.on_pong_game_pasue.emit(true)
+	$BallTimer.paused = true
+	
+func on_upgrade_unhovered():
+	SignalManager.on_pong_game_pasue.emit(false)
+	
+	$BallTimer.paused = false
 
 
 	

@@ -10,12 +10,16 @@ var col = Color(23, 43 , 123)
 #@onready var sfx_wallBounce = $WallBounce
 
 @onready var hit_sfx: AudioStreamPlayer = $HitSFX
+var paused := false
 
 
 func _ready():
 	$BallRect.color = col
 	win_size = get_viewport_rect().size
-	
+	SignalManager.on_pong_game_pasue.connect(on_pong_game_pasue)
+
+func on_pong_game_pasue(_paused : bool):
+	paused = _paused
 
 func random_color():
 	$BallRect.color = Color(randf(),randf(),randf(),1)
@@ -32,7 +36,9 @@ func new_ball():
 	
 	
 func _physics_process(delta):
-
+	if paused:
+		return
+	
 	var collision = move_and_collide(dir * speed * delta)
 	var collider
 	if collision:

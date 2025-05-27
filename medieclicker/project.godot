@@ -23,6 +23,7 @@ NumberHelper="*res://Scripts/number_helper.gd"
 MedieManager="*res://Scripts/medie_manager.gd"
 UpgradesManager="*res://Scripts/Upgrades/upgrades_manager.gd"
 SavedData="*res://Scripts/saved_data.gd"
+Music="*res://Scenes/music.tscn"
 
 [display]
 

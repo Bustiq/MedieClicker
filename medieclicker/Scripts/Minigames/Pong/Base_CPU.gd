@@ -12,6 +12,8 @@ var p_height : int
 var isCpu = true
 var speed_mult = 1.0
 
+var paused := false
+
 func reset():
 	bouncePower = baseBouncePower
 
@@ -23,11 +25,20 @@ func _ready():
 
 	baseBouncePower = bouncePower
 	SignalManager.on_upgrade_purchased.connect(update_speed)
+	SignalManager.on_pong_game_pasue.connect(on_pong_game_pasue)
+
+func on_pong_game_pasue(_paused : bool):
+	paused = _paused
+
 
 func update_speed(upgrade : Upgrade):
 	speed_mult = UpgradesManager.get_pong_speed_bonus(false)
 
 func _process(delta):
+	if paused:
+		return
+	
+	
 	if isCpu:
 		ball_pos = $"../Ball".position
 		dist = position.y - ball_pos.y

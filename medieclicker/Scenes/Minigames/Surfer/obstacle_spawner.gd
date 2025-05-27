@@ -6,6 +6,13 @@ var last_obstacle = null
 
 func _ready() -> void:
 	SignalManager.on_surfer_death.connect(on_player_death)
+	SignalManager.on_surfer_game_pause.connect(on_surfer_game_pause)
+
+func on_surfer_game_pause(_paused :bool):
+	$Obstacle.paused = _paused
+	$SafeZone.paused = _paused
+	$Displacer.paused = _paused
+	$ResetTimer.paused = _paused
 
 func on_player_death():
 	destroy_board()

@@ -9,9 +9,9 @@ func _ready() -> void:
 	var automatic_stirrer = BuildingUpgrade.new(23, "Batidora Automática", "Cada rollo de cocina da +0.05 medies/s", $"../Control/Buildings/".get_child(0), 11, load("res://Sprites/Upgrades/4_Automatic_stirer.png"), 35, 0.05, 1)
 	
 	
-	#Para que hacer una clase nueva?
-	var options_unlock = ShowElement.new(34, "Desbloquear opciones", "¿Querés bajarle el volúmen bro?", 0.5, load("res://Sprites/Upgrades/options.png"), 1.5, $"../Settings")
-	var upgrade_count = ShowElement.new(35, "Mostrar progreso", "Te muestra la cantidad de mejoras compradas y totales (en la esquina)", 200, load("res://Sprites/Upgrades/progress.png"), 500,  $"../UpgradeCount")
+
+	var options_unlock = ShowElement.new(34, "Desbloquear opciones", "¿Querés bajarle el volúmen bro?", 0.5, load("res://Sprites/Upgrades/options.png"), 1.5, $"../Control/Settings")
+	var upgrade_count = ShowElement.new(35, "Mostrar progreso", "Te muestra la cantidad de mejoras compradas y totales (en la esquina)", 200, load("res://Sprites/Upgrades/progress.png"), 500,  $"../Control/UpgradeCount")
 	
 	var pong_unlock = MinigameUnlockUpgrade.new(3, "Desbloquear Pong", "Desbloquea el minijuego Pong (Se controla con la rueda del mouse)", ScoreType.type.PONG, 50, load("res://Sprites/pong_icon.png"), 35, $"../Control/PongViewportContainer/PongViewport", "res://Scenes/Minigames/Pong/pong_game.tscn")
 	var tetris_unlock = MinigameUnlockUpgrade.new(4, "Desbloquear Tetris", "Desbloquea el minijuego Tetris (Se controla con los botones del mouse, espacio, flecha hacia arriba y C)", ScoreType.type.TETRIS, 1500, load("res://Sprites/Upgrades/tetris.png"), 1250, $"../Control/TetrisViewportContainer/TetrisViewport", "res://Scenes/Minigames/Tetris/tetris_game.tscn")
@@ -64,6 +64,8 @@ func _ready() -> void:
 	var victory = Victory.new(22, "Trofeo", "Gracias por jugar! Agradecimientos especiales a Mateo Fernández por la música", ScoreType.type.OTHER, 5000, load("res://Sprites/Upgrades/medie_clicker.png"), 3500)
 	
 	
+	SignalManager.on_upgrade_created.emit(options_unlock)
+	SignalManager.on_upgrade_created.emit(upgrade_count)
 	
 	SignalManager.on_upgrade_created.emit(better_bread)
 	SignalManager.on_upgrade_created.emit(sesame_seeds)
@@ -99,8 +101,6 @@ func _ready() -> void:
 	SignalManager.on_upgrade_created.emit(rigged_matchmaking)
 	SignalManager.on_upgrade_created.emit(victory)
 	
-	SignalManager.on_upgrade_created.emit(options_unlock)
-	SignalManager.on_upgrade_created.emit(upgrade_count)
 	
 	
 	

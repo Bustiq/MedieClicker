@@ -8,6 +8,7 @@ var win_height : int
 var p_height : int
 
 var delt := 0.0
+var paused := false
 
 func _ready():
 	win_height = get_viewport_rect().size.y
@@ -15,11 +16,16 @@ func _ready():
 	baseSpeed = 3000
 	bouncePower = 300
 	start_bounce_power = bouncePower
-	pass
+	
+	SignalManager.on_pong_game_pasue.connect(on_pong_game_pasue)
+
+func on_pong_game_pasue(_paused : bool):
+	paused = _paused
 
 
 func _input(event: InputEvent) -> void:
-
+	if paused:
+		return
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:

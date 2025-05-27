@@ -3,12 +3,19 @@ extends Sprite2D
 var column = 0
 const RAIL_SEPARATION = 48
 var start_x_pos
+var paused := false
 
 func _ready() -> void:
 	start_x_pos = position.x
+	SignalManager.on_surfer_game_pause.connect(on_surfer_game_pause)
 
+func on_surfer_game_pause(_paused : bool):
+	paused = _paused
 
 func _input(event: InputEvent) -> void:
+	if paused:
+		return
+	
 	if event.is_action_pressed("Move_Left"):
 		if column > -1:
 			column -= 1

@@ -19,3 +19,6 @@ signal on_surfer_death()
 signal on_surfer_dodge(dodged_obstacle : Obstacle)
 signal on_tetris_line_cleared(cleared_lines : int)
 signal on_game_win()
+
+signal on_surfer_game_pause(paused : bool)
+signal on_pong_game_pasue(paused : bool)

@@ -17,7 +17,6 @@ func flip():
 		target = start_position
 	else:
 		target =  start_position + (Vector2(-distance, distance))
-	print(target)
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self, "position", target, 30)
