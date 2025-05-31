@@ -9,7 +9,7 @@ var surfer_dodge_count : int = 0
 var tetris_lines_cleared : int = 0
 
 
-const debug_mode = false
+const debug_mode = true
 
 func _ready() -> void:
 	SignalManager.on_purchase.connect(remove_medies)

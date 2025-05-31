@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://br8tannmvnsi0"]
+[gd_scene load_steps=5 format=3 uid="uid://br8tannmvnsi0"]
 
 [ext_resource type="PackedScene" uid="uid://cy6hp4qblby6o" path="res://Scenes/Minigames/Surfer/rail.tscn" id="1_adiv2"]
+[ext_resource type="Texture2D" uid="uid://bmt0iloav66oi" path="res://Sprites/Surfer/metal.png" id="2_amc0h"]
 
 [sub_resource type="GDScript" id="GDScript_gevv7"]
 script/source = "extends Node2D
@@ -73,5 +74,10 @@ collision_mask = 2048
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RailResetter"]
 position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_8rlry")
+
+[node name="Metal" type="Sprite2D" parent="."]
+position = Vector2(0, 242)
+scale = Vector2(1, 16.125)
+texture = ExtResource("2_amc0h")
 
 [connection signal="area_entered" from="RailResetter" to="." method="_on_rail_resetter_area_entered"]

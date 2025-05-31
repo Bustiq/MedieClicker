@@ -8,7 +8,16 @@ var building : Node
 
 
 func _init(_id : int, _upgrade_name : String, _description : String, _building : Node, _cost : float, _icon : Texture2D, _building_unlock_count : int, _flat_bonus : float = 0, _times_bonus : float = 1) -> void:
-	super(_id, _upgrade_name, _description, _building.score_type, _cost, _icon)
+	var building_text : String
+	if _building.score_type == ScoreType.type.BULDING_1:
+			building_text = "rollos de cocina"
+	else:
+		building_text = "parrillas"
+
+	
+	var unlock_desc = "Compra " + str(_building_unlock_count) + " " + building_text
+	
+	super(_id, _upgrade_name, _description, _building.score_type, _cost, _icon, unlock_desc)
 	self.flat_bonus = _flat_bonus
 	self.times_bonus = _times_bonus
 	self.building_unlock_count = _building_unlock_count

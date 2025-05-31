@@ -22,3 +22,6 @@ signal on_game_win()
 
 signal on_surfer_game_pause(paused : bool)
 signal on_pong_game_pasue(paused : bool)
+
+signal on_uicon_hover(upgrade : Upgrade)
+signal on_uicon_unhover(upgrade : Upgrade)

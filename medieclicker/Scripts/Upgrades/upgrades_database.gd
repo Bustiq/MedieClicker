@@ -11,11 +11,12 @@ func _ready() -> void:
 	
 
 	var options_unlock = ShowElement.new(34, "Desbloquear opciones", "¿Querés bajarle el volúmen bro?", 0.5, load("res://Sprites/Upgrades/options.png"), 1.5, $"../Control/Settings")
-	var upgrade_count = ShowElement.new(35, "Mostrar progreso", "Te muestra la cantidad de mejoras compradas y totales (en la esquina)", 200, load("res://Sprites/Upgrades/progress.png"), 500,  $"../Control/UpgradeCount")
+	var stats = ShowElement.new(36, "Estadísticas", "Te muestra estadísticas de la partida (en opciones)", 70, load("res://Sprites/Upgrades/stats.png"), 100, $"../Control/Settings/PauseBackground/Stats")
+	var info = ShowElement.new(35, "Info", "Te dice cómo desbloquear las mejoras faltantes (en opciones)", 200, load("res://Sprites/Upgrades/info.png"), 500, $"../Control/Settings/PauseBackground/UpgradesButtonTwo")
 	
-	var pong_unlock = MinigameUnlockUpgrade.new(3, "Desbloquear Pong", "Desbloquea el minijuego Pong (Se controla con la rueda del mouse)", ScoreType.type.PONG, 50, load("res://Sprites/pong_icon.png"), 35, $"../Control/PongViewportContainer/PongViewport", "res://Scenes/Minigames/Pong/pong_game.tscn")
-	var tetris_unlock = MinigameUnlockUpgrade.new(4, "Desbloquear Tetris", "Desbloquea el minijuego Tetris (Se controla con los botones del mouse, espacio, flecha hacia arriba y C)", ScoreType.type.TETRIS, 1500, load("res://Sprites/Upgrades/tetris.png"), 1250, $"../Control/TetrisViewportContainer/TetrisViewport", "res://Scenes/Minigames/Tetris/tetris_game.tscn")
-	var surfer_unlock = MinigameUnlockUpgrade.new(16, "Violación de copyright", "Desbloquea el minijuego Original (Se controla con click izquierdo y click derecho)", ScoreType.type.SURFER, 5, load("res://Sprites/Upgrades/copyright.png"), 4, $"../Control/SurferViewportContainer/SurferViewport", "res://Scenes/Minigames/Surfer/surfer_game.tscn")
+	var pong_unlock = MinigameUnlockUpgrade.new(3, "Desbloquear Pong", "Desbloquea el minijuego Pong (Se controla con la rueda del mouse)", ScoreType.type.PONG, 50, load("res://Sprites/pong_icon.png"), 35, $"../Control/PongViewportContainer/PongViewport", "res://Scenes/Minigames/Pong/pong_game.tscn", [$"../Control/Settings/PauseBackground/Stats/PongGoals", $"../Control/Settings/PauseBackground/Stats/PongBounces"])
+	var tetris_unlock = MinigameUnlockUpgrade.new(4, "Desbloquear Tetris", "Desbloquea el minijuego Tetris (Se controla con los botones del mouse, espacio, flecha hacia arriba y C)", ScoreType.type.TETRIS, 1500, load("res://Sprites/Upgrades/tetris.png"), 1250, $"../Control/TetrisViewportContainer/TetrisViewport", "res://Scenes/Minigames/Tetris/tetris_game.tscn", [$"../Control/Settings/PauseBackground/Stats/Lines"])
+	var surfer_unlock = MinigameUnlockUpgrade.new(16, "Violación de copyright", "Desbloquea el minijuego Original (Se controla con click izquierdo y click derecho)", ScoreType.type.SURFER, 5, load("res://Sprites/Upgrades/copyright.png"), 4, $"../Control/SurferViewportContainer/SurferViewport", "res://Scenes/Minigames/Surfer/surfer_game.tscn", [$"../Control/Settings/PauseBackground/Stats/Dodges"])
 
 	
 	
@@ -65,18 +66,9 @@ func _ready() -> void:
 	
 	
 	SignalManager.on_upgrade_created.emit(options_unlock)
-	SignalManager.on_upgrade_created.emit(upgrade_count)
+	SignalManager.on_upgrade_created.emit(stats)
+	SignalManager.on_upgrade_created.emit(info)
 	
-	SignalManager.on_upgrade_created.emit(better_bread)
-	SignalManager.on_upgrade_created.emit(sesame_seeds)
-	SignalManager.on_upgrade_created.emit(thicker_flour)
-	SignalManager.on_upgrade_created.emit(automatic_stirrer)
-	SignalManager.on_upgrade_created.emit(pong_unlock)
-	SignalManager.on_upgrade_created.emit(tetris_unlock)
-	SignalManager.on_upgrade_created.emit(surfer_unlock)
-	SignalManager.on_upgrade_created.emit(golazos)
-	SignalManager.on_upgrade_created.emit(sprinklers)
-	SignalManager.on_upgrade_created.emit(red_card)
 	SignalManager.on_upgrade_created.emit(pointer)
 	SignalManager.on_upgrade_created.emit(linked_list)
 	SignalManager.on_upgrade_created.emit(binary_tree)
@@ -84,23 +76,38 @@ func _ready() -> void:
 	SignalManager.on_upgrade_created.emit(stack)
 	SignalManager.on_upgrade_created.emit(round_robin)
 	SignalManager.on_upgrade_created.emit(raid_4)
-	SignalManager.on_upgrade_created.emit(watch_ads)
-	SignalManager.on_upgrade_created.emit(daily_login)
-	SignalManager.on_upgrade_created.emit(energy_system)
-	SignalManager.on_upgrade_created.emit(experience_with_cubes)
-	SignalManager.on_upgrade_created.emit(washing_machine)
 	SignalManager.on_upgrade_created.emit(pencil_sharpener)
 	SignalManager.on_upgrade_created.emit(punta_de_espalda)
 	SignalManager.on_upgrade_created.emit(punta_cana)
+	
+	SignalManager.on_upgrade_created.emit(better_bread)
+	SignalManager.on_upgrade_created.emit(sesame_seeds)
+	SignalManager.on_upgrade_created.emit(thicker_flour)
+	SignalManager.on_upgrade_created.emit(automatic_stirrer)
+	
 	SignalManager.on_upgrade_created.emit(fosforos)
 	SignalManager.on_upgrade_created.emit(encendedor)
 	SignalManager.on_upgrade_created.emit(fogata)
+	
+	SignalManager.on_upgrade_created.emit(surfer_unlock)
+	SignalManager.on_upgrade_created.emit(watch_ads)
+	SignalManager.on_upgrade_created.emit(daily_login)
+	SignalManager.on_upgrade_created.emit(energy_system)
 	SignalManager.on_upgrade_created.emit(microtransaccions)
 	SignalManager.on_upgrade_created.emit(lootbox)
 	SignalManager.on_upgrade_created.emit(multiple_currencies)
 	SignalManager.on_upgrade_created.emit(rigged_matchmaking)
-	SignalManager.on_upgrade_created.emit(victory)
 	
+	SignalManager.on_upgrade_created.emit(pong_unlock)
+	SignalManager.on_upgrade_created.emit(sprinklers)
+	SignalManager.on_upgrade_created.emit(red_card)
+	SignalManager.on_upgrade_created.emit(golazos)
+	
+	SignalManager.on_upgrade_created.emit(tetris_unlock)
+	SignalManager.on_upgrade_created.emit(experience_with_cubes)
+	SignalManager.on_upgrade_created.emit(washing_machine)
+	
+	SignalManager.on_upgrade_created.emit(victory)
 	
 	
 	

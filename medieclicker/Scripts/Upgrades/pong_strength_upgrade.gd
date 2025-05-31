@@ -1,2 +1,0 @@
-extends Upgrade
-class_name PongStrengthUpgrade
