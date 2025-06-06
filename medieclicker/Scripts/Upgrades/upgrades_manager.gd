@@ -58,7 +58,7 @@ func create_upgrade(upgrade : Upgrade):
 				get_parent().call("La id "  + str(upgrade.id) + " está ocupada por " + upgrade.upgrade_name + " y " + element.upgrade_name)
 	add_upgrade(locked_upgrades, upgrade)
 	total_upgrade_count += 1
-	unlock_upgrade(upgrade)
+	#unlock_upgrade(upgrade)
 
 
 
