@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4bvlod5san3y"]
+[gd_scene load_steps=6 format=3 uid="uid://b4bvlod5san3y"]
 
 [ext_resource type="AudioStream" uid="uid://dr11dnjyfgmr" path="res://Audio/Medie_Clicker.mp3" id="1_476t3"]
+[ext_resource type="Script" uid="uid://c8ugo7v2rgbs2" path="res://Scripts/music.gd" id="1_vi5kw"]
 [ext_resource type="AudioStream" uid="uid://brfqqm5eiwnf7" path="res://Audio/Mediebuburger.mp3" id="2_vi5kw"]
 [ext_resource type="AudioStream" uid="uid://c06tq8gxb71p3" path="res://Audio/poliquiz.mp3" id="3_timup"]
 
@@ -13,7 +14,8 @@ stream_2 = ExtResource("3_timup")
 
 [node name="Music" type="AudioStreamPlayer"]
 process_mode = 3
-stream = SubResource("AudioStreamPlaylist_yb6rt")
 volume_db = -7.0
 autoplay = true
 bus = &"Music"
+script = ExtResource("1_vi5kw")
+_playlist = SubResource("AudioStreamPlaylist_yb6rt")

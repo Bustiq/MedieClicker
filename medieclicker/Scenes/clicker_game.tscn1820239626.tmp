@@ -1,0 +1,610 @@
+[gd_scene load_steps=33 format=3 uid="uid://cglbsmcu0s23l"]
+
+[ext_resource type="PackedScene" uid="uid://dcj46xak61r0c" path="res://Scenes/building.tscn" id="1_5o60w"]
+[ext_resource type="PackedScene" uid="uid://b83i2fvfnm7ak" path="res://Scenes/background_tiles.tscn" id="1_yb6rt"]
+[ext_resource type="Texture2D" uid="uid://cmlvkwx50ayou" path="res://Sprites/upgrade_frame.png" id="2_53itc"]
+[ext_resource type="Texture2D" uid="uid://bvjcxkqxweqo8" path="res://Sprites/Buildings/Rolling_pin.png" id="2_vuo2g"]
+[ext_resource type="Script" uid="uid://btmu7cgd5xh1q" path="res://Scenes/upgrade_description.gd" id="3_g4vk3"]
+[ext_resource type="Texture2D" uid="uid://2pxf2smbvaj5" path="res://Sprites/Upgrades/options.png" id="3_pl1c4"]
+[ext_resource type="Script" uid="uid://b31kxl7v1gkn6" path="res://Scenes/upgrades_shop.gd" id="4_b8n2d"]
+[ext_resource type="Texture2D" uid="uid://bclqkxkdbl4lf" path="res://Sprites/Buildings/Grill.png" id="4_fcd1n"]
+[ext_resource type="Script" uid="uid://c8rw76d55k3qc" path="res://Scripts/Upgrades/upgrade_name_text.gd" id="4_g4vk3"]
+[ext_resource type="Script" uid="uid://biywq8ri0i2vo" path="res://Scripts/medies_per_click_text.gd" id="5_b8n2d"]
+[ext_resource type="Script" uid="uid://bqly3mjrf7fwd" path="res://Scripts/medie_counter.gd" id="5_vr2cw"]
+[ext_resource type="Texture2D" uid="uid://dt8nqujhnylju" path="res://Sprites/medieburger.png" id="6_if477"]
+[ext_resource type="Script" uid="uid://7l43tisxm68p" path="res://Scripts/medieboton.gd" id="7_xqrkd"]
+[ext_resource type="Script" uid="uid://bfi3xq5boyyqx" path="res://Scripts/parent_clicked_resizer.gd" id="8_ehdw1"]
+[ext_resource type="Script" uid="uid://d0x8320kgtf03" path="res://Scenes/sub_viewport_container.gd" id="9_vuo2g"]
+[ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database.gd" id="10_ixsql"]
+[ext_resource type="Script" uid="uid://6l21jigf5kld" path="res://Scripts/Minigames/pong_goal_medie_shower.gd" id="10_vuo2g"]
+[ext_resource type="Script" uid="uid://urkbfguwao7k" path="res://Scenes/tetris_viewport_container.gd" id="13_onfoh"]
+[ext_resource type="Script" uid="uid://b5xwekfv2ib0g" path="res://Scripts/Minigames/Surfer/surfer_viewport_container.gd" id="13_vr2cw"]
+[ext_resource type="Script" uid="uid://bhvc4ac66r45h" path="res://Scripts/Minigames/Surfer/surfer_dodge_medies.gd" id="14_owejv"]
+[ext_resource type="Script" uid="uid://b1rbqdme0mbdw" path="res://Scenes/tetris_line_medies.gd" id="15_ixsql"]
+[ext_resource type="Script" uid="uid://bkwv2vaqwb70c" path="res://pause.gd" id="22_hfcr4"]
+[ext_resource type="Texture2D" uid="uid://b6xw6tf8wkvyf" path="res://icon.svg" id="22_obfl7"]
+[ext_resource type="Script" uid="uid://ckyqgf028t628" path="res://Scripts/stats_shower.gd" id="24_tvqxp"]
+[ext_resource type="Script" uid="uid://dds8jfopwcw2h" path="res://Scripts/upgrades_count_shower.gd" id="26_cwjvc"]
+[ext_resource type="PackedScene" uid="uid://b4bvlod5san3y" path="res://Scenes/music.tscn" id="26_mj8sh"]
+[ext_resource type="Script" uid="uid://c8ugo7v2rgbs2" path="res://Scripts/music.gd" id="27_mj8sh"]
+[ext_resource type="AudioStream" uid="uid://dr11dnjyfgmr" path="res://Audio/Medie_Clicker.mp3" id="28_6vimb"]
+[ext_resource type="AudioStream" uid="uid://brfqqm5eiwnf7" path="res://Audio/Mediebuburger.mp3" id="29_vruug"]
+[ext_resource type="AudioStream" uid="uid://c06tq8gxb71p3" path="res://Audio/poliquiz.mp3" id="30_8m4e6"]
+
+[sub_resource type="GDScript" id="GDScript_v158k"]
+script/source = "extends Node2D
+
+var mpc : float = 0.01
+var buildings := []
+
+const debug_mode = false
+
+func _ready() -> void:
+	SignalManager.on_medie_clicked.connect(on_click)
+	SignalManager.on_game_save.connect(save_building_counts)
+	SignalManager.on_game_load.connect(set_saved_building_counts)
+	buildings = $Control/Buildings.get_children()
+
+
+func save_building_counts():
+	var counts := []
+	for building in buildings:
+		counts.append(building.building_count)
+	SavedData.purchased_buildings = counts
+
+func set_saved_building_counts(save : Save):
+	for index in save.purchased_buildings.size() - 1:
+		buildings[index].set_building_count(save.purchased_buildings[index])
+
+func on_click():
+	SignalManager.on_medie_gain.emit(get_clicked_medies_with_bonus())
+
+
+
+
+func get_clicked_medies_with_bonus():
+	return mpc + UpgradesManager.get_additive_bonus(ScoreType.type.CLICK)
+
+
+
+func _on_timer_timeout() -> void:
+	var total = 0.0
+	for building in buildings:
+		if building.get_building_increase() != 0:
+			#add_medies(get_medies_with_bonus(building.get_building_increase(), building.score_type))
+			total += building.get_building_increase()
+	if total != 0:
+		SignalManager.on_medie_gain.emit(total)
+"
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yb6rt"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("28_6vimb")
+stream_1 = ExtResource("29_vruug")
+stream_2 = ExtResource("30_8m4e6")
+
+[node name="ClickerGame" type="Node2D"]
+script = SubResource("GDScript_v158k")
+
+[node name="SlidingBackground" parent="." instance=ExtResource("1_yb6rt")]
+position = Vector2(1401, -1204)
+scale = Vector2(3.865, 3.865)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 649.0
+mouse_filter = 1
+
+[node name="Buildings" type="Control" parent="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -74.0
+offset_top = -119.0
+offset_right = -74.0
+offset_bottom = -119.0
+
+[node name="RollingPins" parent="Control/Buildings" instance=ExtResource("1_5o60w")]
+offset_left = 160.0
+offset_top = 220.0
+offset_right = 160.0
+offset_bottom = 220.0
+start_price = 0.1
+price_increase_mult = 1.2
+building_name = "Balala"
+increase = 0.005
+score_type = 1
+icon = ExtResource("2_vuo2g")
+
+[node name="Building2" parent="Control/Buildings" instance=ExtResource("1_5o60w")]
+offset_left = 159.0
+offset_top = 375.0
+offset_right = 159.0
+offset_bottom = 375.0
+start_price = 100.0
+price_increase_mult = 1.2
+building_id = 1
+building_name = "Dos"
+increase = 2.5
+score_type = 2
+icon = ExtResource("4_fcd1n")
+
+[node name="UpgradeDescription" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -439.0
+offset_top = 59.0
+offset_right = -9.0
+offset_bottom = 111.0
+grow_horizontal = 0
+text = "Descripción"
+autowrap_mode = 3
+script = ExtResource("3_g4vk3")
+
+[node name="UpgradeName" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -467.0
+offset_top = 7.0
+offset_right = -15.0
+offset_bottom = 62.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 35
+text = "Nombre"
+autowrap_mode = 3
+script = ExtResource("4_g4vk3")
+
+[node name="MediesPerClick" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -716.0
+offset_top = 431.0
+offset_right = -485.0
+offset_bottom = 470.0
+grow_horizontal = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_b8n2d")
+
+[node name="UpgradesShop" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -147.0
+offset_right = -245.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 35
+columns = 4
+script = ExtResource("4_b8n2d")
+
+[node name="MedieCounter" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 456.0
+offset_right = 706.0
+offset_bottom = 625.0
+theme_override_font_sizes/font_size = 60
+text = "0
+"
+horizontal_alignment = 1
+script = ExtResource("5_vr2cw")
+
+[node name="Medie" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1003.0
+offset_top = -854.0
+offset_right = 1005.0
+offset_bottom = 567.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(975, 850)
+button_mask = 3
+texture_normal = ExtResource("6_if477")
+script = ExtResource("7_xqrkd")
+
+[node name="Control" type="Control" parent="Control/Medie"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_ehdw1")
+IDLE_SCALE = 0.15
+CLICKED_SCALE = 0.18
+
+[node name="PongViewportContainer" type="SubViewportContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 415.0
+offset_top = 5.0
+offset_right = 1572.0
+offset_bottom = 657.0
+scale = Vector2(0.225, 0.225)
+mouse_filter = 2
+stretch = true
+script = ExtResource("9_vuo2g")
+
+[node name="PongViewport" type="SubViewport" parent="Control/PongViewportContainer"]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(1157, 652)
+render_target_update_mode = 0
+
+[node name="TetrisViewportContainer" type="SubViewportContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 830.0
+offset_top = 418.0
+offset_right = 2001.0
+offset_bottom = 1207.0
+scale = Vector2(0.21, 0.21)
+mouse_filter = 2
+stretch = true
+script = ExtResource("13_onfoh")
+
+[node name="TetrisViewport" type="SubViewport" parent="Control/TetrisViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1171, 789)
+render_target_update_mode = 0
+
+[node name="SurferViewportContainer" type="SubViewportContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 118.0
+offset_top = 403.0
+offset_right = 1289.0
+offset_bottom = 1192.0
+scale = Vector2(0.21, 0.21)
+mouse_filter = 2
+stretch = true
+script = ExtResource("13_vr2cw")
+
+[node name="SurferViewport" type="SubViewport" parent="Control/SurferViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1171, 789)
+render_target_update_mode = 0
+
+[node name="PongGoalMedieShower" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 437.0
+offset_top = 149.0
+offset_right = 637.0
+offset_bottom = 172.0
+text = "Medies/gol: 0"
+script = ExtResource("10_vuo2g")
+
+[node name="SurferDodgeMedies" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 570.0
+offset_right = 208.0
+offset_bottom = 593.0
+script = ExtResource("14_owejv")
+
+[node name="TetrisLineMedies" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 948.0
+offset_top = 596.0
+offset_right = 1077.0
+offset_bottom = 619.0
+text = "medies por linea"
+script = ExtResource("15_ixsql")
+
+[node name="UpgradeCount" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 620.0
+offset_right = 45.0
+offset_bottom = 643.0
+script = ExtResource("26_cwjvc")
+background_color = Color(0, 0.470588, 0, 1)
+tiles_color = Color(0, 0.32549, 0, 1)
+
+[node name="Settings" type="TextureRect" parent="Control"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.431373)
+layout_mode = 0
+offset_left = 1106.0
+offset_top = 4.0
+offset_right = 1146.0
+offset_bottom = 44.0
+texture = ExtResource("2_53itc")
+
+[node name="Icon" type="TextureButton" parent="Control/Settings"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_pl1c4")
+stretch_mode = 0
+script = ExtResource("22_hfcr4")
+
+[node name="PauseBackground" type="TextureRect" parent="Control/Settings"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.847059)
+layout_mode = 0
+offset_left = -1148.0
+offset_top = -75.0
+offset_right = 91.0
+offset_bottom = 718.0
+texture = ExtResource("22_obfl7")
+
+[node name="Text" type="Label" parent="Control/Settings/PauseBackground"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 113.0
+offset_right = 947.0
+offset_bottom = 259.0
+theme_override_font_sizes/font_size = 106
+text = "Medie Pausa"
+
+[node name="Master" type="Label" parent="Control/Settings/PauseBackground"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 250.0
+offset_right = 378.0
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 31
+text = "Master"
+horizontal_alignment = 1
+
+[node name="Music" type="Label" parent="Control/Settings/PauseBackground"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 250.0
+offset_right = 663.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 31
+text = "Música"
+horizontal_alignment = 1
+
+[node name="SFX" type="Label" parent="Control/Settings/PauseBackground"]
+layout_mode = 0
+offset_left = 811.0
+offset_top = 254.0
+offset_right = 1001.0
+offset_bottom = 298.0
+theme_override_font_sizes/font_size = 31
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="Unpause" type="Button" parent="Control/Settings/PauseBackground"]
+process_mode = 3
+layout_mode = 0
+offset_left = 493.0
+offset_top = 644.0
+offset_right = 696.0
+offset_bottom = 702.0
+theme_override_font_sizes/font_size = 36
+text = "Continuar"
+expand_icon = true
+
+[node name="MasterSlider" type="HSlider" parent="Control/Settings/PauseBackground"]
+process_mode = 3
+layout_mode = 0
+offset_left = 197.0
+offset_top = 302.0
+offset_right = 377.0
+offset_bottom = 318.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="MusicSlider" type="HSlider" parent="Control/Settings/PauseBackground"]
+process_mode = 3
+layout_mode = 0
+offset_left = 505.0
+offset_top = 302.0
+offset_right = 685.0
+offset_bottom = 318.0
+max_value = 1.0
+step = 0.001
+value = 0.75
+
+[node name="SFXSlider" type="HSlider" parent="Control/Settings/PauseBackground"]
+process_mode = 3
+layout_mode = 0
+offset_left = 840.0
+offset_top = 302.0
+offset_right = 1020.0
+offset_bottom = 318.0
+max_value = 1.0
+step = 0.001
+value = 0.75
+
+[node name="Stats" type="Control" parent="Control/Settings/PauseBackground"]
+visible = false
+anchors_preset = 0
+offset_left = 497.0
+offset_top = 382.0
+offset_right = 537.0
+offset_bottom = 422.0
+script = ExtResource("24_tvqxp")
+
+[node name="MedieTotal" type="Label" parent="Control/Settings/PauseBackground/Stats"]
+layout_mode = 2
+offset_left = -301.0
+offset_top = -1.0
+offset_right = 85.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 26
+text = "Medies totales: 156000"
+
+[node name="ClickCount" type="Label" parent="Control/Settings/PauseBackground/Stats"]
+layout_mode = 2
+offset_left = -301.0
+offset_top = 39.0
+offset_right = 85.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 26
+text = "Medie Clicks: "
+
+[node name="Dodges" type="Label" parent="Control/Settings/PauseBackground/Stats"]
+visible = false
+layout_mode = 2
+offset_left = -301.0
+offset_top = 79.0
+offset_right = 85.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 26
+text = "Esquives: "
+
+[node name="PongGoals" type="Label" parent="Control/Settings/PauseBackground/Stats"]
+visible = false
+layout_mode = 2
+offset_left = -301.0
+offset_top = 119.0
+offset_right = 85.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 26
+text = "Pong goles:"
+
+[node name="PongBounces" type="Label" parent="Control/Settings/PauseBackground/Stats"]
+visible = false
+layout_mode = 2
+offset_left = -301.0
+offset_top = 159.0
+offset_right = 85.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 26
+text = "Pong rebotes: "
+
+[node name="Lines" type="Label" parent="Control/Settings/PauseBackground/Stats"]
+visible = false
+layout_mode = 2
+offset_left = -301.0
+offset_top = 199.0
+offset_right = 85.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 26
+text = "Tetris Líneas: "
+
+[node name="UpgradesButtonTwo" type="Button" parent="Control/Settings/PauseBackground"]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_left = 854.0
+offset_top = 486.0
+offset_right = 1070.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 36
+text = "Ver Mejoras"
+expand_icon = true
+
+[node name="UpgradesBackground" type="TextureRect" parent="Control/Settings/PauseBackground"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -24.0
+offset_top = -12.0
+offset_right = 1229.0
+offset_bottom = 786.0
+texture = ExtResource("22_obfl7")
+
+[node name="BackButtonTwo" type="Button" parent="Control/Settings/PauseBackground/UpgradesBackground"]
+process_mode = 3
+layout_mode = 0
+offset_left = 521.0
+offset_top = 644.0
+offset_right = 737.0
+offset_bottom = 702.0
+theme_override_font_sizes/font_size = 36
+text = "Atrás
+"
+expand_icon = true
+
+[node name="Upgrades" type="GridContainer" parent="Control/Settings/PauseBackground/UpgradesBackground"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 125.0
+offset_right = 417.0
+offset_bottom = 200.0
+scale = Vector2(3.455, 3.455)
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 12
+
+[node name="UnlockCondition" type="Label" parent="Control/Settings/PauseBackground/UpgradesBackground"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 515.0
+offset_right = 473.0
+offset_bottom = 559.0
+theme_override_font_sizes/font_size = 31
+text = "Condición de desbloqueo:"
+
+[node name="Name" type="Label" parent="Control/Settings/PauseBackground/UpgradesBackground"]
+layout_mode = 0
+offset_left = 791.0
+offset_top = 519.0
+offset_right = 1177.0
+offset_bottom = 563.0
+theme_override_font_sizes/font_size = 31
+text = "???"
+
+[node name="Effect" type="Label" parent="Control/Settings/PauseBackground/UpgradesBackground"]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 595.0
+offset_right = 1210.0
+offset_bottom = 724.0
+theme_override_font_sizes/font_size = 21
+text = "???"
+autowrap_mode = 2
+
+[node name="UnlockDescription" type="Label" parent="Control/Settings/PauseBackground/UpgradesBackground"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 591.0
+offset_right = 475.0
+offset_bottom = 711.0
+theme_override_font_sizes/font_size = 21
+text = "???"
+autowrap_mode = 2
+
+[node name="UpgradesDatabase" type="Node" parent="."]
+script = ExtResource("10_ixsql")
+
+[node name="Music" parent="." instance=ExtResource("26_mj8sh")]
+stream = null
+script = ExtResource("27_mj8sh")
+_playlist = SubResource("AudioStreamPlaylist_yb6rt")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Control/Medie" to="Control/Medie" method="_on_pressed"]
+[connection signal="child_entered_tree" from="Control/PongViewportContainer/PongViewport" to="Control/PongGoalMedieShower" method="_on_pong_viewport_child_entered_tree"]
+[connection signal="child_entered_tree" from="Control/TetrisViewportContainer/TetrisViewport" to="Control/TetrisLineMedies" method="_on_tetris_viewport_child_entered_tree"]
+[connection signal="child_entered_tree" from="Control/SurferViewportContainer/SurferViewport" to="Control/SurferDodgeMedies" method="_on_surfer_viewport_child_entered_tree"]
+[connection signal="pressed" from="Control/Settings/Icon" to="Control/Settings/Icon" method="_on_pressed"]
+[connection signal="pressed" from="Control/Settings/PauseBackground/Unpause" to="Control/Settings/Icon" method="_on_unpause_pressed"]
+[connection signal="value_changed" from="Control/Settings/PauseBackground/MasterSlider" to="Control/Settings/Icon" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Control/Settings/PauseBackground/MusicSlider" to="Control/Settings/Icon" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Control/Settings/PauseBackground/SFXSlider" to="Control/Settings/Icon" method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="Control/Settings/PauseBackground/UpgradesButtonTwo" to="Control/Settings/Icon" method="_on_upgrades_button_two_pressed"]
+[connection signal="pressed" from="Control/Settings/PauseBackground/UpgradesBackground/BackButtonTwo" to="Control/Settings/Icon" method="_on_back_button_two_pressed"]
