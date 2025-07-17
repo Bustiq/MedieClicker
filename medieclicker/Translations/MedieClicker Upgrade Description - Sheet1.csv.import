@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ll8d22kbafdj"
+
+[deps]
+
+files=["res://Translations/MedieClicker Upgrade Description - Sheet1.es.translation", "res://Translations/MedieClicker Upgrade Description - Sheet1.en.translation"]
+
+source_file="res://Translations/MedieClicker Upgrade Description - Sheet1.csv"
+dest_files=["res://Translations/MedieClicker Upgrade Description - Sheet1.es.translation", "res://Translations/MedieClicker Upgrade Description - Sheet1.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

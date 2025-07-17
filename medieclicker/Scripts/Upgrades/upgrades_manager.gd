@@ -110,7 +110,7 @@ func on_medie_count_changed(_useless_but_needed_param : float):
 
 		for upgrade in locked_upgrades[upgradeType]:
 			#Solo los minigame unlock upgrades hacen algo cuando se agarran medies
-			if  not upgrade is MinigameUnlockUpgrade:
+			if  not (upgrade is MinigameUnlockUpgrade or upgrade is ShowElement or upgrade is Victory):
 				continue
 		
 			#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))

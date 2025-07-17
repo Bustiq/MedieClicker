@@ -9,4 +9,4 @@ func reset_text():
 	text = ""
 
 func update_text(upgrade : Upgrade):
-	text = upgrade.upgrade_name
+	text = tr(upgrade.upgrade_name)

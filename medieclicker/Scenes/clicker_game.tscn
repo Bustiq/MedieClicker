@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cglbsmcu0s23l"]
+[gd_scene load_steps=28 format=3 uid="uid://cglbsmcu0s23l"]
 
 [ext_resource type="PackedScene" uid="uid://dcj46xak61r0c" path="res://Scenes/building.tscn" id="1_5o60w"]
 [ext_resource type="PackedScene" uid="uid://b83i2fvfnm7ak" path="res://Scenes/background_tiles.tscn" id="1_yb6rt"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://b6xw6tf8wkvyf" path="res://icon.svg" id="22_obfl7"]
 [ext_resource type="Script" uid="uid://ckyqgf028t628" path="res://Scripts/stats_shower.gd" id="24_tvqxp"]
 [ext_resource type="Script" uid="uid://dds8jfopwcw2h" path="res://Scripts/upgrades_count_shower.gd" id="26_cwjvc"]
+[ext_resource type="Script" uid="uid://bloex7vrt6i1n" path="res://Scenes/debug_window.gd" id="26_mj8sh"]
 
 [sub_resource type="GDScript" id="GDScript_v158k"]
 script/source = "extends Node2D
@@ -315,6 +316,141 @@ script = ExtResource("26_cwjvc")
 background_color = Color(0, 0.470588, 0, 1)
 tiles_color = Color(0, 0.32549, 0, 1)
 
+[node name="Debug" type="TextureRect" parent="Control"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 14.0
+offset_right = 400.0
+offset_bottom = 441.0
+texture = ExtResource("22_obfl7")
+script = ExtResource("26_mj8sh")
+
+[node name="Times100" type="CheckBox" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 19.0
+offset_right = 104.0
+offset_bottom = 75.0
+text = "x 100"
+
+[node name="Times1000" type="CheckBox" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 20.0
+offset_right = 188.0
+offset_bottom = 76.0
+text = "x 1000"
+
+[node name="MediesInput" type="LineEdit" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 75.0
+offset_right = 124.0
+offset_bottom = 106.0
+
+[node name="PlusMedies" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 118.0
+offset_right = 72.0
+offset_bottom = 148.0
+text = "+"
+
+[node name="SetMedies" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 117.0
+offset_right = 121.0
+offset_bottom = 148.0
+text = "="
+
+[node name="PlusALot" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 80.0
+offset_right = 268.0
+offset_bottom = 111.0
+text = "+ 10000"
+
+[node name="PauseMinigames" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 164.0
+offset_right = 346.0
+offset_bottom = 195.0
+text = "Pause Minigames"
+
+[node name="UnpauseMinigames" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 199.0
+offset_right = 369.0
+offset_bottom = 230.0
+text = "Unpause Minigames"
+
+[node name="Unlock" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 161.0
+offset_right = 182.0
+offset_bottom = 192.0
+text = "unlock upgrade"
+
+[node name="UnlockAll" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 197.0
+offset_right = 180.0
+offset_bottom = 228.0
+text = "unlock all
+"
+
+[node name="PlusDodges" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 243.0
+offset_right = 189.0
+offset_bottom = 274.0
+text = "+ dodges
+"
+
+[node name="PlusBounces" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 279.0
+offset_right = 184.0
+offset_bottom = 310.0
+text = "+ bounces
+"
+
+[node name="PlusGoals" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 280.0
+offset_right = 343.0
+offset_bottom = 311.0
+text = "+ goals
+"
+
+[node name="Spanish" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 363.0
+offset_right = 200.0
+offset_bottom = 394.0
+text = "español
+"
+
+[node name="English" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 365.0
+offset_right = 350.0
+offset_bottom = 396.0
+text = "english
+"
+
 [node name="Settings" type="TextureRect" parent="Control"]
 visible = false
 self_modulate = Color(0, 0, 0, 0.431373)
@@ -584,6 +720,20 @@ script = ExtResource("10_ixsql")
 [connection signal="child_entered_tree" from="Control/PongViewportContainer/PongViewport" to="Control/PongGoalMedieShower" method="_on_pong_viewport_child_entered_tree"]
 [connection signal="child_entered_tree" from="Control/TetrisViewportContainer/TetrisViewport" to="Control/TetrisLineMedies" method="_on_tetris_viewport_child_entered_tree"]
 [connection signal="child_entered_tree" from="Control/SurferViewportContainer/SurferViewport" to="Control/SurferDodgeMedies" method="_on_surfer_viewport_child_entered_tree"]
+[connection signal="toggled" from="Control/Debug/Times100" to="Control/Debug" method="_on_times_100_toggled"]
+[connection signal="toggled" from="Control/Debug/Times1000" to="Control/Debug" method="_on_times_1000_toggled"]
+[connection signal="pressed" from="Control/Debug/PlusMedies" to="Control/Debug" method="_on_plus_medies_pressed"]
+[connection signal="pressed" from="Control/Debug/SetMedies" to="Control/Debug" method="_on_set_medies_pressed"]
+[connection signal="pressed" from="Control/Debug/PlusALot" to="Control/Debug" method="_on_plus_a_lot_pressed"]
+[connection signal="pressed" from="Control/Debug/PauseMinigames" to="Control/Debug" method="_on_pause_minigames_pressed"]
+[connection signal="pressed" from="Control/Debug/UnpauseMinigames" to="Control/Debug" method="_on_unpause_minigames_pressed"]
+[connection signal="pressed" from="Control/Debug/Unlock" to="Control/Debug" method="_on_unlock_pressed"]
+[connection signal="pressed" from="Control/Debug/UnlockAll" to="Control/Debug" method="_on_unlock_all_pressed"]
+[connection signal="pressed" from="Control/Debug/PlusDodges" to="Control/Debug" method="_on_plus_dodges_pressed"]
+[connection signal="pressed" from="Control/Debug/PlusBounces" to="Control/Debug" method="_on_plus_bounces_pressed"]
+[connection signal="pressed" from="Control/Debug/PlusGoals" to="Control/Debug" method="_on_plus_goals_pressed"]
+[connection signal="pressed" from="Control/Debug/Spanish" to="Control/Debug" method="_on_spanish_pressed"]
+[connection signal="pressed" from="Control/Debug/English" to="Control/Debug" method="_on_english_pressed"]
 [connection signal="pressed" from="Control/Settings/Icon" to="Control/Settings/Icon" method="_on_pressed"]
 [connection signal="pressed" from="Control/Settings/PauseBackground/Unpause" to="Control/Settings/Icon" method="_on_unpause_pressed"]
 [connection signal="value_changed" from="Control/Settings/PauseBackground/MasterSlider" to="Control/Settings/Icon" method="_on_master_slider_value_changed"]

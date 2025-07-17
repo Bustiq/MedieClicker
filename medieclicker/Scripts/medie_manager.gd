@@ -8,6 +8,9 @@ var click_count : int = 0
 var surfer_dodge_count : int = 0
 var tetris_lines_cleared : int = 0
 
+var times_100 := false
+var times_1000 := false
+
 
 const debug_mode = true
 
@@ -66,9 +69,9 @@ func remove_medies(count : float):
 
 func add_medies(count : float):
 	if debug_mode:
-		if Input.is_action_pressed("Times_100"):
+		if times_100:
 			count *= 100
-		if Input.is_action_pressed("Times_1000"):
+		if times_1000:
 			count *= 1000
 	medieCount += count
 	total_medie_count += count
