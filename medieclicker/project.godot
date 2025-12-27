@@ -25,6 +25,7 @@ UpgradesManager="*res://Scripts/Upgrades/upgrades_manager.gd"
 SavedData="*res://Scripts/saved_data.gd"
 Music="*res://Scenes/music.tscn"
 ProducerManager="*res://Scripts/producer_manager.gd"
+UpgradeSceneMiddleman="*res://Scripts/upgrade_scene_middleman.gd"
 
 [display]
 

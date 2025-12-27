@@ -32,3 +32,5 @@ func get_description():
 			return "Medies/gol x" + str(increase)
 		ScoreType.type.SURFER:
 			return "Medies/esquive x" + str(increase)
+		ScoreType.type.TETRIS:
+			return "Medies/línea x" + str(increase)

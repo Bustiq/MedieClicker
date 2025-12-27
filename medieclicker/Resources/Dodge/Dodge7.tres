@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ScoreBonus" load_steps=4 format=3 uid="uid://cvedkfiqk5oxu"]
+
+[ext_resource type="Script" uid="uid://dwsvb0r7u8t48" path="res://Resources/score_bonus.gd" id="1_rsi7u"]
+[ext_resource type="Script" uid="uid://bjswqqdevtdm6" path="res://Resources/UnlockConditions/dodge_count.gd" id="2_tjdog"]
+
+[sub_resource type="Resource" id="Resource_bxpc6"]
+script = ExtResource("2_tjdog")
+dodge_count = 220
+metadata/_custom_type_script = "uid://bjswqqdevtdm6"
+
+[resource]
+script = ExtResource("1_rsi7u")
+type = 5
+increase = 1.5
+id = 30
+upgrade_name = "RIGGED"
+cost = 600.0
+icon_name = "rigged_matchmaking"
+unlocking = SubResource("Resource_bxpc6")
+metadata/_custom_type_script = "uid://dwsvb0r7u8t48"

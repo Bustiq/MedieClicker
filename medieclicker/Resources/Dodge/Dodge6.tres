@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ScoreBonus" load_steps=4 format=3 uid="uid://b7fihtls3npcf"]
+
+[ext_resource type="Script" uid="uid://dwsvb0r7u8t48" path="res://Resources/score_bonus.gd" id="1_fmlt2"]
+[ext_resource type="Script" uid="uid://bjswqqdevtdm6" path="res://Resources/UnlockConditions/dodge_count.gd" id="2_5upse"]
+
+[sub_resource type="Resource" id="Resource_bxpc6"]
+script = ExtResource("2_5upse")
+dodge_count = 180
+metadata/_custom_type_script = "uid://bjswqqdevtdm6"
+
+[resource]
+script = ExtResource("1_fmlt2")
+type = 5
+increase = 1.5
+id = 33
+upgrade_name = "CURRENCIES"
+cost = 400.0
+icon_name = "multiple_currencies"
+unlocking = SubResource("Resource_bxpc6")
+metadata/_custom_type_script = "uid://dwsvb0r7u8t48"

@@ -16,7 +16,7 @@ signal on_producer_count_changed(new_count)
 var producer_count = 0
 
 func _ready():
-	ProducerManager.add_producer(self)
+	MedieManager.add_producer(self)
 	$Icon.texture_normal = icon
 
 

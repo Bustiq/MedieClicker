@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=4 format=3 uid="uid://bvum2t5lvuhie"]
+
+[ext_resource type="Script" uid="uid://vo6w3u83xkf6" path="res://Resources/upgrade.gd" id="1_fil70"]
+[ext_resource type="Script" uid="uid://meg8qio088lm" path="res://Resources/UnlockConditions/total_medies.gd" id="2_dlms1"]
+
+[sub_resource type="Resource" id="Resource_ht4ji"]
+script = ExtResource("2_dlms1")
+total_medies = 1250
+metadata/_custom_type_script = "uid://meg8qio088lm"
+
+[resource]
+script = ExtResource("1_fil70")
+id = 4
+upgrade_name = "TETRIS"
+cost = 1500.0
+icon_name = "tetris"
+unlocking = SubResource("Resource_ht4ji")
+metadata/_custom_type_script = "uid://vo6w3u83xkf6"

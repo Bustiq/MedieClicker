@@ -1,4 +1,4 @@
-extends Node
+extends UnlockCondition
 class_name DodgeCount
 
 @export var dodge_count : int

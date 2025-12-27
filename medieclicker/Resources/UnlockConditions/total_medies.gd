@@ -1,4 +1,4 @@
-extends Node
+extends UnlockCondition
 class_name TotalMedies
 
 @export var total_medies : int

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ScoreBonus" load_steps=4 format=3 uid="uid://c60ysdocq5tms"]
+
+[ext_resource type="Script" uid="uid://dwsvb0r7u8t48" path="res://Resources/score_bonus.gd" id="1_fmen7"]
+[ext_resource type="Script" uid="uid://bjswqqdevtdm6" path="res://Resources/UnlockConditions/dodge_count.gd" id="2_davmu"]
+
+[sub_resource type="Resource" id="Resource_bxpc6"]
+script = ExtResource("2_davmu")
+dodge_count = 155
+metadata/_custom_type_script = "uid://bjswqqdevtdm6"
+
+[resource]
+script = ExtResource("1_fmen7")
+type = 5
+increase = 2.0
+id = 32
+upgrade_name = "LOOTBOX"
+cost = 200.0
+icon_name = "lootboxes"
+unlocking = SubResource("Resource_bxpc6")
+metadata/_custom_type_script = "uid://dwsvb0r7u8t48"
