@@ -27,6 +27,7 @@ func add_minigame_container(upgrade_id : int, node : SubViewportContainer):
 
 
 func on_upgrade_purchased(upgrade : Upgrade):
+	return
 	if hidden_elements.has(upgrade.id):
 		for element in hidden_elements.get(upgrade.id):
 			element.show()

@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://7l43tisxm68p" path="res://Scripts/medieboton.gd" id="7_xqrkd"]
 [ext_resource type="Script" uid="uid://bfi3xq5boyyqx" path="res://Scripts/parent_clicked_resizer.gd" id="8_ehdw1"]
 [ext_resource type="Script" uid="uid://d0x8320kgtf03" path="res://Scenes/sub_viewport_container.gd" id="9_vuo2g"]
-[ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database.gd" id="10_ixsql"]
+[ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database_old.gd" id="10_ixsql"]
 [ext_resource type="Script" uid="uid://6l21jigf5kld" path="res://Scripts/Minigames/pong_goal_medie_shower.gd" id="10_vuo2g"]
 [ext_resource type="Script" uid="uid://urkbfguwao7k" path="res://Scenes/tetris_viewport_container.gd" id="13_onfoh"]
 [ext_resource type="Script" uid="uid://b5xwekfv2ib0g" path="res://Scripts/Minigames/Surfer/surfer_viewport_container.gd" id="13_vr2cw"]
