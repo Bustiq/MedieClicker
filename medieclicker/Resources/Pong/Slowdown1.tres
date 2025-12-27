@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PongCpuSlowdown" load_steps=4 format=3 uid="uid://bvi41kqits1a6"]
+
+[ext_resource type="Script" uid="uid://4jatdqdi4t4g" path="res://Resources/pong_cpu_slowdown.gd" id="1_gd6rl"]
+[ext_resource type="Script" uid="uid://nptxtvipqiuw" path="res://Resources/UnlockConditions/pong_self_bounces.gd" id="2_vhgdo"]
+
+[sub_resource type="Resource" id="Resource_3ppsc"]
+script = ExtResource("2_vhgdo")
+self_bounce_count = 10
+metadata/_custom_type_script = "uid://nptxtvipqiuw"
+
+[resource]
+script = ExtResource("1_gd6rl")
+speed_multiplier = 0.7
+id = 7
+upgrade_name = "SPRINKLER"
+cost = 100.0
+icon_name = "Sprinkler"
+unlocking = SubResource("Resource_3ppsc")
+metadata/_custom_type_script = "uid://4jatdqdi4t4g"

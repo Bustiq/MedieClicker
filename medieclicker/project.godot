@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Medieclicker"
 run/main_scene="uid://cglbsmcu0s23l"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -24,6 +24,7 @@ MedieManager="*res://Scripts/medie_manager.gd"
 UpgradesManager="*res://Scripts/Upgrades/upgrades_manager.gd"
 SavedData="*res://Scripts/saved_data.gd"
 Music="*res://Scenes/music.tscn"
+ProducerManager="*res://Scripts/producer_manager.gd"
 
 [display]
 

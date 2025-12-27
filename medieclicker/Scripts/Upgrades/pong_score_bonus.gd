@@ -1,5 +1,5 @@
 extends Upgrade
-class_name PongScoreBonus
+class_name PongScoreIncrease
 
 var required_goals : int
 var flat_bonus : float

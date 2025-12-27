@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctrri7xqklayb"]
+
+[ext_resource type="PackedScene" uid="uid://br8tannmvnsi0" path="res://Scenes/Minigames/Surfer/rail_spawner.tscn" id="1_7nidp"]
+[ext_resource type="Script" uid="uid://b6l5dml00tcel" path="res://Scenes/Minigames/Surfer/surfer_game.gd" id="1_d5wc4"]
+[ext_resource type="Texture2D" uid="uid://b6xw6tf8wkvyf" path="res://icon.svg" id="3_7nidp"]
+[ext_resource type="Script" uid="uid://br8681i6oj7qg" path="res://Scenes/Minigames/Surfer/surfer.gd" id="4_gf2sn"]
+[ext_resource type="Script" uid="uid://dfjph80i4oj6a" path="res://Scenes/Minigames/Surfer/obstacle_spawner.gd" id="4_od0p1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf2sn"]
+size = Vector2(108.108, 108.108)
+
+[node name="SubwaySurfers" type="Node2D"]
+script = ExtResource("1_d5wc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(374.5, 344)
+scale = Vector2(2.75781, 2)
+texture = ExtResource("3_7nidp")
+
+[node name="RailSpawner" parent="." instance=ExtResource("1_7nidp")]
+position = Vector2(331, 24)
+
+[node name="RailSpawner2" parent="." instance=ExtResource("1_7nidp")]
+position = Vector2(379, 24)
+
+[node name="RailSpawner3" parent="." instance=ExtResource("1_7nidp")]
+position = Vector2(427, 24)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(379, 359)
+zoom = Vector2(3.84, 3.84)
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(379, 433)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("3_7nidp")
+script = ExtResource("4_gf2sn")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+collision_layer = 8192
+collision_mask = 49152
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource("RectangleShape2D_gf2sn")
+
+[node name="Obstacles" type="Node2D" parent="."]
+position = Vector2(379, 200)
+script = ExtResource("4_od0p1")
+
+[node name="Obstacle" type="Timer" parent="Obstacles"]
+wait_time = 2.0
+autostart = true
+
+[node name="SafeZone" type="Timer" parent="Obstacles"]
+wait_time = 2.0
+
+[node name="Displacer" type="Timer" parent="Obstacles"]
+wait_time = 0.7
+one_shot = true
+autostart = true
+
+[node name="ResetTimer" type="Timer" parent="Obstacles"]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Obstacles/Obstacle" to="Obstacles" method="_on_obstacle_timeout"]
+[connection signal="timeout" from="Obstacles/SafeZone" to="Obstacles" method="_on_safe_zone_timeout"]
+[connection signal="timeout" from="Obstacles/Displacer" to="Obstacles" method="_on_displacer_timeout"]
+[connection signal="timeout" from="Obstacles/ResetTimer" to="Obstacles" method="_on_reset_timer_timeout"]

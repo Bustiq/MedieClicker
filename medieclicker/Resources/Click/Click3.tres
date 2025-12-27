@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ScoreBonus" load_steps=4 format=3 uid="uid://du35h6dig0sdf"]
+
+[ext_resource type="Script" uid="uid://dwsvb0r7u8t48" path="res://Resources/score_bonus.gd" id="1_cqe7v"]
+[ext_resource type="Script" uid="uid://dl3tcosnkpdwo" path="res://Resources/UnlockConditions/click_count.gd" id="2_cd50i"]
+
+[sub_resource type="Resource" id="Resource_omeg2"]
+script = ExtResource("2_cd50i")
+required_clicks = 400
+metadata/_custom_type_script = "uid://dl3tcosnkpdwo"
+
+[resource]
+script = ExtResource("1_cqe7v")
+increase = 2.0
+id = 11
+upgrade_name = "CLICK3"
+cost = 8.0
+icon_name = "binary_tree"
+unlocking = SubResource("Resource_omeg2")
+metadata/_custom_type_script = "uid://dwsvb0r7u8t48"

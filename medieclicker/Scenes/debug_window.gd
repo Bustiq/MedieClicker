@@ -2,16 +2,13 @@ extends Control
 class_name Debug
 
 @onready var medies_input: LineEdit = $MediesInput
-var is_showing := true
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_debug"):
-		if is_showing:
-
+		if visible:
 			hide()
 		else:
 			show()
-		is_showing = not is_showing
 
 
 

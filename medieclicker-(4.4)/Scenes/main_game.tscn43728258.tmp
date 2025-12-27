@@ -1,0 +1,184 @@
+[gd_scene load_steps=17 format=3 uid="uid://bejre5hjnei7n"]
+
+[ext_resource type="Script" uid="uid://crq6aum0fqnss" path="res://Scripts/game.gd" id="1_72e8q"]
+[ext_resource type="Script" uid="uid://bw4m1crorhn63" path="res://Scripts/BasePlayer.gd" id="2_72e8q"]
+[ext_resource type="Script" uid="uid://bgdtn2y0tg7mm" path="res://Scripts/Ball.gd" id="2_d2op2"]
+[ext_resource type="Texture2D" uid="uid://gskrp0cqo2gx" path="res://Assets/Images/Bg.png" id="2_nqdth"]
+[ext_resource type="AudioStream" uid="uid://mibnsn3pekms" path="res://Assets/SFX/Wall.mp3" id="3_ygxny"]
+[ext_resource type="Script" uid="uid://dky27nwcr0mbf" path="res://Scripts/Base_CPU.gd" id="4_0rdsr"]
+[ext_resource type="AudioStream" uid="uid://dejowch6bbt3c" path="res://Assets/SFX/Paddle-[AudioTrimmer.com].mp3" id="4_wi4c7"]
+[ext_resource type="AudioStream" uid="uid://xmh0371u5dn2" path="res://Assets/SFX/Score.mp3" id="7_wi4c7"]
+[ext_resource type="FontFile" uid="uid://bcat51tkfgq6v" path="res://Assets/Fonts/PublicPixel-rv0pA.ttf" id="8_5cypo"]
+[ext_resource type="PackedScene" uid="uid://coyu77e4g6ab3" path="res://scenes/pause_menu.tscn" id="8_70vka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipu61"]
+size = Vector2(40.0316, 1149.78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygxny"]
+size = Vector2(60.0913, 1148.49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3esy"]
+size = Vector2(11, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72e8q"]
+size = Vector2(50, 652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2op2"]
+size = Vector2(53, 649.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rdsr"]
+size = Vector2(3.43982, 151)
+
+[node name="MainGame" type="Node2D"]
+position = Vector2(579, 322)
+script = ExtResource("1_72e8q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(-53, -255)
+rotation = -1.56691
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2(-599.775, 55.2318)
+rotation = -0.003544
+shape = SubResource("RectangleShape2D_ipu61")
+
+[node name="Wall4" type="StaticBody2D" parent="."]
+position = Vector2(-9, 251)
+rotation = 1.58168
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
+position = Vector2(-603.019, 1.56299)
+rotation = -0.0112238
+shape = SubResource("RectangleShape2D_ygxny")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, 1)
+texture = ExtResource("2_nqdth")
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(-4, 2)
+collision_mask = 3
+script = ExtResource("2_d2op2")
+
+[node name="ColorRect" type="ColorRect" parent="Ball"]
+offset_left = -5.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = 6.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_s3esy")
+
+[node name="WallBounce" type="AudioStreamPlayer2D" parent="Ball"]
+stream = ExtResource("3_ygxny")
+bus = &"SFX"
+
+[node name="PaddleBounce" type="AudioStreamPlayer2D" parent="Ball"]
+position = Vector2(0, 2)
+stream = ExtResource("4_wi4c7")
+bus = &"SFX"
+
+[node name="CPUscores" type="Area2D" parent="."]
+position = Vector2(616, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPUscores"]
+position = Vector2(-15, 1)
+shape = SubResource("RectangleShape2D_72e8q")
+
+[node name="PlayerScores" type="Area2D" parent="."]
+position = Vector2(612, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScores"]
+position = Vector2(-1220, 5)
+shape = SubResource("RectangleShape2D_d2op2")
+
+[node name="Player" type="StaticBody2D" parent="."]
+position = Vector2(-466, 9)
+scale = Vector2(2.16, 1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_72e8q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.594902, -0.5)
+shape = SubResource("RectangleShape2D_0rdsr")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -77.0
+offset_right = 3.0
+offset_bottom = -23.0
+grow_vertical = 2
+scale = Vector2(0.816473, 2.82134)
+
+[node name="CPU" type="StaticBody2D" parent="."]
+position = Vector2(460, 9)
+scale = Vector2(2.16, 1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("4_0rdsr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPU"]
+position = Vector2(0.594902, -0.5)
+shape = SubResource("RectangleShape2D_0rdsr")
+
+[node name="ColorRect" type="ColorRect" parent="CPU"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -77.0
+offset_right = 3.0
+offset_bottom = -23.0
+grow_vertical = 2
+scale = Vector2(0.816473, 2.82134)
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="PlayerScore" type="Label" parent="Hud"]
+offset_left = 618.0
+offset_top = 8.0
+offset_right = 658.0
+offset_bottom = 31.0
+scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("8_5cypo")
+text = "0"
+
+[node name="CPUscore" type="Label" parent="Hud"]
+offset_left = 472.0
+offset_top = 9.0
+offset_right = 494.0
+offset_bottom = 28.0
+scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("8_5cypo")
+text = "0"
+
+[node name="BallTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="scoreSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_wi4c7")
+bus = &"SFX"
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_70vka")]
+visible = false
+anchors_preset = 9
+anchor_right = 0.0
+offset_left = -582.0
+offset_top = -661.0
+offset_right = -582.0
+offset_bottom = -661.0
+grow_horizontal = 1
+
+[connection signal="body_entered" from="CPUscores" to="." method="_on_cp_uscores_body_entered"]
+[connection signal="body_entered" from="PlayerScores" to="." method="_on_player_scores_body_entered"]
+[connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ycnhtnmum3jt"]
+
+[ext_resource type="Script" uid="uid://be8mn7cxtbs5u" path="res://Scenes/Minigames/Surfer/barriers.gd" id="1_ytwfq"]
+[ext_resource type="Texture2D" uid="uid://s0gluiacoeug" path="res://Sprites/Surfer/barrier.png" id="2_8a6rt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxmw2"]
+size = Vector2(28, 16)
+
+[node name="Barriers" type="Node2D" node_paths=PackedStringArray("barrier", "barrier_2")]
+script = ExtResource("1_ytwfq")
+barrier = NodePath("Barrier")
+barrier_2 = NodePath("Barrier2")
+
+[node name="Barrier" type="Sprite2D" parent="."]
+texture = ExtResource("2_8a6rt")
+
+[node name="Area2D" type="Area2D" parent="Barrier"]
+collision_layer = 16384
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier/Area2D"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_xxmw2")
+
+[node name="Barrier2" type="Sprite2D" parent="."]
+texture = ExtResource("2_8a6rt")
+
+[node name="Area2D" type="Area2D" parent="Barrier2"]
+position = Vector2(-6, 0)
+collision_layer = 16384
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier2/Area2D"]
+position = Vector2(6, 7)
+shape = SubResource("RectangleShape2D_xxmw2")

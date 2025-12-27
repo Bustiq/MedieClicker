@@ -11,6 +11,15 @@ var tetris_lines_cleared : int = 0
 var times_100 := false
 var times_1000 := false
 
+var producers : Dictionary[ScoreType.type, Producer] = {}
+
+
+func add_producer(producer : Producer):
+	producers.set(producer.score_type, producer)
+
+func get_producer(producer_type : ScoreType.type) -> Producer:
+	return producers[producer_type]
+
 
 const debug_mode = true
 
@@ -61,7 +70,7 @@ func remove_medies(count : float):
 	medieCount -= count
 	if medieCount < 0:
 		if medieCount < -0.02:
-			$Buildings.esteAtributoNoExistePeroSiEjecutaEstoDebeTirarErrorMalditoGodotComoQueNoHayThrows
+			$Producers.esteAtributoNoExistePeroSiEjecutaEstoDebeTirarErrorMalditoGodotComoQueNoHayThrows
 		medieCount = 0
 	round_medies()
 	SignalManager.on_medies_changed.emit(medieCount)

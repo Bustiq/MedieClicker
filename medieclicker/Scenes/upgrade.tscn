@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://blf8y1i6vfo6t"]
 
 [ext_resource type="Script" uid="uid://bkcoo0jcbfyrl" path="res://Scripts/Upgrades/upgrade_button.gd" id="1_d2ffm"]
-[ext_resource type="Texture2D" uid="uid://d1hbp1fjv7fpy" path="res://Sprites/Upgrades/4_Automatic_stirer.png" id="1_f5ow3"]
+[ext_resource type="Texture2D" uid="uid://d1hbp1fjv7fpy" path="res://Sprites/Upgrades/Automatic_stirer.png" id="1_f5ow3"]
 [ext_resource type="Texture2D" uid="uid://cmlvkwx50ayou" path="res://Sprites/upgrade_frame.png" id="1_o0s84"]
 
 [node name="Upgrade" type="Control"]

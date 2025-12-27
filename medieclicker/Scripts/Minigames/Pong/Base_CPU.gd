@@ -10,7 +10,7 @@ var move_by : int
 var win_height : int
 var p_height : int
 var isCpu = true
-var speed_mult = 1.0
+var speed_mult = 0.5
 
 var paused := false
 

@@ -3,7 +3,7 @@ extends Node
 var total_medies := 0.0
 var current_medies := 0.0
 var purchased_upgrades := []
-var purchased_buildings := []
+var purchased_producers := []
 var saved_data : Save
 
 func _ready() -> void:
@@ -24,9 +24,9 @@ func save():
 	print(total_medies)
 	print(current_medies)
 	print(purchased_upgrades)
-	print(purchased_buildings)
+	print(purchased_producers)
 	
-	saved_data = Save.new(total_medies, current_medies, purchased_upgrades, purchased_buildings)
+	saved_data = Save.new(total_medies, current_medies, purchased_upgrades, purchased_producers)
 	print("Saved")
 
 func load_saved_data():

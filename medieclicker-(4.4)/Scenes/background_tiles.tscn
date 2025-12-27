@@ -1,0 +1,3093 @@
+[gd_scene load_steps=7 format=3 uid="uid://b83i2fvfnm7ak"]
+
+[ext_resource type="Texture2D" uid="uid://btx7nba0rb140" path="res://Sprites/Background/flower.png" id="1_64tpi"]
+[ext_resource type="Script" uid="uid://cqao2leubjxg" path="res://Scripts/background_tiles.gd" id="1_bc53d"]
+[ext_resource type="Texture2D" uid="uid://bhshramxchsgk" path="res://Sprites/Background/letter.png" id="2_ifyyr"]
+[ext_resource type="Texture2D" uid="uid://b4dprxrbiy8n5" path="res://Sprites/Background/spiral.png" id="3_bc53d"]
+[ext_resource type="Texture2D" uid="uid://cej3gxi0qjvhm" path="res://Sprites/Background/chair.png" id="3_ifyyr"]
+[ext_resource type="Texture2D" uid="uid://b0jdqgbp3g2w2" path="res://Sprites/Background/medie.png" id="4_usw8k"]
+
+[node name="Node2D" type="Node2D"]
+modulate = Color(0.258824, 0.258824, 0.258824, 1)
+position = Vector2(-1, -1)
+script = ExtResource("1_bc53d")
+
+[node name="Flower" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, 37)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Flower"]
+position = Vector2(0, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Flower"]
+position = Vector2(0, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Flower"]
+position = Vector2(34, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Flower"]
+position = Vector2(0, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Flower"]
+position = Vector2(34, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Flower"]
+position = Vector2(68, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Flower"]
+position = Vector2(-272, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, 397)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D29" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, -107)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, -71)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, -35)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, -71)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, -35)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D39" type="Sprite2D" parent="Flower"]
+position = Vector2(-272, 1)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, 37)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 1)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, 37)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D44" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D45" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D46" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, -35)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D47" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, 1)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D48" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, 37)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D49" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, 1)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D50" type="Sprite2D" parent="Flower"]
+position = Vector2(102, -107)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D51" type="Sprite2D" parent="Flower"]
+position = Vector2(68, -71)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D52" type="Sprite2D" parent="Flower"]
+position = Vector2(102, -35)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D53" type="Sprite2D" parent="Flower"]
+position = Vector2(136, -71)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D54" type="Sprite2D" parent="Flower"]
+position = Vector2(34, -35)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D55" type="Sprite2D" parent="Flower"]
+position = Vector2(0, 1)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D56" type="Sprite2D" parent="Flower"]
+position = Vector2(34, 37)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D57" type="Sprite2D" parent="Flower"]
+position = Vector2(68, 1)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D58" type="Sprite2D" parent="Flower"]
+position = Vector2(102, 37)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D59" type="Sprite2D" parent="Flower"]
+position = Vector2(68, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D60" type="Sprite2D" parent="Flower"]
+position = Vector2(102, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D61" type="Sprite2D" parent="Flower"]
+position = Vector2(136, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D62" type="Sprite2D" parent="Flower"]
+position = Vector2(170, -35)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D63" type="Sprite2D" parent="Flower"]
+position = Vector2(136, 1)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D64" type="Sprite2D" parent="Flower"]
+position = Vector2(170, 37)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D65" type="Sprite2D" parent="Flower"]
+position = Vector2(204, 1)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D66" type="Sprite2D" parent="Flower"]
+position = Vector2(238, 37)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D67" type="Sprite2D" parent="Flower"]
+position = Vector2(204, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D68" type="Sprite2D" parent="Flower"]
+position = Vector2(238, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D69" type="Sprite2D" parent="Flower"]
+position = Vector2(272, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D70" type="Sprite2D" parent="Flower"]
+position = Vector2(170, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D71" type="Sprite2D" parent="Flower"]
+position = Vector2(136, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D72" type="Sprite2D" parent="Flower"]
+position = Vector2(170, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D73" type="Sprite2D" parent="Flower"]
+position = Vector2(204, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D74" type="Sprite2D" parent="Flower"]
+position = Vector2(238, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D75" type="Sprite2D" parent="Flower"]
+position = Vector2(204, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D76" type="Sprite2D" parent="Flower"]
+position = Vector2(238, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D77" type="Sprite2D" parent="Flower"]
+position = Vector2(272, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D78" type="Sprite2D" parent="Flower"]
+position = Vector2(306, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D79" type="Sprite2D" parent="Flower"]
+position = Vector2(272, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D80" type="Sprite2D" parent="Flower"]
+position = Vector2(306, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D81" type="Sprite2D" parent="Flower"]
+position = Vector2(340, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D82" type="Sprite2D" parent="Flower"]
+position = Vector2(102, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D83" type="Sprite2D" parent="Flower"]
+position = Vector2(68, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D84" type="Sprite2D" parent="Flower"]
+position = Vector2(102, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D85" type="Sprite2D" parent="Flower"]
+position = Vector2(136, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D86" type="Sprite2D" parent="Flower"]
+position = Vector2(34, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D87" type="Sprite2D" parent="Flower"]
+position = Vector2(0, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D88" type="Sprite2D" parent="Flower"]
+position = Vector2(34, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D89" type="Sprite2D" parent="Flower"]
+position = Vector2(68, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D90" type="Sprite2D" parent="Flower"]
+position = Vector2(102, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D91" type="Sprite2D" parent="Flower"]
+position = Vector2(68, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D92" type="Sprite2D" parent="Flower"]
+position = Vector2(102, 397)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D93" type="Sprite2D" parent="Flower"]
+position = Vector2(136, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D94" type="Sprite2D" parent="Flower"]
+position = Vector2(170, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D95" type="Sprite2D" parent="Flower"]
+position = Vector2(136, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D96" type="Sprite2D" parent="Flower"]
+position = Vector2(170, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D97" type="Sprite2D" parent="Flower"]
+position = Vector2(204, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D98" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D99" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D100" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, 397)
+texture = ExtResource("3_ifyyr")
+
+[node name="Sprite2D101" type="Sprite2D" parent="Flower"]
+position = Vector2(0, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D102" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, 397)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D103" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, 433)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D104" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, 469)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D105" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, 433)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D106" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, 469)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D107" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, 505)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D108" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, 541)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D109" type="Sprite2D" parent="Flower"]
+position = Vector2(0, 505)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D110" type="Sprite2D" parent="Flower"]
+position = Vector2(34, 397)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D111" type="Sprite2D" parent="Flower"]
+position = Vector2(0, 433)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D112" type="Sprite2D" parent="Flower"]
+position = Vector2(34, 469)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D113" type="Sprite2D" parent="Flower"]
+position = Vector2(68, 433)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D114" type="Sprite2D" parent="Flower"]
+position = Vector2(-306, 37)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D115" type="Sprite2D" parent="Flower"]
+position = Vector2(-340, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D116" type="Sprite2D" parent="Flower"]
+position = Vector2(-306, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D117" type="Sprite2D" parent="Flower"]
+position = Vector2(-272, 73)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D118" type="Sprite2D" parent="Flower"]
+position = Vector2(-374, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D119" type="Sprite2D" parent="Flower"]
+position = Vector2(-408, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D146" type="Sprite2D" parent="Flower"]
+position = Vector2(-442, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D147" type="Sprite2D" parent="Flower"]
+position = Vector2(-476, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D148" type="Sprite2D" parent="Flower"]
+position = Vector2(-510, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D149" type="Sprite2D" parent="Flower"]
+position = Vector2(-544, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D150" type="Sprite2D" parent="Flower"]
+position = Vector2(-408, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D151" type="Sprite2D" parent="Flower"]
+position = Vector2(-442, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D152" type="Sprite2D" parent="Flower"]
+position = Vector2(-476, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D153" type="Sprite2D" parent="Flower"]
+position = Vector2(-510, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D154" type="Sprite2D" parent="Flower"]
+position = Vector2(-374, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D155" type="Sprite2D" parent="Flower"]
+position = Vector2(-408, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D156" type="Sprite2D" parent="Flower"]
+position = Vector2(-442, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D157" type="Sprite2D" parent="Flower"]
+position = Vector2(-476, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D158" type="Sprite2D" parent="Flower"]
+position = Vector2(-340, 289)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D159" type="Sprite2D" parent="Flower"]
+position = Vector2(-374, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D160" type="Sprite2D" parent="Flower"]
+position = Vector2(-408, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D161" type="Sprite2D" parent="Flower"]
+position = Vector2(-442, 397)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D162" type="Sprite2D" parent="Flower"]
+position = Vector2(-306, 325)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D163" type="Sprite2D" parent="Flower"]
+position = Vector2(-340, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D164" type="Sprite2D" parent="Flower"]
+position = Vector2(-374, 397)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D165" type="Sprite2D" parent="Flower"]
+position = Vector2(-408, 433)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D166" type="Sprite2D" parent="Flower"]
+position = Vector2(-272, 361)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D167" type="Sprite2D" parent="Flower"]
+position = Vector2(-306, 397)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D168" type="Sprite2D" parent="Flower"]
+position = Vector2(-340, 433)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D169" type="Sprite2D" parent="Flower"]
+position = Vector2(-374, 469)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D170" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, 397)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D171" type="Sprite2D" parent="Flower"]
+position = Vector2(-272, 433)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D172" type="Sprite2D" parent="Flower"]
+position = Vector2(-306, 469)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D173" type="Sprite2D" parent="Flower"]
+position = Vector2(-340, 505)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D174" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 433)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D175" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, 469)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D176" type="Sprite2D" parent="Flower"]
+position = Vector2(-272, 505)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D177" type="Sprite2D" parent="Flower"]
+position = Vector2(-306, 541)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D178" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, 469)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D179" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 505)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D180" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, 541)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D181" type="Sprite2D" parent="Flower"]
+position = Vector2(-272, 577)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D182" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, 505)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D183" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, 541)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D184" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 577)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D185" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, 613)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D186" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, 541)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D187" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, 577)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D188" type="Sprite2D" parent="Flower"]
+position = Vector2(-170, 613)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D189" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 649)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D190" type="Sprite2D" parent="Flower"]
+position = Vector2(-67, 577)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D191" type="Sprite2D" parent="Flower"]
+position = Vector2(-101, 613)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D192" type="Sprite2D" parent="Flower"]
+position = Vector2(-135, 649)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D193" type="Sprite2D" parent="Flower"]
+position = Vector2(-169, 685)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D120" type="Sprite2D" parent="Flower"]
+position = Vector2(-374, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D121" type="Sprite2D" parent="Flower"]
+position = Vector2(-340, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D122" type="Sprite2D" parent="Flower"]
+position = Vector2(-306, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D123" type="Sprite2D" parent="Flower"]
+position = Vector2(-340, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D124" type="Sprite2D" parent="Flower"]
+position = Vector2(-306, 253)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D125" type="Sprite2D" parent="Flower"]
+position = Vector2(-272, 217)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D126" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, 109)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D127" type="Sprite2D" parent="Flower"]
+position = Vector2(-272, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D128" type="Sprite2D" parent="Flower"]
+position = Vector2(-238, 181)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D129" type="Sprite2D" parent="Flower"]
+position = Vector2(-204, 145)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D130" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, -251)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D131" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, -215)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D132" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, -179)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D133" type="Sprite2D" parent="Flower"]
+position = Vector2(0, -215)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D134" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, -179)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D135" type="Sprite2D" parent="Flower"]
+position = Vector2(-136, -143)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D136" type="Sprite2D" parent="Flower"]
+position = Vector2(-102, -107)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D137" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, -143)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D138" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, -107)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D139" type="Sprite2D" parent="Flower"]
+position = Vector2(-68, -71)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D140" type="Sprite2D" parent="Flower"]
+position = Vector2(-34, -35)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D141" type="Sprite2D" parent="Flower"]
+position = Vector2(0, -71)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D142" type="Sprite2D" parent="Flower"]
+position = Vector2(34, -179)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D143" type="Sprite2D" parent="Flower"]
+position = Vector2(0, -143)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D144" type="Sprite2D" parent="Flower"]
+position = Vector2(34, -107)
+texture = ExtResource("1_64tpi")
+
+[node name="Sprite2D145" type="Sprite2D" parent="Flower"]
+position = Vector2(68, -143)
+texture = ExtResource("1_64tpi")
+
+[node name="Letter" type="Node2D" parent="."]
+
+[node name="Sprite2D3" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, 19)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Letter"]
+position = Vector2(17, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Letter"]
+position = Vector2(17, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Letter"]
+position = Vector2(51, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Letter"]
+position = Vector2(17, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Letter"]
+position = Vector2(51, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Letter"]
+position = Vector2(85, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Letter"]
+position = Vector2(-255, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D29" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, 379)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, -125)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, -89)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, -53)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, -89)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D39" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, -53)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Letter"]
+position = Vector2(-255, -17)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, 19)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, -17)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, 19)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D44" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D45" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D46" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D47" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, -53)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D48" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, -17)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D49" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, 19)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D50" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, -17)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D51" type="Sprite2D" parent="Letter"]
+position = Vector2(119, -125)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D52" type="Sprite2D" parent="Letter"]
+position = Vector2(85, -89)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D53" type="Sprite2D" parent="Letter"]
+position = Vector2(119, -53)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D54" type="Sprite2D" parent="Letter"]
+position = Vector2(153, -89)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D55" type="Sprite2D" parent="Letter"]
+position = Vector2(51, -53)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D56" type="Sprite2D" parent="Letter"]
+position = Vector2(17, -17)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D57" type="Sprite2D" parent="Letter"]
+position = Vector2(51, 19)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D58" type="Sprite2D" parent="Letter"]
+position = Vector2(85, -17)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D59" type="Sprite2D" parent="Letter"]
+position = Vector2(119, 19)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D60" type="Sprite2D" parent="Letter"]
+position = Vector2(85, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D61" type="Sprite2D" parent="Letter"]
+position = Vector2(119, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D62" type="Sprite2D" parent="Letter"]
+position = Vector2(153, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D63" type="Sprite2D" parent="Letter"]
+position = Vector2(187, -53)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D64" type="Sprite2D" parent="Letter"]
+position = Vector2(153, -17)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D65" type="Sprite2D" parent="Letter"]
+position = Vector2(187, 19)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D66" type="Sprite2D" parent="Letter"]
+position = Vector2(221, -17)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D67" type="Sprite2D" parent="Letter"]
+position = Vector2(255, 19)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D68" type="Sprite2D" parent="Letter"]
+position = Vector2(221, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D69" type="Sprite2D" parent="Letter"]
+position = Vector2(255, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D70" type="Sprite2D" parent="Letter"]
+position = Vector2(289, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D71" type="Sprite2D" parent="Letter"]
+position = Vector2(187, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D72" type="Sprite2D" parent="Letter"]
+position = Vector2(153, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D73" type="Sprite2D" parent="Letter"]
+position = Vector2(187, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D74" type="Sprite2D" parent="Letter"]
+position = Vector2(221, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D75" type="Sprite2D" parent="Letter"]
+position = Vector2(255, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D76" type="Sprite2D" parent="Letter"]
+position = Vector2(221, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D77" type="Sprite2D" parent="Letter"]
+position = Vector2(255, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D78" type="Sprite2D" parent="Letter"]
+position = Vector2(289, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D79" type="Sprite2D" parent="Letter"]
+position = Vector2(323, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D80" type="Sprite2D" parent="Letter"]
+position = Vector2(289, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D81" type="Sprite2D" parent="Letter"]
+position = Vector2(323, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D82" type="Sprite2D" parent="Letter"]
+position = Vector2(357, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D83" type="Sprite2D" parent="Letter"]
+position = Vector2(119, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D84" type="Sprite2D" parent="Letter"]
+position = Vector2(85, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D85" type="Sprite2D" parent="Letter"]
+position = Vector2(119, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D86" type="Sprite2D" parent="Letter"]
+position = Vector2(153, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D87" type="Sprite2D" parent="Letter"]
+position = Vector2(51, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D88" type="Sprite2D" parent="Letter"]
+position = Vector2(17, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D89" type="Sprite2D" parent="Letter"]
+position = Vector2(51, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D90" type="Sprite2D" parent="Letter"]
+position = Vector2(85, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D91" type="Sprite2D" parent="Letter"]
+position = Vector2(119, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D92" type="Sprite2D" parent="Letter"]
+position = Vector2(85, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D93" type="Sprite2D" parent="Letter"]
+position = Vector2(119, 379)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D94" type="Sprite2D" parent="Letter"]
+position = Vector2(153, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D95" type="Sprite2D" parent="Letter"]
+position = Vector2(187, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D96" type="Sprite2D" parent="Letter"]
+position = Vector2(153, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D97" type="Sprite2D" parent="Letter"]
+position = Vector2(187, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D98" type="Sprite2D" parent="Letter"]
+position = Vector2(221, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D99" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D100" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D101" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, 379)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D102" type="Sprite2D" parent="Letter"]
+position = Vector2(17, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D103" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, 379)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D104" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, 415)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D105" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, 451)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D106" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, 415)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D107" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, 451)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D108" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, 487)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D109" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, 523)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D110" type="Sprite2D" parent="Letter"]
+position = Vector2(17, 487)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D111" type="Sprite2D" parent="Letter"]
+position = Vector2(51, 379)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D112" type="Sprite2D" parent="Letter"]
+position = Vector2(17, 415)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D113" type="Sprite2D" parent="Letter"]
+position = Vector2(51, 451)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D114" type="Sprite2D" parent="Letter"]
+position = Vector2(85, 415)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D115" type="Sprite2D" parent="Letter"]
+position = Vector2(-289, 19)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D116" type="Sprite2D" parent="Letter"]
+position = Vector2(-323, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D117" type="Sprite2D" parent="Letter"]
+position = Vector2(-289, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D118" type="Sprite2D" parent="Letter"]
+position = Vector2(-255, 55)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D119" type="Sprite2D" parent="Letter"]
+position = Vector2(-357, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D120" type="Sprite2D" parent="Letter"]
+position = Vector2(-391, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D147" type="Sprite2D" parent="Letter"]
+position = Vector2(-425, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D148" type="Sprite2D" parent="Letter"]
+position = Vector2(-459, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D149" type="Sprite2D" parent="Letter"]
+position = Vector2(-493, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D150" type="Sprite2D" parent="Letter"]
+position = Vector2(-527, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D151" type="Sprite2D" parent="Letter"]
+position = Vector2(-391, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D152" type="Sprite2D" parent="Letter"]
+position = Vector2(-425, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D153" type="Sprite2D" parent="Letter"]
+position = Vector2(-459, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D154" type="Sprite2D" parent="Letter"]
+position = Vector2(-493, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D155" type="Sprite2D" parent="Letter"]
+position = Vector2(-357, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D156" type="Sprite2D" parent="Letter"]
+position = Vector2(-391, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D157" type="Sprite2D" parent="Letter"]
+position = Vector2(-425, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D158" type="Sprite2D" parent="Letter"]
+position = Vector2(-459, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D159" type="Sprite2D" parent="Letter"]
+position = Vector2(-323, 271)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D160" type="Sprite2D" parent="Letter"]
+position = Vector2(-357, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D161" type="Sprite2D" parent="Letter"]
+position = Vector2(-391, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D162" type="Sprite2D" parent="Letter"]
+position = Vector2(-425, 379)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D163" type="Sprite2D" parent="Letter"]
+position = Vector2(-289, 307)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D164" type="Sprite2D" parent="Letter"]
+position = Vector2(-323, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D165" type="Sprite2D" parent="Letter"]
+position = Vector2(-357, 379)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D166" type="Sprite2D" parent="Letter"]
+position = Vector2(-391, 415)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D167" type="Sprite2D" parent="Letter"]
+position = Vector2(-255, 343)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D168" type="Sprite2D" parent="Letter"]
+position = Vector2(-289, 379)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D169" type="Sprite2D" parent="Letter"]
+position = Vector2(-323, 415)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D170" type="Sprite2D" parent="Letter"]
+position = Vector2(-357, 451)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D171" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, 379)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D172" type="Sprite2D" parent="Letter"]
+position = Vector2(-255, 415)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D173" type="Sprite2D" parent="Letter"]
+position = Vector2(-289, 451)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D174" type="Sprite2D" parent="Letter"]
+position = Vector2(-323, 487)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D175" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, 415)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D176" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, 451)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D177" type="Sprite2D" parent="Letter"]
+position = Vector2(-255, 487)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D178" type="Sprite2D" parent="Letter"]
+position = Vector2(-289, 523)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D179" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, 451)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D180" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, 487)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D181" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, 523)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D182" type="Sprite2D" parent="Letter"]
+position = Vector2(-255, 559)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D183" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, 487)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D184" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, 523)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D185" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, 559)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D186" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, 595)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D187" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, 523)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D188" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, 559)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D189" type="Sprite2D" parent="Letter"]
+position = Vector2(-153, 595)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D190" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, 631)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D191" type="Sprite2D" parent="Letter"]
+position = Vector2(-50, 559)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D192" type="Sprite2D" parent="Letter"]
+position = Vector2(-84, 595)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D193" type="Sprite2D" parent="Letter"]
+position = Vector2(-118, 631)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D194" type="Sprite2D" parent="Letter"]
+position = Vector2(-152, 667)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D121" type="Sprite2D" parent="Letter"]
+position = Vector2(-357, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D122" type="Sprite2D" parent="Letter"]
+position = Vector2(-323, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D123" type="Sprite2D" parent="Letter"]
+position = Vector2(-289, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D124" type="Sprite2D" parent="Letter"]
+position = Vector2(-323, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D125" type="Sprite2D" parent="Letter"]
+position = Vector2(-289, 235)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D126" type="Sprite2D" parent="Letter"]
+position = Vector2(-255, 199)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D127" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, 91)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D128" type="Sprite2D" parent="Letter"]
+position = Vector2(-255, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D129" type="Sprite2D" parent="Letter"]
+position = Vector2(-221, 163)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D130" type="Sprite2D" parent="Letter"]
+position = Vector2(-187, 127)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D131" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, -269)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D132" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, -233)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D133" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, -197)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D134" type="Sprite2D" parent="Letter"]
+position = Vector2(17, -233)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D135" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, -197)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D136" type="Sprite2D" parent="Letter"]
+position = Vector2(-119, -161)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D137" type="Sprite2D" parent="Letter"]
+position = Vector2(-85, -125)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D138" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, -161)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D139" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, -125)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D140" type="Sprite2D" parent="Letter"]
+position = Vector2(-51, -89)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D141" type="Sprite2D" parent="Letter"]
+position = Vector2(-17, -53)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D142" type="Sprite2D" parent="Letter"]
+position = Vector2(17, -89)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D143" type="Sprite2D" parent="Letter"]
+position = Vector2(51, -197)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D144" type="Sprite2D" parent="Letter"]
+position = Vector2(17, -161)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D145" type="Sprite2D" parent="Letter"]
+position = Vector2(51, -125)
+texture = ExtResource("2_ifyyr")
+
+[node name="Sprite2D146" type="Sprite2D" parent="Letter"]
+position = Vector2(85, -161)
+texture = ExtResource("2_ifyyr")
+
+[node name="Swirl" type="Node2D" parent="."]
+
+[node name="Sprite2D5" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, 37)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Swirl"]
+position = Vector2(102, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Swirl"]
+position = Vector2(-238, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D29" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, 397)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, -107)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, -71)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D39" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, -35)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, -71)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, -35)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Swirl"]
+position = Vector2(-238, 1)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, 37)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D44" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 1)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D45" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, 37)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D46" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D47" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D48" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D49" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, -35)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D50" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, 1)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D51" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, 37)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D52" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, 1)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D53" type="Sprite2D" parent="Swirl"]
+position = Vector2(136, -107)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D54" type="Sprite2D" parent="Swirl"]
+position = Vector2(102, -71)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D55" type="Sprite2D" parent="Swirl"]
+position = Vector2(136, -35)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D56" type="Sprite2D" parent="Swirl"]
+position = Vector2(170, -71)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D57" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, -35)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D58" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, 1)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D59" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, 37)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D60" type="Sprite2D" parent="Swirl"]
+position = Vector2(102, 1)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D61" type="Sprite2D" parent="Swirl"]
+position = Vector2(136, 37)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D62" type="Sprite2D" parent="Swirl"]
+position = Vector2(102, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D63" type="Sprite2D" parent="Swirl"]
+position = Vector2(136, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D64" type="Sprite2D" parent="Swirl"]
+position = Vector2(170, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D65" type="Sprite2D" parent="Swirl"]
+position = Vector2(204, -35)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D66" type="Sprite2D" parent="Swirl"]
+position = Vector2(170, 1)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D67" type="Sprite2D" parent="Swirl"]
+position = Vector2(204, 37)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D68" type="Sprite2D" parent="Swirl"]
+position = Vector2(238, 1)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D69" type="Sprite2D" parent="Swirl"]
+position = Vector2(272, 37)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D70" type="Sprite2D" parent="Swirl"]
+position = Vector2(238, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D71" type="Sprite2D" parent="Swirl"]
+position = Vector2(272, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D72" type="Sprite2D" parent="Swirl"]
+position = Vector2(306, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D73" type="Sprite2D" parent="Swirl"]
+position = Vector2(204, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D74" type="Sprite2D" parent="Swirl"]
+position = Vector2(170, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D75" type="Sprite2D" parent="Swirl"]
+position = Vector2(204, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D76" type="Sprite2D" parent="Swirl"]
+position = Vector2(238, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D77" type="Sprite2D" parent="Swirl"]
+position = Vector2(272, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D78" type="Sprite2D" parent="Swirl"]
+position = Vector2(238, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D79" type="Sprite2D" parent="Swirl"]
+position = Vector2(272, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D80" type="Sprite2D" parent="Swirl"]
+position = Vector2(306, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D81" type="Sprite2D" parent="Swirl"]
+position = Vector2(340, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D82" type="Sprite2D" parent="Swirl"]
+position = Vector2(306, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D83" type="Sprite2D" parent="Swirl"]
+position = Vector2(340, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D84" type="Sprite2D" parent="Swirl"]
+position = Vector2(374, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D85" type="Sprite2D" parent="Swirl"]
+position = Vector2(136, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D86" type="Sprite2D" parent="Swirl"]
+position = Vector2(102, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D87" type="Sprite2D" parent="Swirl"]
+position = Vector2(136, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D88" type="Sprite2D" parent="Swirl"]
+position = Vector2(170, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D89" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D90" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D91" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D92" type="Sprite2D" parent="Swirl"]
+position = Vector2(102, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D93" type="Sprite2D" parent="Swirl"]
+position = Vector2(136, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D94" type="Sprite2D" parent="Swirl"]
+position = Vector2(102, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D95" type="Sprite2D" parent="Swirl"]
+position = Vector2(136, 397)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D96" type="Sprite2D" parent="Swirl"]
+position = Vector2(170, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D97" type="Sprite2D" parent="Swirl"]
+position = Vector2(204, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D98" type="Sprite2D" parent="Swirl"]
+position = Vector2(170, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D99" type="Sprite2D" parent="Swirl"]
+position = Vector2(204, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D100" type="Sprite2D" parent="Swirl"]
+position = Vector2(238, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D101" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D102" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D103" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, 397)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D104" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D105" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, 397)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D106" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, 433)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D107" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, 469)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D108" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, 433)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D109" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, 469)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D110" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, 505)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D111" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, 541)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D112" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, 505)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D113" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, 397)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D114" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, 433)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D115" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, 469)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D116" type="Sprite2D" parent="Swirl"]
+position = Vector2(102, 433)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D117" type="Sprite2D" parent="Swirl"]
+position = Vector2(-272, 37)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D118" type="Sprite2D" parent="Swirl"]
+position = Vector2(-306, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D119" type="Sprite2D" parent="Swirl"]
+position = Vector2(-272, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D120" type="Sprite2D" parent="Swirl"]
+position = Vector2(-238, 73)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D121" type="Sprite2D" parent="Swirl"]
+position = Vector2(-340, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D122" type="Sprite2D" parent="Swirl"]
+position = Vector2(-374, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D149" type="Sprite2D" parent="Swirl"]
+position = Vector2(-408, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D150" type="Sprite2D" parent="Swirl"]
+position = Vector2(-442, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D151" type="Sprite2D" parent="Swirl"]
+position = Vector2(-476, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D152" type="Sprite2D" parent="Swirl"]
+position = Vector2(-510, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D153" type="Sprite2D" parent="Swirl"]
+position = Vector2(-374, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D154" type="Sprite2D" parent="Swirl"]
+position = Vector2(-408, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D155" type="Sprite2D" parent="Swirl"]
+position = Vector2(-442, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D156" type="Sprite2D" parent="Swirl"]
+position = Vector2(-476, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D157" type="Sprite2D" parent="Swirl"]
+position = Vector2(-340, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D158" type="Sprite2D" parent="Swirl"]
+position = Vector2(-374, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D159" type="Sprite2D" parent="Swirl"]
+position = Vector2(-408, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D160" type="Sprite2D" parent="Swirl"]
+position = Vector2(-442, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D161" type="Sprite2D" parent="Swirl"]
+position = Vector2(-306, 289)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D162" type="Sprite2D" parent="Swirl"]
+position = Vector2(-340, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D163" type="Sprite2D" parent="Swirl"]
+position = Vector2(-374, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D164" type="Sprite2D" parent="Swirl"]
+position = Vector2(-408, 397)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D165" type="Sprite2D" parent="Swirl"]
+position = Vector2(-272, 325)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D166" type="Sprite2D" parent="Swirl"]
+position = Vector2(-306, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D167" type="Sprite2D" parent="Swirl"]
+position = Vector2(-340, 397)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D168" type="Sprite2D" parent="Swirl"]
+position = Vector2(-374, 433)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D169" type="Sprite2D" parent="Swirl"]
+position = Vector2(-238, 361)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D170" type="Sprite2D" parent="Swirl"]
+position = Vector2(-272, 397)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D171" type="Sprite2D" parent="Swirl"]
+position = Vector2(-306, 433)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D172" type="Sprite2D" parent="Swirl"]
+position = Vector2(-340, 469)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D173" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, 397)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D174" type="Sprite2D" parent="Swirl"]
+position = Vector2(-238, 433)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D175" type="Sprite2D" parent="Swirl"]
+position = Vector2(-272, 469)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D176" type="Sprite2D" parent="Swirl"]
+position = Vector2(-306, 505)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D177" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 433)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D178" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, 469)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D179" type="Sprite2D" parent="Swirl"]
+position = Vector2(-238, 505)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D180" type="Sprite2D" parent="Swirl"]
+position = Vector2(-272, 541)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D181" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, 469)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D182" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 505)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D183" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, 541)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D184" type="Sprite2D" parent="Swirl"]
+position = Vector2(-238, 577)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D185" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, 505)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D186" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, 541)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D187" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 577)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D188" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, 613)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D189" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, 541)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D190" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, 577)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D191" type="Sprite2D" parent="Swirl"]
+position = Vector2(-136, 613)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D192" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 649)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D193" type="Sprite2D" parent="Swirl"]
+position = Vector2(-33, 577)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D194" type="Sprite2D" parent="Swirl"]
+position = Vector2(-67, 613)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D195" type="Sprite2D" parent="Swirl"]
+position = Vector2(-101, 649)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D196" type="Sprite2D" parent="Swirl"]
+position = Vector2(-135, 685)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D123" type="Sprite2D" parent="Swirl"]
+position = Vector2(-340, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D124" type="Sprite2D" parent="Swirl"]
+position = Vector2(-306, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D125" type="Sprite2D" parent="Swirl"]
+position = Vector2(-272, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D126" type="Sprite2D" parent="Swirl"]
+position = Vector2(-306, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D127" type="Sprite2D" parent="Swirl"]
+position = Vector2(-272, 253)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D128" type="Sprite2D" parent="Swirl"]
+position = Vector2(-238, 217)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D129" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, 109)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D130" type="Sprite2D" parent="Swirl"]
+position = Vector2(-238, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D131" type="Sprite2D" parent="Swirl"]
+position = Vector2(-204, 181)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D132" type="Sprite2D" parent="Swirl"]
+position = Vector2(-170, 145)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D133" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, -251)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D134" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, -215)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D135" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, -179)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D136" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, -215)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D137" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, -179)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D138" type="Sprite2D" parent="Swirl"]
+position = Vector2(-102, -143)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D139" type="Sprite2D" parent="Swirl"]
+position = Vector2(-68, -107)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D140" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, -143)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D141" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, -107)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D142" type="Sprite2D" parent="Swirl"]
+position = Vector2(-34, -71)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D143" type="Sprite2D" parent="Swirl"]
+position = Vector2(0, -35)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D144" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, -71)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D145" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, -179)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D146" type="Sprite2D" parent="Swirl"]
+position = Vector2(34, -143)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D147" type="Sprite2D" parent="Swirl"]
+position = Vector2(68, -107)
+texture = ExtResource("3_bc53d")
+
+[node name="Sprite2D148" type="Sprite2D" parent="Swirl"]
+position = Vector2(102, -143)
+texture = ExtResource("3_bc53d")
+
+[node name="Medie" type="Node2D" parent="."]
+
+[node name="Sprite2D4" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, 55)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Medie"]
+position = Vector2(17, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Medie"]
+position = Vector2(17, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Medie"]
+position = Vector2(51, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Medie"]
+position = Vector2(17, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Medie"]
+position = Vector2(51, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Medie"]
+position = Vector2(85, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Medie"]
+position = Vector2(-255, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D29" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, 415)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, -89)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, -53)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, -17)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D39" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, -53)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, -17)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Medie"]
+position = Vector2(-255, 19)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, 55)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 19)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D44" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, 55)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D45" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D46" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D47" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D48" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, -17)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D49" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, 19)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D50" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, 55)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D51" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, 19)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D52" type="Sprite2D" parent="Medie"]
+position = Vector2(119, -89)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D53" type="Sprite2D" parent="Medie"]
+position = Vector2(85, -53)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D54" type="Sprite2D" parent="Medie"]
+position = Vector2(119, -17)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D55" type="Sprite2D" parent="Medie"]
+position = Vector2(153, -53)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D56" type="Sprite2D" parent="Medie"]
+position = Vector2(51, -17)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D57" type="Sprite2D" parent="Medie"]
+position = Vector2(17, 19)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D58" type="Sprite2D" parent="Medie"]
+position = Vector2(51, 55)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D59" type="Sprite2D" parent="Medie"]
+position = Vector2(85, 19)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D60" type="Sprite2D" parent="Medie"]
+position = Vector2(119, 55)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D61" type="Sprite2D" parent="Medie"]
+position = Vector2(85, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D62" type="Sprite2D" parent="Medie"]
+position = Vector2(119, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D63" type="Sprite2D" parent="Medie"]
+position = Vector2(153, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D64" type="Sprite2D" parent="Medie"]
+position = Vector2(187, -17)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D65" type="Sprite2D" parent="Medie"]
+position = Vector2(153, 19)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D66" type="Sprite2D" parent="Medie"]
+position = Vector2(187, 55)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D67" type="Sprite2D" parent="Medie"]
+position = Vector2(221, 19)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D68" type="Sprite2D" parent="Medie"]
+position = Vector2(255, 55)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D69" type="Sprite2D" parent="Medie"]
+position = Vector2(221, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D70" type="Sprite2D" parent="Medie"]
+position = Vector2(255, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D71" type="Sprite2D" parent="Medie"]
+position = Vector2(289, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D72" type="Sprite2D" parent="Medie"]
+position = Vector2(187, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D73" type="Sprite2D" parent="Medie"]
+position = Vector2(153, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D74" type="Sprite2D" parent="Medie"]
+position = Vector2(187, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D75" type="Sprite2D" parent="Medie"]
+position = Vector2(221, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D76" type="Sprite2D" parent="Medie"]
+position = Vector2(255, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D77" type="Sprite2D" parent="Medie"]
+position = Vector2(221, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D78" type="Sprite2D" parent="Medie"]
+position = Vector2(255, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D79" type="Sprite2D" parent="Medie"]
+position = Vector2(289, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D80" type="Sprite2D" parent="Medie"]
+position = Vector2(323, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D81" type="Sprite2D" parent="Medie"]
+position = Vector2(289, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D82" type="Sprite2D" parent="Medie"]
+position = Vector2(323, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D83" type="Sprite2D" parent="Medie"]
+position = Vector2(357, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D84" type="Sprite2D" parent="Medie"]
+position = Vector2(119, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D85" type="Sprite2D" parent="Medie"]
+position = Vector2(85, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D86" type="Sprite2D" parent="Medie"]
+position = Vector2(119, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D87" type="Sprite2D" parent="Medie"]
+position = Vector2(153, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D88" type="Sprite2D" parent="Medie"]
+position = Vector2(51, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D89" type="Sprite2D" parent="Medie"]
+position = Vector2(17, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D90" type="Sprite2D" parent="Medie"]
+position = Vector2(51, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D91" type="Sprite2D" parent="Medie"]
+position = Vector2(85, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D92" type="Sprite2D" parent="Medie"]
+position = Vector2(119, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D93" type="Sprite2D" parent="Medie"]
+position = Vector2(85, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D94" type="Sprite2D" parent="Medie"]
+position = Vector2(119, 415)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D95" type="Sprite2D" parent="Medie"]
+position = Vector2(153, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D96" type="Sprite2D" parent="Medie"]
+position = Vector2(187, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D97" type="Sprite2D" parent="Medie"]
+position = Vector2(153, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D98" type="Sprite2D" parent="Medie"]
+position = Vector2(187, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D99" type="Sprite2D" parent="Medie"]
+position = Vector2(221, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D100" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D101" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D102" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, 415)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D103" type="Sprite2D" parent="Medie"]
+position = Vector2(17, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D104" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, 415)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D105" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, 451)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D106" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, 487)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D107" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, 451)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D108" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, 487)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D109" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, 523)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D110" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, 559)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D111" type="Sprite2D" parent="Medie"]
+position = Vector2(17, 523)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D112" type="Sprite2D" parent="Medie"]
+position = Vector2(51, 415)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D113" type="Sprite2D" parent="Medie"]
+position = Vector2(17, 451)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D114" type="Sprite2D" parent="Medie"]
+position = Vector2(51, 487)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D115" type="Sprite2D" parent="Medie"]
+position = Vector2(85, 451)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D116" type="Sprite2D" parent="Medie"]
+position = Vector2(-289, 55)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D117" type="Sprite2D" parent="Medie"]
+position = Vector2(-323, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D118" type="Sprite2D" parent="Medie"]
+position = Vector2(-289, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D119" type="Sprite2D" parent="Medie"]
+position = Vector2(-255, 91)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D120" type="Sprite2D" parent="Medie"]
+position = Vector2(-357, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D121" type="Sprite2D" parent="Medie"]
+position = Vector2(-391, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D148" type="Sprite2D" parent="Medie"]
+position = Vector2(-425, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D149" type="Sprite2D" parent="Medie"]
+position = Vector2(-459, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D150" type="Sprite2D" parent="Medie"]
+position = Vector2(-493, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D151" type="Sprite2D" parent="Medie"]
+position = Vector2(-527, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D152" type="Sprite2D" parent="Medie"]
+position = Vector2(-391, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D153" type="Sprite2D" parent="Medie"]
+position = Vector2(-425, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D154" type="Sprite2D" parent="Medie"]
+position = Vector2(-459, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D155" type="Sprite2D" parent="Medie"]
+position = Vector2(-493, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D156" type="Sprite2D" parent="Medie"]
+position = Vector2(-357, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D157" type="Sprite2D" parent="Medie"]
+position = Vector2(-391, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D158" type="Sprite2D" parent="Medie"]
+position = Vector2(-425, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D159" type="Sprite2D" parent="Medie"]
+position = Vector2(-459, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D160" type="Sprite2D" parent="Medie"]
+position = Vector2(-323, 307)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D161" type="Sprite2D" parent="Medie"]
+position = Vector2(-357, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D162" type="Sprite2D" parent="Medie"]
+position = Vector2(-391, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D163" type="Sprite2D" parent="Medie"]
+position = Vector2(-425, 415)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D164" type="Sprite2D" parent="Medie"]
+position = Vector2(-289, 343)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D165" type="Sprite2D" parent="Medie"]
+position = Vector2(-323, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D166" type="Sprite2D" parent="Medie"]
+position = Vector2(-357, 415)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D167" type="Sprite2D" parent="Medie"]
+position = Vector2(-391, 451)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D168" type="Sprite2D" parent="Medie"]
+position = Vector2(-255, 379)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D169" type="Sprite2D" parent="Medie"]
+position = Vector2(-289, 415)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D170" type="Sprite2D" parent="Medie"]
+position = Vector2(-323, 451)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D171" type="Sprite2D" parent="Medie"]
+position = Vector2(-357, 487)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D172" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, 415)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D173" type="Sprite2D" parent="Medie"]
+position = Vector2(-255, 451)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D174" type="Sprite2D" parent="Medie"]
+position = Vector2(-289, 487)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D175" type="Sprite2D" parent="Medie"]
+position = Vector2(-323, 523)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D176" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 451)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D177" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, 487)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D178" type="Sprite2D" parent="Medie"]
+position = Vector2(-255, 523)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D179" type="Sprite2D" parent="Medie"]
+position = Vector2(-289, 559)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D180" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, 487)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D181" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 523)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D182" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, 559)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D183" type="Sprite2D" parent="Medie"]
+position = Vector2(-255, 595)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D184" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, 523)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D185" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, 559)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D186" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 595)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D187" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, 631)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D188" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, 559)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D189" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, 595)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D190" type="Sprite2D" parent="Medie"]
+position = Vector2(-153, 631)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D191" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 667)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D192" type="Sprite2D" parent="Medie"]
+position = Vector2(-50, 595)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D193" type="Sprite2D" parent="Medie"]
+position = Vector2(-84, 631)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D194" type="Sprite2D" parent="Medie"]
+position = Vector2(-118, 667)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D195" type="Sprite2D" parent="Medie"]
+position = Vector2(-152, 703)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D122" type="Sprite2D" parent="Medie"]
+position = Vector2(-357, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D123" type="Sprite2D" parent="Medie"]
+position = Vector2(-323, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D124" type="Sprite2D" parent="Medie"]
+position = Vector2(-289, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D125" type="Sprite2D" parent="Medie"]
+position = Vector2(-323, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D126" type="Sprite2D" parent="Medie"]
+position = Vector2(-289, 271)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D127" type="Sprite2D" parent="Medie"]
+position = Vector2(-255, 235)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D128" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, 127)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D129" type="Sprite2D" parent="Medie"]
+position = Vector2(-255, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D130" type="Sprite2D" parent="Medie"]
+position = Vector2(-221, 199)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D131" type="Sprite2D" parent="Medie"]
+position = Vector2(-187, 163)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D132" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, -233)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D133" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, -197)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D134" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, -161)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D135" type="Sprite2D" parent="Medie"]
+position = Vector2(17, -197)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D136" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, -161)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D137" type="Sprite2D" parent="Medie"]
+position = Vector2(-119, -125)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D138" type="Sprite2D" parent="Medie"]
+position = Vector2(-85, -89)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D139" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, -125)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D140" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, -89)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D141" type="Sprite2D" parent="Medie"]
+position = Vector2(-51, -53)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D142" type="Sprite2D" parent="Medie"]
+position = Vector2(-17, -17)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D143" type="Sprite2D" parent="Medie"]
+position = Vector2(17, -53)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D144" type="Sprite2D" parent="Medie"]
+position = Vector2(51, -161)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D145" type="Sprite2D" parent="Medie"]
+position = Vector2(17, -125)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D146" type="Sprite2D" parent="Medie"]
+position = Vector2(51, -89)
+texture = ExtResource("4_usw8k")
+
+[node name="Sprite2D147" type="Sprite2D" parent="Medie"]
+position = Vector2(85, -125)
+texture = ExtResource("4_usw8k")

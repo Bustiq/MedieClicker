@@ -1,6 +1,6 @@
 extends Node2D
 
-var gain = 0.4
+var gain = 0.1
 
 func _ready() -> void:
 	SignalManager.on_surfer_dodge.connect(on_surfer_dodge)

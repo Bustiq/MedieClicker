@@ -1,0 +1,26 @@
+extends Node
+
+signal on_medie_clicked()
+signal on_purchase(purchase_cost)
+signal on_building_purchased(building : ScoreType.type)
+signal on_medie_gain(earnings : float)
+signal on_medies_changed(medieCount : float)
+signal on_upgrade_created(upgrade : Upgrade)
+signal on_upgrade_unlocked(upgrade : Upgrade)
+signal on_upgrade_purchased(upgrade : Upgrade)
+signal on_upgrade_hovered(upgrade : Upgrade)
+signal on_upgrade_unhovered()
+signal on_game_save()
+signal on_game_load(save : Save)
+signal on_pong_score()
+signal on_pong_self_bounce()
+signal on_surfer_death()
+signal on_surfer_dodge(dodged_obstacle : Obstacle)
+signal on_tetris_line_cleared(cleared_lines : int)
+signal on_game_win()
+
+signal on_surfer_game_pause(paused : bool)
+signal on_pong_game_pasue(paused : bool)
+
+signal on_uicon_hover(upgrade : Upgrade)
+signal on_uicon_unhover(upgrade : Upgrade)

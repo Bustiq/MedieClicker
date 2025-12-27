@@ -1,0 +1,199 @@
+[gd_scene load_steps=17 format=3 uid="uid://dri7sx3heq1hb"]
+
+[ext_resource type="Script" uid="uid://dvyabp4woanbo" path="res://Scripts/Minigames/Pong/pong_game.gd" id="1_ai61e"]
+[ext_resource type="Script" uid="uid://bgdtn2y0tg7mm" path="res://Scripts/Minigames/Pong/Ball.gd" id="1_pbs05"]
+[ext_resource type="AudioStream" uid="uid://c6xkn3ohemgg6" path="res://Audio/Minigames/Pong/Score.wav" id="2_87cfh"]
+[ext_resource type="Script" uid="uid://bw4m1crorhn63" path="res://Scripts/Minigames/Pong/BasePlayer.gd" id="2_ai61e"]
+[ext_resource type="AudioStream" uid="uid://8qui57lp2cqr" path="res://Audio/Minigames/Pong/Ball_hit_1.wav" id="3_83dpr"]
+[ext_resource type="Script" uid="uid://dky27nwcr0mbf" path="res://Scripts/Minigames/Pong/Base_CPU.gd" id="3_nib1r"]
+[ext_resource type="AudioStream" uid="uid://n66chttfx270" path="res://Audio/Minigames/Pong/Ball_hit_2.wav" id="4_87cfh"]
+[ext_resource type="AudioStream" uid="uid://ba2tekn6sww1k" path="res://Audio/Minigames/Pong/Ball_hit_3.wav" id="5_cs7vw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipu61"]
+size = Vector2(40.0316, 1149.78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygxny"]
+size = Vector2(60.0913, 1148.49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3esy"]
+size = Vector2(11, 10)
+
+[sub_resource type="Environment" id="Environment_nqdth"]
+glow_enabled = true
+glow_strength = 0.34
+glow_bloom = 0.18
+glow_blend_mode = 1
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_818rq"]
+streams_count = 3
+stream_0/stream = ExtResource("3_83dpr")
+stream_1/stream = ExtResource("4_87cfh")
+stream_2/stream = ExtResource("5_cs7vw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72e8q"]
+size = Vector2(50, 652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2op2"]
+size = Vector2(53, 649.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rdsr"]
+size = Vector2(3.43982, 151)
+
+[node name="MainGame" type="Node2D"]
+position = Vector2(580, 321)
+script = ExtResource("1_ai61e")
+
+[node name="scoreSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_87cfh")
+volume_db = -15.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -582.0
+offset_top = -321.0
+offset_right = 574.0
+offset_bottom = 317.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(-53, -255)
+rotation = -1.56691
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2(-599.775, 55.2318)
+rotation = -0.003544
+shape = SubResource("RectangleShape2D_ipu61")
+
+[node name="Wall4" type="StaticBody2D" parent="."]
+position = Vector2(-9, 251)
+rotation = 1.58168
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
+position = Vector2(-603.019, 1.56299)
+rotation = -0.0112238
+shape = SubResource("RectangleShape2D_ygxny")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, 1)
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(-4, 2)
+collision_mask = 3
+script = ExtResource("1_pbs05")
+
+[node name="BallRect" type="ColorRect" parent="Ball"]
+modulate = Color(100, 100, 100, 1)
+offset_left = -5.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = 6.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_s3esy")
+
+[node name="WallBounce" type="AudioStreamPlayer2D" parent="Ball"]
+
+[node name="PaddleBounce" type="AudioStreamPlayer2D" parent="Ball"]
+position = Vector2(0, 2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Ball"]
+environment = SubResource("Environment_nqdth")
+
+[node name="HitSFX" type="AudioStreamPlayer" parent="Ball"]
+stream = SubResource("AudioStreamRandomizer_818rq")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="CPUscores" type="Area2D" parent="."]
+position = Vector2(616, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPUscores"]
+position = Vector2(-15, 1)
+shape = SubResource("RectangleShape2D_72e8q")
+
+[node name="PlayerScores" type="Area2D" parent="."]
+position = Vector2(612, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScores"]
+position = Vector2(-1220, 5)
+shape = SubResource("RectangleShape2D_d2op2")
+
+[node name="Player" type="StaticBody2D" parent="."]
+position = Vector2(-466, 9)
+scale = Vector2(2.16, 1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_ai61e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.594902, -0.5)
+shape = SubResource("RectangleShape2D_0rdsr")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -77.0
+offset_right = 7.0
+offset_bottom = -23.0
+grow_vertical = 2
+scale = Vector2(0.816473, 2.82134)
+metadata/_edit_use_anchors_ = true
+
+[node name="CPU" type="StaticBody2D" parent="."]
+position = Vector2(460, 9)
+scale = Vector2(2.16, 1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_nib1r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPU"]
+position = Vector2(0.594902, -0.5)
+shape = SubResource("RectangleShape2D_0rdsr")
+
+[node name="ColorRect" type="ColorRect" parent="CPU"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -77.0
+offset_right = 7.0
+offset_bottom = -23.0
+grow_vertical = 2
+scale = Vector2(0.613278, 2.9455)
+metadata/_edit_use_anchors_ = true
+
+[node name="Hud" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PlayerScore" type="Label" parent="Hud"]
+offset_left = 618.0
+offset_top = 8.0
+offset_right = 658.0
+offset_bottom = 31.0
+scale = Vector2(3.97602, 4.11268)
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="CPUscore" type="Label" parent="Hud"]
+offset_left = 472.0
+offset_top = 9.0
+offset_right = 494.0
+offset_bottom = 28.0
+scale = Vector2(3.97602, 4.11268)
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="BallTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="CPUscores" to="." method="_on_cp_uscores_body_entered"]
+[connection signal="body_entered" from="PlayerScores" to="." method="_on_player_scores_body_entered"]
+[connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]

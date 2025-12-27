@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ScoreBonus" load_steps=4 format=3 uid="uid://c3tceu7ie6kxh"]
+
+[ext_resource type="Script" uid="uid://dwsvb0r7u8t48" path="res://Resources/score_bonus.gd" id="1_evowb"]
+[ext_resource type="Script" uid="uid://dl3tcosnkpdwo" path="res://Resources/UnlockConditions/click_count.gd" id="2_hyjcv"]
+
+[sub_resource type="Resource" id="Resource_omeg2"]
+script = ExtResource("2_hyjcv")
+required_clicks = 1700
+metadata/_custom_type_script = "uid://dl3tcosnkpdwo"
+
+[resource]
+script = ExtResource("1_evowb")
+increase = 2.0
+id = 26
+upgrade_name = "CLICK10"
+cost = 192.0
+icon_name = "punta_cana"
+unlocking = SubResource("Resource_omeg2")
+metadata/_custom_type_script = "uid://dwsvb0r7u8t48"

@@ -8,10 +8,10 @@ extends Node
 #var unlocked_total_medies_upgrades := {}
 #var purchased_total_medies_upgrades := {}
 
-#Este diccionario tiene como clave el ScoreType.type y como valor la lista de building upgrades de ese tipo
-#var locked_building_upgrades := {}
-#var unlocked_building_upgrades := {}
-#var purchased_building_upgrades := {}
+#Este diccionario tiene como clave el ScoreType.type y como valor la lista de producer upgrades de ese tipo
+#var locked_producer_upgrades := {}
+#var unlocked_producer_upgrades := {}
+#var purchased_producer_upgrades := {}
 
 var locked_upgrades := {}
 var unlocked_upgrades := {}
@@ -27,7 +27,7 @@ func _ready() -> void:
 	
 	SignalManager.on_upgrade_created.connect(create_upgrade)
 
-	SignalManager.on_building_purchased.connect(on_building_purchased)
+	SignalManager.on_producer_purchased.connect(on_producer_purchased)
 	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
 	SignalManager.on_medies_changed.connect(on_medie_count_changed)
 	#SignalManager.on_pong_score.connect(on_pong_score)
@@ -64,7 +64,7 @@ func create_upgrade(upgrade : Upgrade):
 
 func add_upgrade(dictionary, upgrade : Upgrade):
 	dictionary.get(upgrade.type).append(upgrade)
-	#building_upgrades.set(upgrade.type, building_upgrades.get(upgrade.type).append(upgrade))
+	#producer_upgrades.set(upgrade.type, producer_upgrades.get(upgrade.type).append(upgrade))
 
 func remove_upgrade(dictionary, upgrade : Upgrade):
 	dictionary[upgrade.type].erase(upgrade)
@@ -76,12 +76,12 @@ func unlock_upgrade(upgrade : Upgrade):
 	add_upgrade(unlocked_upgrades, upgrade)
 	SignalManager.on_upgrade_unlocked.emit(upgrade)
 
-func on_building_purchased(type : ScoreType.type):
+func on_producer_purchased(type : ScoreType.type):
 	var unlocked = []
 	for upgrade in locked_upgrades[type]:
 		
-		#Solo los building upgrades hacen algo cuando se compra una building
-		if  not upgrade is BuildingUpgrade:
+		#Solo los producer upgrades hacen algo cuando se compra una producer
+		if  not upgrade is ProducerUpgrade:
 			continue
 		
 		#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
@@ -95,14 +95,24 @@ func on_upgrade_purchased(upgrade : Upgrade):
 	remove_upgrade(unlocked_upgrades, upgrade)
 	add_upgrade(purchased_upgrades, upgrade)
 
-func get_additive_bonus(building : ScoreType.type):
+func get_additive_bonus(producer : ScoreType.type):
 	var total_bonus = 0.0
 	
-	for upgrade in purchased_upgrades[building]:
-		if  upgrade is BuildingUpgrade or PongScoreBonus or ClickUpgrade:
+	for upgrade in purchased_upgrades[producer]:
+		if  upgrade is ProducerUpgrade or PongScoreIncrease or ClickUpgrade:
 			total_bonus += upgrade.get_additive_increase()
 	return total_bonus
 
+func get_times_bonus(producer : ScoreType.type):
+	
+	var total_bonus = 1.0
+	
+	for upgrade in purchased_upgrades[producer]:
+		if  upgrade is ProducerUpgrade or PongScoreIncrease or ClickUpgrade:
+			total_bonus *= upgrade.get_multiplicative_increase()
+	return total_bonus
+	
+	
 
 func on_medie_count_changed(_useless_but_needed_param : float):
 	var unlocked = []
@@ -124,7 +134,7 @@ func on_medie_count_changed(_useless_but_needed_param : float):
 #func on_pong_score():
 	#var unlocked = []
 	#for upgrade in locked_upgrades[ScoreType.type.PONG]:
-		#if  not upgrade is PongScoreBonus:
+		#if  not upgrade is PongScoreIncrease:
 			#continue
 		##print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
 		#if upgrade.unlock_condition():
