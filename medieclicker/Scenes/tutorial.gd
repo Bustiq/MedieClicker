@@ -28,7 +28,7 @@ func on_producer_purchase(scoreType : ScoreType.type):
 			$"../../Control/Store".show()
 			SignalManager.on_producer_purchased.disconnect(on_producer_purchase)
 
-func on_upgrade_hover(u : Upgrade):
+func on_upgrade_hover(u : UpgradeResource):
 	$"4/FinishTutorial".show()
 
 func _on_finish_tutorial_pressed() -> void:

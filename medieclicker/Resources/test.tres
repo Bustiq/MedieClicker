@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=4 format=3 uid="uid://idodqequoexo"]
+
+[ext_resource type="Script" uid="uid://vo6w3u83xkf6" path="res://Resources/Scripts/upgrade.gd" id="1_a6v2h"]
+[ext_resource type="Script" uid="uid://dl3tcosnkpdwo" path="res://Resources/Scripts/UnlockConditions/click_count.gd" id="2_0yed6"]
+
+[sub_resource type="Resource" id="Resource_x2hs3"]
+script = ExtResource("2_0yed6")
+metadata/_custom_type_script = "uid://dl3tcosnkpdwo"
+
+[resource]
+script = ExtResource("1_a6v2h")
+id = -1
+upgrade_name = "vaya"
+icon_name = "\"para pausar los minijuegos es mejor considerar lo debug como una mejora"
+unlocking = SubResource("Resource_x2hs3")
+metadata/_custom_type_script = "uid://vo6w3u83xkf6"

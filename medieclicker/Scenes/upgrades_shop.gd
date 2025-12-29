@@ -2,7 +2,7 @@ extends GridContainer
 
 var current_page : int = 1
 const MAX_UPGRADES_PER_PAGE = 8
-var upgrades : Array[Upgrade]
+var upgrades : Array[UpgradeResource]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalManager.on_upgrade_unlocked.connect(add_upgrade_to_shop)
@@ -10,14 +10,14 @@ func _ready() -> void:
 
 const upgrade_scene = "res://Scenes/upgrade.tscn"
 
-func add_upgrade_to_shop(upgrade : Upgrade):
+func add_upgrade_to_shop(upgrade : UpgradeResource):
 	var instance = load(upgrade_scene).instantiate()
 	instance.set_upgrade(upgrade)
 	instance.change_color_if_buyable(MedieManager.get_medies())
 	add_child(instance)
 	show_current_page()
 
-func remove_upgrade_from_shop(upgrade : Upgrade):
+func remove_upgrade_from_shop(upgrade : UpgradeResource):
 	for child in get_children():
 		if child.get_upgrade() == upgrade:
 			remove_child(child)

@@ -8,8 +8,8 @@ func _ready() -> void:
 	reset_description()
 
 
-func set_description(upgrade : Upgrade):
-	text = upgrade.description
+func set_description(upgrade : UpgradeResource):
+	text = upgrade.get_description()
 
 func reset_description():
 	text = ""

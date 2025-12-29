@@ -31,7 +31,7 @@ func on_pong_game_pasue(_paused : bool):
 	paused = _paused
 
 
-func update_speed(upgrade : Upgrade):
+func update_speed(upgrade : UpgradeResource):
 	speed_mult = UpgradesManager.get_pong_speed_bonus(false)
 
 func _process(delta):

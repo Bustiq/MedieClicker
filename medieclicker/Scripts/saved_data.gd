@@ -40,5 +40,5 @@ func test_load():
 	SignalManager.on_game_load.emit(temp)
 
 
-func on_upgrade_purchased(upgrade : Upgrade):
+func on_upgrade_purchased(upgrade : UpgradeResource):
 	purchased_upgrades.append(upgrade.get_id())

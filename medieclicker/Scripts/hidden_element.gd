@@ -1,6 +1,6 @@
 extends Control
-
-@export var upgrade_id : int
+class_name HiddenElement
+@export var upgrade : UpgradeResource
 
 func _ready() -> void:
-	UpgradeSceneMiddleman.add_element_to_show(self, upgrade_id)
+	UpgradeSceneMiddleman.add_element_to_show(self, upgrade.id)

@@ -19,19 +19,18 @@ func add_element_to_show(node : Control, upgrade_id : int):
 	if not hidden_elements.has(upgrade_id):
 		hidden_elements.set(upgrade_id, [node])
 	else:
-		hidden_elements.get(upgrade_id).add(node)
+		hidden_elements.get(upgrade_id).append(node)
 		
 
 func add_minigame_container(upgrade_id : int, node : SubViewportContainer):
 	minigame_containers.set(upgrade_id, node)
 
 
-func on_upgrade_purchased(upgrade : Upgrade):
-	return
+func on_upgrade_purchased(upgrade : UpgradeResource):
 	if hidden_elements.has(upgrade.id):
 		for element in hidden_elements.get(upgrade.id):
 			element.show()
-	
+	return
 	match upgrade.id:
 		DODGE:
 			var scene = load(DODGE_SCENE).instantiate()

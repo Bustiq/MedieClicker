@@ -103,7 +103,7 @@ func _on_plus_dodges_pressed() -> void:
 
 
 func _on_pause_minigames_pressed() -> void:
-	SignalManager.on_upgrade_hovered.emit(Upgrade.new(-1, "vaya", "para pausar los minijuegos es mejor considerar lo debug como una mejora", ScoreType.type.CLICK, 0, load("res://icon.svg"), ""))
+	SignalManager.on_upgrade_hovered.emit(preload("res://Resources/test.tres"))
 
 
 

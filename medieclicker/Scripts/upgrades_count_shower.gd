@@ -13,7 +13,7 @@ func _ready() -> void:
 	text = "Mejoras: " + str(current_upgrade_count) + "/" + str(total_upgrade_count)
 	SignalManager.on_upgrade_purchased.connect(update_upgrade_count)
 
-func update_upgrade_count(upgrade : Upgrade):
+func update_upgrade_count(upgrade : UpgradeResource):
 	current_upgrade_count += 1
 	if current_upgrade_count == total_upgrade_count:
 		self_modulate = Color.YELLOW
@@ -21,6 +21,6 @@ func update_upgrade_count(upgrade : Upgrade):
 		$"../../SlidingBackground".modulate = tiles_color
 	text = "Mejoras: " + str(current_upgrade_count) + "/" + str(total_upgrade_count)
 
-func on_upgrade_created(upgrade : Upgrade):
+func on_upgrade_created(upgrade : UpgradeResource):
 	total_upgrade_count += 1
 	text = "Mejoras: " + str(current_upgrade_count) + "/" + str(total_upgrade_count)

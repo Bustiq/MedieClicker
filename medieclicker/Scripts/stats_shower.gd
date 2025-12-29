@@ -1,4 +1,4 @@
-extends Control
+extends HiddenElement
 
 func update_stats():
 	$MedieTotal.text = "Medies totales: " + str(MedieManager.total_medie_count)

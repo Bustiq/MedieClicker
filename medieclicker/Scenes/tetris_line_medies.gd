@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 
-func update_text(upgrade : Upgrade): 
-	if upgrade.type != ScoreType.type.TETRIS or not line_medies:
-		return
-	text = "Medies/linea: " + str(line_medies + UpgradesManager.get_additive_bonus( ScoreType.type.TETRIS))
+func update_text(upgrade : UpgradeResource): 
+	if upgrade is ScoreBonus and upgrade.type == ScoreType.type.TETRIS:
+		text = "Medies/linea: " + str(line_medies + UpgradesManager.get_additive_bonus( ScoreType.type.TETRIS))
+	

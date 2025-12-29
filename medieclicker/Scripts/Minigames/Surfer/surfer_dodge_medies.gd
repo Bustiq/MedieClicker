@@ -8,10 +8,10 @@ func _ready() -> void:
 
 
 
-func update_text(upgrade : Upgrade):
-	if upgrade.type != ScoreType.type.SURFER or not dodge_medies  :
-		return
-	text = "Medies/esquive: " + str(dodge_medies + UpgradesManager.get_additive_bonus( ScoreType.type.SURFER))
+func update_text(upgrade : UpgradeResource):
+	if upgrade is ScoreBonus and upgrade.type == ScoreType.type.SURFER:
+		text = "Medies/esquive: " + str(dodge_medies + UpgradesManager.get_additive_bonus( ScoreType.type.SURFER))
+	
 
 
 func _on_surfer_viewport_child_entered_tree(node: Node) -> void:

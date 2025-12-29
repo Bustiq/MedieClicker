@@ -11,7 +11,7 @@ func _on_pong_viewport_child_entered_tree(node: Node) -> void:
 	text = "Medies/gol: " + str(pong_increase)
 	show()
 
-func update_text(upgrade : Upgrade):
-	if upgrade.type != ScoreType.type.PONG or not pong_increase:
-		return
-	text = "Medies/gol: " + str(pong_increase + UpgradesManager.get_additive_bonus( ScoreType.type.PONG))
+func update_text(upgrade : UpgradeResource):
+	if upgrade is ScoreBonus and upgrade.type == ScoreType.type.PONG:
+		text = "Medies/gol: " + str(pong_increase + UpgradesManager.get_additive_bonus( ScoreType.type.PONG))
+	

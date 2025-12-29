@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cglbsmcu0s23l"]
+[gd_scene load_steps=37 format=3 uid="uid://cglbsmcu0s23l"]
 
 [ext_resource type="PackedScene" uid="uid://dcj46xak61r0c" path="res://Scenes/producer.tscn" id="1_5o60w"]
 [ext_resource type="PackedScene" uid="uid://b83i2fvfnm7ak" path="res://Scenes/background_tiles.tscn" id="1_yb6rt"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://7l43tisxm68p" path="res://Scripts/medieboton.gd" id="7_xqrkd"]
 [ext_resource type="Script" uid="uid://bfi3xq5boyyqx" path="res://Scripts/parent_clicked_resizer.gd" id="8_ehdw1"]
 [ext_resource type="Script" uid="uid://d0x8320kgtf03" path="res://Scenes/sub_viewport_container.gd" id="9_vuo2g"]
-[ext_resource type="Script" uid="uid://cnm78vj7xppn2" path="res://Scripts/Upgrades/upgrades_database_old.gd" id="10_ixsql"]
 [ext_resource type="Script" uid="uid://6l21jigf5kld" path="res://Scripts/Minigames/pong_goal_medie_shower.gd" id="10_vuo2g"]
 [ext_resource type="Script" uid="uid://urkbfguwao7k" path="res://Scenes/tetris_viewport_container.gd" id="13_onfoh"]
 [ext_resource type="Script" uid="uid://b5xwekfv2ib0g" path="res://Scripts/Minigames/Surfer/surfer_viewport_container.gd" id="13_vr2cw"]
@@ -24,11 +23,18 @@
 [ext_resource type="Script" uid="uid://b1rbqdme0mbdw" path="res://Scenes/tetris_line_medies.gd" id="15_ixsql"]
 [ext_resource type="Script" uid="uid://bkwv2vaqwb70c" path="res://pause.gd" id="22_hfcr4"]
 [ext_resource type="Texture2D" uid="uid://b6xw6tf8wkvyf" path="res://icon.svg" id="22_obfl7"]
+[ext_resource type="Script" uid="uid://bf6pb4y7g1kqu" path="res://Scripts/hidden_element.gd" id="24_6vimb"]
 [ext_resource type="Script" uid="uid://ckyqgf028t628" path="res://Scripts/stats_shower.gd" id="24_tvqxp"]
+[ext_resource type="Resource" uid="uid://cc3263jj1m0l3" path="res://Resources/SettingsUnlock.tres" id="25_vruug"]
 [ext_resource type="Script" uid="uid://dds8jfopwcw2h" path="res://Scripts/upgrades_count_shower.gd" id="26_cwjvc"]
 [ext_resource type="Script" uid="uid://bloex7vrt6i1n" path="res://Scenes/debug_window.gd" id="26_mj8sh"]
 [ext_resource type="Script" uid="uid://dnsa5oaiylht4" path="res://Scenes/intro.gd" id="27_mj8sh"]
 [ext_resource type="Script" uid="uid://4kn8hi0ae72a" path="res://Scenes/tutorial.gd" id="29_pl1c4"]
+[ext_resource type="Resource" uid="uid://c55uoltny35qm" path="res://Resources/StatsUnlock.tres" id="29_rmpne"]
+[ext_resource type="Resource" uid="uid://cyhllr0juds1k" path="res://Resources/Pong/PongUnlock.tres" id="29_vruug"]
+[ext_resource type="Resource" uid="uid://brbpp107iblam" path="res://Resources/Dodge/DodgeUnlock.tres" id="30_kucwp"]
+[ext_resource type="Resource" uid="uid://bvum2t5lvuhie" path="res://Resources/TetrisUnlock.tres" id="32_q2l2f"]
+[ext_resource type="Resource" uid="uid://8ldv5bjxw8gf" path="res://Resources/InfoUnlock.tres" id="33_kucwp"]
 
 [sub_resource type="GDScript" id="GDScript_v158k"]
 script/source = "extends Node2D
@@ -87,7 +93,6 @@ scale = Vector2(3.865, 3.865)
 autostart = true
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 1.0
@@ -96,7 +101,6 @@ offset_bottom = 649.0
 mouse_filter = 1
 
 [node name="Store" type="Control" parent="Control"]
-visible = false
 layout_mode = 1
 anchor_left = 0.595
 anchor_right = 0.99600005
@@ -178,7 +182,6 @@ offset_right = 441.0
 offset_bottom = 415.0
 
 [node name="Producers" type="Control" parent="Control"]
-visible = false
 anchors_preset = 0
 offset_left = -74.0
 offset_top = -119.0
@@ -521,13 +524,14 @@ text = "english
 
 [node name="Settings" type="TextureRect" parent="Control"]
 visible = false
-self_modulate = Color(0, 0, 0, 0.431373)
 layout_mode = 0
 offset_left = 1106.0
 offset_top = 4.0
 offset_right = 1146.0
 offset_bottom = 44.0
 texture = ExtResource("2_53itc")
+script = ExtResource("24_6vimb")
+upgrade = ExtResource("25_vruug")
 
 [node name="Icon" type="TextureButton" parent="Control/Settings"]
 layout_mode = 0
@@ -638,6 +642,7 @@ offset_top = 382.0
 offset_right = 537.0
 offset_bottom = 422.0
 script = ExtResource("24_tvqxp")
+upgrade = ExtResource("29_rmpne")
 
 [node name="MedieTotal" type="Label" parent="Control/Settings/PauseBackground/Stats"]
 layout_mode = 0
@@ -666,6 +671,8 @@ offset_right = 85.0
 offset_bottom = 115.0
 theme_override_font_sizes/font_size = 26
 text = "Esquives: "
+script = ExtResource("24_6vimb")
+upgrade = ExtResource("30_kucwp")
 
 [node name="PongGoals" type="Label" parent="Control/Settings/PauseBackground/Stats"]
 visible = false
@@ -676,6 +683,8 @@ offset_right = 85.0
 offset_bottom = 155.0
 theme_override_font_sizes/font_size = 26
 text = "Pong goles:"
+script = ExtResource("24_6vimb")
+upgrade = ExtResource("29_vruug")
 
 [node name="PongBounces" type="Label" parent="Control/Settings/PauseBackground/Stats"]
 visible = false
@@ -686,6 +695,8 @@ offset_right = 85.0
 offset_bottom = 195.0
 theme_override_font_sizes/font_size = 26
 text = "Pong rebotes: "
+script = ExtResource("24_6vimb")
+upgrade = ExtResource("29_vruug")
 
 [node name="Lines" type="Label" parent="Control/Settings/PauseBackground/Stats"]
 visible = false
@@ -696,6 +707,8 @@ offset_right = 85.0
 offset_bottom = 235.0
 theme_override_font_sizes/font_size = 26
 text = "Tetris Líneas: "
+script = ExtResource("24_6vimb")
+upgrade = ExtResource("32_q2l2f")
 
 [node name="UpgradesButtonTwo" type="Button" parent="Control/Settings/PauseBackground"]
 process_mode = 3
@@ -708,6 +721,8 @@ offset_bottom = 544.0
 theme_override_font_sizes/font_size = 36
 text = "Ver Mejoras"
 expand_icon = true
+script = ExtResource("24_6vimb")
+upgrade = ExtResource("33_kucwp")
 
 [node name="UpgradesBackground" type="TextureRect" parent="Control/Settings/PauseBackground"]
 visible = false
@@ -781,12 +796,12 @@ text = "???"
 autowrap_mode = 2
 
 [node name="UpgradesDatabase" type="Node" parent="."]
-script = ExtResource("10_ixsql")
 
 [node name="Intro" type="Node" parent="."]
 script = ExtResource("27_mj8sh")
 
 [node name="LanguageSelection" type="Control" parent="Intro"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

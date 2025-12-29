@@ -9,7 +9,6 @@ func update_on_purchase(_count):
 	text = "Total: " + str($"..".get_producer_increase()) + " medies/s"
 
 
-func update_on_upgrade(upgrade : Upgrade):
-	if upgrade.type != $"..".score_type:
-		return
-	text = "Total: " + str($"..".get_producer_increase()) + " medies/s"
+func update_on_upgrade(upgrade : UpgradeResource):
+	if upgrade is ScoreBonus and upgrade.type == get_parent().score_type:
+		text = "Total: " + str($"..".get_producer_increase()) + " medies/s"

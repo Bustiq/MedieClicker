@@ -13,7 +13,7 @@ func _ready() -> void:
 	SignalManager.on_uicon_hover.connect(on_uicon_hover)
 
 
-func on_uicon_hover(upgrade : Upgrade):
+func on_uicon_hover(upgrade : UpgradeResource):
 	var upgrades = $"../PauseBackground/UpgradesBackground/Upgrades".get_children()
 	var icon : Node = null
 	for uicon in upgrades:
@@ -24,20 +24,21 @@ func on_uicon_hover(upgrade : Upgrade):
 	if icon == null:
 		get_parent().call("Mejora " + upgrade.upgrade_name + " no encontrada")
 	
-	$"../PauseBackground/UpgradesBackground/UnlockDescription".text = upgrade.unlock_description
+	$"../PauseBackground/UpgradesBackground/UnlockDescription".text = upgrade.get_unlock_description()
 	if icon.locked:
 		$"../PauseBackground/UpgradesBackground/Name".text = "???"
 		$"../PauseBackground/UpgradesBackground/Effect".text = "???"
 	else:
 		$"../PauseBackground/UpgradesBackground/Name".text = upgrade.upgrade_name
-		$"../PauseBackground/UpgradesBackground/Effect".text = upgrade.description
+		$"../PauseBackground/UpgradesBackground/Effect".text = upgrade.get_description()
 
 
 var uicon = "res://Scenes/upgrade_uicon.tscn"
-func on_upgrade_created(upgrade : Upgrade):
+func on_upgrade_created(upgrade : UpgradeResource):
 	var instance = load(uicon).instantiate()
 	instance.set_upgrade(upgrade)
 	$"../PauseBackground/UpgradesBackground/Upgrades".add_child(instance)
+	print("gaani")
 	
 
 func _on_unpause_pressed() -> void:

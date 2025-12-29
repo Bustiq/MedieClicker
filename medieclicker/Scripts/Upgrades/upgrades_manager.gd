@@ -13,11 +13,17 @@ extends Node
 #var unlocked_producer_upgrades := {}
 #var purchased_producer_upgrades := {}
 
-var locked_upgrades := {}
-var unlocked_upgrades := {}
-var purchased_upgrades := {}
+#var locked_upgrades := {}
+#var unlocked_upgrades := {}
+#var purchased_upgrades := {}
 var total_upgrade_count := 0
 
+var locked_upgrades := []
+var unlocked_upgrades := []
+var purchased_upgrades := []
+
+
+var database : UpgradeDatabase = preload("res://Resources/upgrade_database.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for score_type in ScoreType.type.values():
@@ -38,6 +44,9 @@ func _ready() -> void:
 	SignalManager.on_medie_clicked.connect(check_for_unlocked_upgrades)
 	SignalManager.on_surfer_dodge.connect(wrapper)
 	SignalManager.on_tetris_line_cleared.connect(wrapper2)
+	
+	for upgrade in database.upgrades:
+		SignalManager.on_upgrade_created.emit(upgrade)
 
 # La señal tiene parámetros pero el método no.
 # No sé cómo hacerlo bonito
@@ -46,42 +55,41 @@ func wrapper(obstacle : Obstacle):
 
 # Lo mismo acá
 func wrapper2(lines : int):
-	
 	check_for_unlocked_upgrades()
 
 
-func create_upgrade(upgrade : Upgrade):
-	for upgrade_type in locked_upgrades:
-		for element in locked_upgrades[upgrade_type]:
-			if upgrade.id == element.id:
-				# Excepciones lol
-				get_parent().call("La id "  + str(upgrade.id) + " está ocupada por " + upgrade.upgrade_name + " y " + element.upgrade_name)
+func create_upgrade(upgrade : UpgradeResource):
+	print("soi")
+	for element in locked_upgrades:
+		if upgrade.id == element.id:
+			# Excepciones lol
+			get_parent().call("La id "  + str(upgrade.id) + " está ocupada por " + upgrade.upgrade_name + " y " + element.upgrade_name)
 	add_upgrade(locked_upgrades, upgrade)
 	total_upgrade_count += 1
 	#unlock_upgrade(upgrade)
 
 
 
-func add_upgrade(dictionary, upgrade : Upgrade):
-	dictionary.get(upgrade.type).append(upgrade)
+func add_upgrade(array, upgrade : UpgradeResource):
+	array.append(upgrade)
 	#producer_upgrades.set(upgrade.type, producer_upgrades.get(upgrade.type).append(upgrade))
 
-func remove_upgrade(dictionary, upgrade : Upgrade):
-	dictionary[upgrade.type].erase(upgrade)
+func remove_upgrade(array, upgrade : UpgradeResource):
+	array.erase(upgrade)
 
 
 
-func unlock_upgrade(upgrade : Upgrade):
+func unlock_upgrade(upgrade : UpgradeResource):
 	remove_upgrade(locked_upgrades, upgrade)
 	add_upgrade(unlocked_upgrades, upgrade)
 	SignalManager.on_upgrade_unlocked.emit(upgrade)
 
 func on_producer_purchased(type : ScoreType.type):
 	var unlocked = []
-	for upgrade in locked_upgrades[type]:
+	for upgrade in locked_upgrades:
 		
 		#Solo los producer upgrades hacen algo cuando se compra una producer
-		if  not upgrade is ProducerUpgrade:
+		if not upgrade is ScoreBonus:
 			continue
 		
 		#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
@@ -91,41 +99,40 @@ func on_producer_purchased(type : ScoreType.type):
 		unlock_upgrade(upgrade)
 		
 
-func on_upgrade_purchased(upgrade : Upgrade):
+func on_upgrade_purchased(upgrade : UpgradeResource):
 	remove_upgrade(unlocked_upgrades, upgrade)
 	add_upgrade(purchased_upgrades, upgrade)
 
 func get_additive_bonus(producer : ScoreType.type):
 	var total_bonus = 0.0
 	
-	for upgrade in purchased_upgrades[producer]:
-		if  upgrade is ProducerUpgrade or PongScoreIncrease or ClickUpgrade:
-			total_bonus += upgrade.get_additive_increase()
+	for upgrade in purchased_upgrades:
+		if upgrade is ScoreBonus and upgrade.type == producer and upgrade.additive:
+			total_bonus += upgrade.get_bonus()
 	return total_bonus
 
 func get_times_bonus(producer : ScoreType.type):
 	
 	var total_bonus = 1.0
 	
-	for upgrade in purchased_upgrades[producer]:
-		if  upgrade is ProducerUpgrade or PongScoreIncrease or ClickUpgrade:
-			total_bonus *= upgrade.get_multiplicative_increase()
+	for upgrade in purchased_upgrades:
+		if upgrade is ScoreBonus and upgrade.type == producer and not upgrade.additive:
+			total_bonus *= upgrade.get_bonus()
 	return total_bonus
 	
 	
 
 func on_medie_count_changed(_useless_but_needed_param : float):
 	var unlocked = []
-	for upgradeType in locked_upgrades:
 
-		for upgrade in locked_upgrades[upgradeType]:
+	for upgrade in locked_upgrades:
 			#Solo los minigame unlock upgrades hacen algo cuando se agarran medies
-			if  not (upgrade is MinigameUnlockUpgrade or upgrade is ShowElement or upgrade is Victory):
-				continue
-		
-			#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
-			if upgrade.unlock_condition():
-				unlocked.append(upgrade)
+		#if  not (upgrade is MinigameUnlockUpgrade or upgrade is ShowElement or upgrade is Victory):
+			#continue
+	
+		#print(upgrade.upgrade_name + " desbloqueada: " + str(upgrade.unlock_condition()))
+		if upgrade.unlock_condition():
+			unlocked.append(upgrade)
 	
 	for upgrade in unlocked:
 		unlock_upgrade(upgrade)
@@ -172,10 +179,9 @@ func on_medie_count_changed(_useless_but_needed_param : float):
 
 func check_for_unlocked_upgrades():
 	var unlocked = []
-	for score_type in locked_upgrades:
-		for upgrade in locked_upgrades[score_type]:
-			if upgrade.unlock_condition():
-				unlocked.append(upgrade)
+	for upgrade in locked_upgrades:
+		if upgrade.unlock_condition():
+			unlocked.append(upgrade)
 	
 	for upgrade in unlocked:
 		unlock_upgrade(upgrade)
@@ -183,11 +189,9 @@ func check_for_unlocked_upgrades():
 
 func get_pong_speed_bonus(player : bool):
 	var total_speed_bonus := 1.0
-	for upgrade in purchased_upgrades[ScoreType.type.PONG]:
-		if not upgrade is PongSpeedBonus:
-			continue
-		if upgrade.is_for_player() != player:
+	for upgrade in purchased_upgrades:
+		if not upgrade is PongCpuSlowdown:
 			continue
 		
-		total_speed_bonus *= upgrade.get_speed_increase()
+		total_speed_bonus *= upgrade.get_speed_multiplier()
 	return total_speed_bonus

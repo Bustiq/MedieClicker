@@ -1,12 +1,12 @@
 extends Control
 
-var upgrade : Upgrade
+var upgrade : UpgradeResource
 
 
 
-func set_upgrade(new : Upgrade):
+func set_upgrade(new : UpgradeResource):
 	upgrade = new
-	$TextureButton.texture_normal = upgrade.icon
+	$TextureButton.texture_normal = load("res://Sprites/Upgrades/" + upgrade.icon_name + ".png")
 	if upgrade.cost - int(upgrade.cost) == 0:
 		$Label.text = str(int(upgrade.cost))
 	else:

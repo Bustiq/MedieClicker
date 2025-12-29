@@ -1,18 +1,18 @@
 extends TextureRect
 
-var upgrade : Upgrade
+var upgrade : UpgradeResource
 var locked := true
 
 func _ready() -> void:
 	SignalManager.on_upgrade_purchased.connect(on_upgrade_purchased)
 
 
-func on_upgrade_purchased(_upgrade : Upgrade):
+func on_upgrade_purchased(_upgrade : UpgradeResource):
 	if upgrade.id == _upgrade.id:
 		locked = false
 		$Icon.texture = upgrade.icon
 
-func set_upgrade(_upgrade : Upgrade):
+func set_upgrade(_upgrade : UpgradeResource):
 	upgrade = _upgrade
 
 

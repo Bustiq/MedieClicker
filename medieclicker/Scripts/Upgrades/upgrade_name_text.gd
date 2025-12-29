@@ -8,5 +8,5 @@ func _ready() -> void:
 func reset_text():
 	text = ""
 
-func update_text(upgrade : Upgrade):
+func update_text(upgrade : UpgradeResource):
 	text = tr(upgrade.upgrade_name)

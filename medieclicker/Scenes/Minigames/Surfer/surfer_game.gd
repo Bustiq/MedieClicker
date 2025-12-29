@@ -7,7 +7,7 @@ func _ready() -> void:
 	SignalManager.on_upgrade_hovered.connect(on_upgrade_hovered)
 	SignalManager.on_upgrade_unhovered.connect(on_upgrade_unhovered)
 
-func on_upgrade_hovered(upgrade : Upgrade):
+func on_upgrade_hovered(upgrade : UpgradeResource):
 	SignalManager.on_surfer_game_pause.emit(true)
 
 func on_upgrade_unhovered():
