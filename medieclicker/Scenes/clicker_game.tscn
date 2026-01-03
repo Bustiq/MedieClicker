@@ -45,7 +45,8 @@ var producers := []
 const debug_mode = false
 
 func _ready() -> void:
-	SignalManager.on_medie_clicked.connect(on_click)
+	SignalManager.on_medie_clicked.connect(on_medie_click)
+	SignalManager.on_target_clicked.connect(on_target_click)
 	SignalManager.on_game_save.connect(save_producer_counts)
 	SignalManager.on_game_load.connect(set_saved_producer_counts)
 	producers = $Control/Producers.get_children()
@@ -61,16 +62,21 @@ func set_saved_producer_counts(save : Save):
 	for index in save.purchased_producers.size() - 1:
 		producers[index].set_producer_count(save.purchased_producers[index])
 
-func on_click():
+func on_medie_click():
+	print(get_clicked_medies_with_bonus())
 	SignalManager.on_medie_gain.emit(get_clicked_medies_with_bonus())
 
+func on_target_click():
+	SignalManager.on_medie_gain.emit(get_target_medies_with_bonus())
 
 
 
 func get_clicked_medies_with_bonus():
-	return mpc + UpgradesManager.get_additive_bonus(ScoreType.type.CLICK)
+	return mpc * UpgradesManager.get_times_bonus(ScoreType.type.CLICK)
 
-
+var base_target_bonus = 2
+func get_target_medies_with_bonus():
+	return get_clicked_medies_with_bonus() * MedieManager.base_target_bonus * UpgradesManager.get_times_bonus(ScoreType.type.TARGET)
 
 func _on_timer_timeout() -> void:
 	var total = 0.0
@@ -291,8 +297,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_ehdw1")
-IDLE_SCALE = 0.15
-CLICKED_SCALE = 0.18
 
 [node name="PongViewportContainer" type="SubViewportContainer" parent="Control"]
 visible = false

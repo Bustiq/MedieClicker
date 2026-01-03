@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CustomDescription" load_steps=10 format=3 uid="uid://fm8cq22tek33"]
+
+[ext_resource type="Script" uid="uid://gsj87oapca2v" path="res://Resources/Scripts/custom_description.gd" id="1_vlt4j"]
+[ext_resource type="Script" uid="uid://4j6gjwpt523t" path="res://Resources/Scripts/UnlockConditions/unlock_condition.gd" id="2_ise8w"]
+[ext_resource type="Script" uid="uid://meg8qio088lm" path="res://Resources/Scripts/UnlockConditions/total_medies.gd" id="3_vwbf1"]
+[ext_resource type="Resource" uid="uid://cc3263jj1m0l3" path="res://Resources/SettingsUnlock.tres" id="4_qd3qm"]
+[ext_resource type="Script" uid="uid://duqqtmpwusdgf" path="res://Resources/Scripts/UnlockConditions/has_upgrade.gd" id="5_b6rf1"]
+[ext_resource type="Script" uid="uid://dnjt7617fvx6n" path="res://Resources/Scripts/UnlockConditions/multiple.gd" id="6_4cq2n"]
+
+[sub_resource type="Resource" id="Resource_liiee"]
+script = ExtResource("3_vwbf1")
+total_medies = 200
+metadata/_custom_type_script = "uid://meg8qio088lm"
+
+[sub_resource type="Resource" id="Resource_xx1ex"]
+script = ExtResource("5_b6rf1")
+required_upgrade = ExtResource("4_qd3qm")
+metadata/_custom_type_script = "uid://duqqtmpwusdgf"
+
+[sub_resource type="Resource" id="Resource_pyqn4"]
+script = ExtResource("6_4cq2n")
+conditions = Array[ExtResource("2_ise8w")]([SubResource("Resource_liiee"), SubResource("Resource_xx1ex")])
+metadata/_custom_type_script = "uid://dnjt7617fvx6n"
+
+[resource]
+script = ExtResource("1_vlt4j")
+id = 35
+upgrade_name = "INFO"
+cost = 200.0
+icon_name = "info"
+unlocking = SubResource("Resource_pyqn4")
+metadata/_custom_type_script = "uid://gsj87oapca2v"

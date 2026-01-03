@@ -41,7 +41,7 @@ func _ready() -> void:
 	#SignalManager.on_medie_clicked.connect(on_medie_clicked)
 	SignalManager.on_pong_score.connect(check_for_unlocked_upgrades)
 	SignalManager.on_pong_self_bounce.connect(check_for_unlocked_upgrades)
-	SignalManager.on_medie_clicked.connect(check_for_unlocked_upgrades)
+	#SignalManager.on_medie_clicked.connect(check_for_unlocked_upgrades)
 	SignalManager.on_surfer_dodge.connect(wrapper)
 	SignalManager.on_tetris_line_cleared.connect(wrapper2)
 	
@@ -57,9 +57,10 @@ func wrapper(obstacle : Obstacle):
 func wrapper2(lines : int):
 	check_for_unlocked_upgrades()
 
+func has_purchased_upgrade(upgrade : UpgradeResource):
+	return upgrade in purchased_upgrades
 
 func create_upgrade(upgrade : UpgradeResource):
-	print("soi")
 	for element in locked_upgrades:
 		if upgrade.id == element.id:
 			# Excepciones lol
@@ -105,7 +106,6 @@ func on_upgrade_purchased(upgrade : UpgradeResource):
 
 func get_additive_bonus(producer : ScoreType.type):
 	var total_bonus = 0.0
-	
 	for upgrade in purchased_upgrades:
 		if upgrade is ScoreBonus and upgrade.type == producer and upgrade.additive:
 			total_bonus += upgrade.get_bonus()

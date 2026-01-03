@@ -9,7 +9,8 @@ func _ready() -> void:
 	AudioServer.set_bus_volume_db(1, linear_to_db($"../PauseBackground/MusicSlider".value))
 	AudioServer.set_bus_volume_db(3, linear_to_db($"../PauseBackground/SFXSlider".value))
 	
-	SignalManager.on_upgrade_created.connect(on_upgrade_created)
+	for upgrade in UpgradesManager.database.upgrades:
+		on_upgrade_created(upgrade)
 	SignalManager.on_uicon_hover.connect(on_uicon_hover)
 
 
@@ -38,7 +39,6 @@ func on_upgrade_created(upgrade : UpgradeResource):
 	var instance = load(uicon).instantiate()
 	instance.set_upgrade(upgrade)
 	$"../PauseBackground/UpgradesBackground/Upgrades".add_child(instance)
-	print("gaani")
 	
 
 func _on_unpause_pressed() -> void:

@@ -55,13 +55,10 @@ func _on_set_medies_pressed() -> void:
 
 
 func _on_unlock_all_pressed() -> void:
-
 	var locked = UpgradesManager.locked_upgrades.duplicate()
 	
-	for upgradeType in locked:
-		var up = locked[upgradeType].duplicate()
-		for upgrade in up:
-			UpgradesManager.unlock_upgrade(upgrade)
+	for upgrade in locked:
+		UpgradesManager.unlock_upgrade(upgrade)
 
 
 func _on_unlock_pressed() -> void:

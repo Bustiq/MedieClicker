@@ -8,8 +8,8 @@ class_name UpgradeResource
 @export var icon_name : String
 
 @export var unlocking : UnlockCondition
-var description : String
-var unlock_description : String
+#var description : String
+#var unlock_description : String
 
 func get_id():
 	return id

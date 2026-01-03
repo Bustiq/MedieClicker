@@ -1,6 +1,7 @@
 extends Node
 
 signal on_medie_clicked()
+signal on_target_clicked()
 signal on_purchase(purchase_cost)
 signal on_producer_purchased(producer : ScoreType.type)
 signal on_medie_gain(earnings : float)

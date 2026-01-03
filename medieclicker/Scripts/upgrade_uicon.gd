@@ -10,7 +10,7 @@ func _ready() -> void:
 func on_upgrade_purchased(_upgrade : UpgradeResource):
 	if upgrade.id == _upgrade.id:
 		locked = false
-		$Icon.texture = upgrade.icon
+		$Icon.texture = load("res://Sprites/Upgrades/" + upgrade.icon_name + ".png")
 
 func set_upgrade(_upgrade : UpgradeResource):
 	upgrade = _upgrade
