@@ -142,3 +142,15 @@ func _on_spanish_pressed() -> void:
 
 func _on_english_pressed() -> void:
 	TranslationServer.set_locale("en")
+
+
+func _on_plus_clicks_pressed() -> void:
+	var input : String = medies_input.text
+	if not input.is_valid_int():
+		return
+	
+	var value = int(input)
+	
+	MedieManager.click_count += value - 1
+	MedieManager.true_medie_clicks += value - 1
+	SignalManager.on_medie_clicked.emit()

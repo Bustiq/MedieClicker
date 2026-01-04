@@ -17,15 +17,16 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalManager="*res://Scripts/signalManager.gd"
+SignalManager="*res://Scripts/Managers/signalManager.gd"
 ScoreType="*res://Scripts/scoreType.gd"
 NumberHelper="*res://Scripts/number_helper.gd"
-MedieManager="*res://Scripts/medie_manager.gd"
-UpgradesManager="*res://Scripts/Upgrades/upgrades_manager.gd"
+MedieManager="*res://Scripts/Managers/medie_manager.gd"
+UpgradesManager="*res://Scripts/Managers/upgrades_manager.gd"
 SavedData="*res://Scripts/saved_data.gd"
 Music="*res://Scenes/music.tscn"
-ProducerManager="*res://Scripts/producer_manager.gd"
-UpgradeSceneMiddleman="*res://Scripts/upgrade_scene_middleman.gd"
+ProducerManager="*res://Scripts/Managers/producer_manager.gd"
+UpgradeSceneMiddleman="*res://Scripts/Managers/upgrade_scene_middleman.gd"
+SettingsManager="*res://Scripts/Managers/settings_manager.gd"
 
 [display]
 

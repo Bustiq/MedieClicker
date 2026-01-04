@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeDatabase" load_steps=36 format=3 uid="uid://cpdrcf8aax62b"]
+[gd_resource type="Resource" script_class="UpgradeDatabase" load_steps=39 format=3 uid="uid://cpdrcf8aax62b"]
 
 [ext_resource type="Script" uid="uid://b6ng3ofmatg5s" path="res://Resources/Scripts/upgrades_database.gd" id="1_w0tbi"]
 [ext_resource type="Script" uid="uid://vo6w3u83xkf6" path="res://Resources/Scripts/upgrade.gd" id="2_rkelk"]
@@ -35,8 +35,11 @@
 [ext_resource type="Resource" uid="uid://bmfide1an1188" path="res://Resources/Pong/Slowdown2.tres" id="33_xo816"]
 [ext_resource type="Resource" uid="uid://cv6unywdkf7ry" path="res://Resources/Pong/Pong1.tres" id="34_t71o6"]
 [ext_resource type="Resource" uid="uid://bvum2t5lvuhie" path="res://Resources/TetrisUnlock.tres" id="35_f6i46"]
+[ext_resource type="Resource" uid="uid://clrlmpfe0mb0f" path="res://Resources/Target/TargetUnlock.tres" id="36_rkelk"]
+[ext_resource type="Resource" uid="uid://chlax6bdduqjg" path="res://Resources/Target/TargetCount1.tres" id="37_a4um3"]
+[ext_resource type="Resource" uid="uid://ctlnm7uhesbjf" path="res://Resources/Matrix.tres" id="38_k1xuc"]
 
 [resource]
 script = ExtResource("1_w0tbi")
-upgrades = Array[ExtResource("2_rkelk")]([ExtResource("3_a4um3"), ExtResource("4_k1xuc"), ExtResource("5_02d2c"), ExtResource("6_2aqo5"), ExtResource("7_dj8py"), ExtResource("8_gcxcf"), ExtResource("9_fgjwm"), ExtResource("10_28vja"), ExtResource("11_t0283"), ExtResource("12_ibdpx"), ExtResource("13_22muw"), ExtResource("14_t468s"), ExtResource("15_2lwbe"), ExtResource("16_k2f0b"), ExtResource("17_fllwy"), ExtResource("18_y8lyy"), ExtResource("19_6cooy"), ExtResource("20_d1m00"), ExtResource("21_tdu2m"), ExtResource("22_k3huy"), ExtResource("23_gkbgq"), ExtResource("24_n6hhe"), ExtResource("25_dmrnt"), ExtResource("26_a6at2"), ExtResource("27_iflwr"), ExtResource("28_bj3h0"), ExtResource("29_ehylm"), ExtResource("30_eriyg"), ExtResource("31_hn77g"), ExtResource("32_a2n7f"), ExtResource("33_xo816"), ExtResource("34_t71o6"), ExtResource("35_f6i46")])
+upgrades = Array[ExtResource("2_rkelk")]([ExtResource("3_a4um3"), ExtResource("4_k1xuc"), ExtResource("5_02d2c"), ExtResource("6_2aqo5"), ExtResource("7_dj8py"), ExtResource("8_gcxcf"), ExtResource("9_fgjwm"), ExtResource("10_28vja"), ExtResource("11_t0283"), ExtResource("12_ibdpx"), ExtResource("13_22muw"), ExtResource("14_t468s"), ExtResource("15_2lwbe"), ExtResource("16_k2f0b"), ExtResource("17_fllwy"), ExtResource("18_y8lyy"), ExtResource("19_6cooy"), ExtResource("20_d1m00"), ExtResource("21_tdu2m"), ExtResource("22_k3huy"), ExtResource("23_gkbgq"), ExtResource("24_n6hhe"), ExtResource("25_dmrnt"), ExtResource("26_a6at2"), ExtResource("27_iflwr"), ExtResource("28_bj3h0"), ExtResource("29_ehylm"), ExtResource("30_eriyg"), ExtResource("31_hn77g"), ExtResource("32_a2n7f"), ExtResource("33_xo816"), ExtResource("34_t71o6"), ExtResource("35_f6i46"), ExtResource("36_rkelk"), ExtResource("37_a4um3"), ExtResource("38_k1xuc")])
 metadata/_custom_type_script = "uid://b6ng3ofmatg5s"

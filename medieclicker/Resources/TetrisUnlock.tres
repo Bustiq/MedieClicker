@@ -1,12 +1,26 @@
-[gd_resource type="Resource" script_class="UpgradeResource" load_steps=4 format=3 uid="uid://bvum2t5lvuhie"]
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=10 format=3 uid="uid://bvum2t5lvuhie"]
 
 [ext_resource type="Script" uid="uid://vo6w3u83xkf6" path="res://Resources/Scripts/upgrade.gd" id="1_fil70"]
 [ext_resource type="Script" uid="uid://meg8qio088lm" path="res://Resources/Scripts/UnlockConditions/total_medies.gd" id="2_dlms1"]
+[ext_resource type="Script" uid="uid://4j6gjwpt523t" path="res://Resources/Scripts/UnlockConditions/unlock_condition.gd" id="2_lpvjj"]
+[ext_resource type="Resource" uid="uid://cyhllr0juds1k" path="res://Resources/Pong/PongUnlock.tres" id="4_jss3a"]
+[ext_resource type="Script" uid="uid://duqqtmpwusdgf" path="res://Resources/Scripts/UnlockConditions/has_upgrade.gd" id="5_xp3rq"]
+[ext_resource type="Script" uid="uid://dnjt7617fvx6n" path="res://Resources/Scripts/UnlockConditions/multiple.gd" id="6_vsijs"]
 
-[sub_resource type="Resource" id="Resource_ht4ji"]
+[sub_resource type="Resource" id="Resource_th83y"]
 script = ExtResource("2_dlms1")
 total_medies = 1250
 metadata/_custom_type_script = "uid://meg8qio088lm"
+
+[sub_resource type="Resource" id="Resource_1vl6x"]
+script = ExtResource("5_xp3rq")
+required_upgrade = ExtResource("4_jss3a")
+metadata/_custom_type_script = "uid://duqqtmpwusdgf"
+
+[sub_resource type="Resource" id="Resource_nqiea"]
+script = ExtResource("6_vsijs")
+conditions = Array[ExtResource("2_lpvjj")]([SubResource("Resource_th83y"), SubResource("Resource_1vl6x")])
+metadata/_custom_type_script = "uid://dnjt7617fvx6n"
 
 [resource]
 script = ExtResource("1_fil70")
@@ -14,5 +28,5 @@ id = 4
 upgrade_name = "TETRIS"
 cost = 1500.0
 icon_name = "tetris"
-unlocking = SubResource("Resource_ht4ji")
+unlocking = SubResource("Resource_nqiea")
 metadata/_custom_type_script = "uid://vo6w3u83xkf6"

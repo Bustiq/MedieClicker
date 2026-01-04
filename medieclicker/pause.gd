@@ -57,16 +57,19 @@ func _on_pressed() -> void:
 
 func _on_master_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+	SettingsManager.master_volume = value
 
 
 
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(1, linear_to_db(value))
+	SettingsManager.music_volume = value
 
 
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(2, linear_to_db(value))
+	SettingsManager.sfx_volume = value
 
 
 
@@ -82,3 +85,7 @@ func _on_upgrades_button_two_pressed() -> void:
 
 func _on_back_button_two_pressed() -> void:
 	$"../PauseBackground/UpgradesBackground".hide()
+
+
+func _on_pause_minigames_toggled(toggled_on: bool) -> void:
+	SettingsManager.pause_minigames = toggled_on

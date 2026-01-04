@@ -104,14 +104,17 @@ func on_upgrade_purchased(upgrade : UpgradeResource):
 	remove_upgrade(unlocked_upgrades, upgrade)
 	add_upgrade(purchased_upgrades, upgrade)
 
-func get_additive_bonus(producer : ScoreType.type):
+func get_total_bonus(base : float, type : ScoreType.type):
+	return (base + _get_additive_bonus(type)) * _get_times_bonus(type)
+
+func _get_additive_bonus(producer : ScoreType.type):
 	var total_bonus = 0.0
 	for upgrade in purchased_upgrades:
 		if upgrade is ScoreBonus and upgrade.type == producer and upgrade.additive:
 			total_bonus += upgrade.get_bonus()
 	return total_bonus
 
-func get_times_bonus(producer : ScoreType.type):
+func _get_times_bonus(producer : ScoreType.type):
 	
 	var total_bonus = 1.0
 	

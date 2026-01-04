@@ -4,7 +4,7 @@ var paddle
 
 func _ready():
 	get_child(0).child_entered_tree.connect(get_paddle)
-	UpgradeSceneMiddleman.add_minigame_container(UpgradeSceneMiddleman.PONG, self)
+	UpgradeSceneMiddleman.add_minigame_container(UpgradeSceneMiddleman.PONG, get_child(0))
 
 
 

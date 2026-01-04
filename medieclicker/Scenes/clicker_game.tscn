@@ -72,11 +72,11 @@ func on_target_click():
 
 
 func get_clicked_medies_with_bonus():
-	return mpc * UpgradesManager.get_times_bonus(ScoreType.type.CLICK)
+	return UpgradesManager.get_total_bonus(mpc, ScoreType.type.CLICK)
 
 var base_target_bonus = 2
 func get_target_medies_with_bonus():
-	return get_clicked_medies_with_bonus() * MedieManager.base_target_bonus * UpgradesManager.get_times_bonus(ScoreType.type.TARGET)
+	return get_clicked_medies_with_bonus() * UpgradesManager.get_total_bonus(MedieManager.base_target_bonus, ScoreType.type.TARGET)
 
 func _on_timer_timeout() -> void:
 	var total = 0.0
@@ -298,6 +298,23 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_ehdw1")
 
+[node name="SurferViewportContainer" type="SubViewportContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 118.0
+offset_top = 403.0
+offset_right = 1289.0
+offset_bottom = 1192.0
+scale = Vector2(0.21, 0.21)
+mouse_filter = 2
+stretch = true
+script = ExtResource("13_vr2cw")
+
+[node name="SurferViewport" type="SubViewport" parent="Control/SurferViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1171, 789)
+render_target_update_mode = 0
+
 [node name="PongViewportContainer" type="SubViewportContainer" parent="Control"]
 visible = false
 layout_mode = 0
@@ -329,23 +346,6 @@ stretch = true
 script = ExtResource("13_onfoh")
 
 [node name="TetrisViewport" type="SubViewport" parent="Control/TetrisViewportContainer"]
-handle_input_locally = false
-size = Vector2i(1171, 789)
-render_target_update_mode = 0
-
-[node name="SurferViewportContainer" type="SubViewportContainer" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = 118.0
-offset_top = 403.0
-offset_right = 1289.0
-offset_bottom = 1192.0
-scale = Vector2(0.21, 0.21)
-mouse_filter = 2
-stretch = true
-script = ExtResource("13_vr2cw")
-
-[node name="SurferViewport" type="SubViewport" parent="Control/SurferViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1171, 789)
 render_target_update_mode = 0
@@ -391,7 +391,6 @@ background_color = Color(0, 0.470588, 0, 1)
 tiles_color = Color(0, 0.32549, 0, 1)
 
 [node name="Debug" type="TextureRect" parent="Control"]
-visible = false
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 10.0
@@ -508,6 +507,15 @@ offset_bottom = 311.0
 text = "+ goals
 "
 
+[node name="PlusClicks" type="Button" parent="Control/Debug"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 244.0
+offset_right = 344.0
+offset_bottom = 275.0
+text = "+clicks
+"
+
 [node name="Spanish" type="Button" parent="Control/Debug"]
 layout_mode = 0
 offset_left = 52.0
@@ -554,6 +562,22 @@ offset_top = -75.0
 offset_right = 91.0
 offset_bottom = 718.0
 texture = ExtResource("22_obfl7")
+
+[node name="PauseMinigames" type="CheckBox" parent="Control/Settings/PauseBackground"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48100004
+anchor_top = 0.47200003
+anchor_right = 0.619
+anchor_bottom = 0.51100004
+offset_left = -405.95905
+offset_top = 200.70398
+offset_right = -405.94104
+offset_bottom = 200.77698
+button_pressed = true
+button_mask = 3
+text = "Pausar minijuegos"
 
 [node name="Text" type="Label" parent="Control/Settings/PauseBackground"]
 layout_mode = 0
@@ -639,7 +663,6 @@ step = 0.001
 value = 0.75
 
 [node name="Stats" type="Control" parent="Control/Settings/PauseBackground"]
-visible = false
 anchors_preset = 0
 offset_left = 497.0
 offset_top = 382.0
@@ -1332,9 +1355,9 @@ text = "TERMINAR TUTORIAL"
 [connection signal="pressed" from="Control/Store/Page_Down" to="Control/Store/UpgradesShop" method="_on_page_down_pressed"]
 [connection signal="pressed" from="Control/Store/Page_Up" to="Control/Store/UpgradesShop" method="_on_page_up_pressed"]
 [connection signal="pressed" from="Control/Medie" to="Control/Medie" method="_on_pressed"]
+[connection signal="child_entered_tree" from="Control/SurferViewportContainer/SurferViewport" to="Control/SurferDodgeMedies" method="_on_surfer_viewport_child_entered_tree"]
 [connection signal="child_entered_tree" from="Control/PongViewportContainer/PongViewport" to="Control/PongGoalMedieShower" method="_on_pong_viewport_child_entered_tree"]
 [connection signal="child_entered_tree" from="Control/TetrisViewportContainer/TetrisViewport" to="Control/TetrisLineMedies" method="_on_tetris_viewport_child_entered_tree"]
-[connection signal="child_entered_tree" from="Control/SurferViewportContainer/SurferViewport" to="Control/SurferDodgeMedies" method="_on_surfer_viewport_child_entered_tree"]
 [connection signal="toggled" from="Control/Debug/Times100" to="Control/Debug" method="_on_times_100_toggled"]
 [connection signal="toggled" from="Control/Debug/Times1000" to="Control/Debug" method="_on_times_1000_toggled"]
 [connection signal="pressed" from="Control/Debug/PlusMedies" to="Control/Debug" method="_on_plus_medies_pressed"]
@@ -1347,9 +1370,11 @@ text = "TERMINAR TUTORIAL"
 [connection signal="pressed" from="Control/Debug/PlusDodges" to="Control/Debug" method="_on_plus_dodges_pressed"]
 [connection signal="pressed" from="Control/Debug/PlusBounces" to="Control/Debug" method="_on_plus_bounces_pressed"]
 [connection signal="pressed" from="Control/Debug/PlusGoals" to="Control/Debug" method="_on_plus_goals_pressed"]
+[connection signal="pressed" from="Control/Debug/PlusClicks" to="Control/Debug" method="_on_plus_clicks_pressed"]
 [connection signal="pressed" from="Control/Debug/Spanish" to="Control/Debug" method="_on_spanish_pressed"]
 [connection signal="pressed" from="Control/Debug/English" to="Control/Debug" method="_on_english_pressed"]
 [connection signal="pressed" from="Control/Settings/Icon" to="Control/Settings/Icon" method="_on_pressed"]
+[connection signal="toggled" from="Control/Settings/PauseBackground/PauseMinigames" to="Control/Settings/Icon" method="_on_pause_minigames_toggled"]
 [connection signal="pressed" from="Control/Settings/PauseBackground/Unpause" to="Control/Settings/Icon" method="_on_unpause_pressed"]
 [connection signal="value_changed" from="Control/Settings/PauseBackground/MasterSlider" to="Control/Settings/Icon" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Control/Settings/PauseBackground/MusicSlider" to="Control/Settings/Icon" method="_on_music_slider_value_changed"]

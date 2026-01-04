@@ -34,3 +34,8 @@ func get_description():
 			return "Medies/esquive x" + str(increase)
 		ScoreType.type.TETRIS:
 			return "Medies/línea x" + str(increase)
+		ScoreType.type.TARGET_COUNT:
+			if id == 37:
+				return "Clickear en el blanco equivale a 3 clicks"
+			return "+" + str(increase) + " Blancos"
+	return "vaya"

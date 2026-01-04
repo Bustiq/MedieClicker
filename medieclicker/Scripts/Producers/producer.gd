@@ -22,7 +22,7 @@ func _ready():
 
 
 func get_producer_increase():
-	return (increase + UpgradesManager.get_additive_bonus(score_type)) * producer_count * UpgradesManager.get_times_bonus(score_type)
+	return UpgradesManager.get_total_bonus(increase, score_type) * producer_count
 
 func set_producer_count(count : int):
 	producer_count = count

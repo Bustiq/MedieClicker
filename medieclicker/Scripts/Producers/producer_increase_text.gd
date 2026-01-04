@@ -7,5 +7,5 @@ func _ready() -> void:
 
 func show_increase(upgrade : UpgradeResource):
 	if upgrade is ScoreBonus and upgrade.type == get_parent().score_type:
-		var value = ($"..".increase + UpgradesManager.get_additive_bonus($"..".score_type)) * UpgradesManager.get_times_bonus($"..".score_type)
+		var value = UpgradesManager.get_total_bonus($"..".increase, $"..".score_type)
 		text = "Individual: " + str(value) + " medies/s"

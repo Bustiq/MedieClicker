@@ -3,8 +3,8 @@ extends TextureButton
 
 func _on_button_up() -> void:
 	SignalManager.on_target_clicked.emit()
+	get_parent().spawn_target()
 	get_parent().remove_child(self)
-	
 	queue_free()
 
 

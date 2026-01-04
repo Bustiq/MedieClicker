@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctrri7xqklayb"]
+[gd_scene load_steps=8 format=3 uid="uid://ctrri7xqklayb"]
 
 [ext_resource type="PackedScene" uid="uid://br8tannmvnsi0" path="res://Scenes/Minigames/Surfer/rail_spawner.tscn" id="1_7nidp"]
 [ext_resource type="Script" uid="uid://b6l5dml00tcel" path="res://Scenes/Minigames/Surfer/surfer_game.gd" id="1_d5wc4"]
+[ext_resource type="Resource" uid="uid://ctlnm7uhesbjf" path="res://Resources/Matrix.tres" id="2_eqpd7"]
 [ext_resource type="Texture2D" uid="uid://b6xw6tf8wkvyf" path="res://icon.svg" id="3_7nidp"]
 [ext_resource type="Script" uid="uid://br8681i6oj7qg" path="res://Scenes/Minigames/Surfer/surfer.gd" id="4_gf2sn"]
 [ext_resource type="Script" uid="uid://dfjph80i4oj6a" path="res://Scenes/Minigames/Surfer/obstacle_spawner.gd" id="4_od0p1"]
@@ -11,6 +12,7 @@ size = Vector2(108.108, 108.108)
 
 [node name="SubwaySurfers" type="Node2D"]
 script = ExtResource("1_d5wc4")
+pause_dodge = ExtResource("2_eqpd7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0, 0, 0, 1)

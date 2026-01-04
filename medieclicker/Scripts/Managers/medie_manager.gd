@@ -41,17 +41,35 @@ func _ready() -> void:
 	SignalManager.on_target_clicked.connect(on_target_clicked)
 	SignalManager.on_surfer_dodge.connect(on_surfer_dodge)
 	SignalManager.on_tetris_line_cleared.connect(on_tetris_line_cleared)
+	
+	
+	SignalManager.on_upgrade_hovered.connect(on_shop_hover)
+	SignalManager.on_upgrade_unhovered.connect(on_shop_unhover)
+	SignalManager.on_surfer_death.connect(on_surfer_death)
 
 
+var is_hovering_upgrade := false
 
-#TODO no repetir esta variable acá y en clicker_game
+func on_shop_hover(upgrade : UpgradeResource):
+	is_hovering_upgrade = true
 
-const base_target_bonus = 2
+func on_shop_unhover():
+	is_hovering_upgrade = false
+
+var texting_and_driving_accidents := 0
+
+func on_surfer_death():
+	print("aaaa", is_hovering_upgrade)
+	if is_hovering_upgrade:
+		texting_and_driving_accidents += 1
+	print(texting_and_driving_accidents)
+
+const base_target_bonus = 3
 
 
 func on_target_clicked():
 	target_click_count += 1
-	click_count += base_target_bonus * UpgradesManager.get_times_bonus(ScoreType.type.TARGET)
+	click_count += UpgradesManager.get_total_bonus(base_target_bonus, ScoreType.type.TARGET)
 
 func on_tetris_line_cleared(lines : int):
 	tetris_lines_cleared += lines
